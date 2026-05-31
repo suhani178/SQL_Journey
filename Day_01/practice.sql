@@ -1,0 +1,5 @@
+-- Day 1 Practice
+
+SELECT * FROM EMP;
+
+SELECT * FROM STUDENT;
