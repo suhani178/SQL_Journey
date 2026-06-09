@@ -1,61 +1,99 @@
-Day 9 Assignment
+Day 8 Assignment
 
 Q1
 
-Display departments whose average salary is greater than 2000.
+SELECT DEPTNO, SUM(SAL)
+FROM EMP
+GROUP BY DEPTNO;
 
 Q2
 
-Display departments whose average salary is greater than 2500.
+SELECT DEPTNO, AVG(SAL)
+FROM EMP
+GROUP BY DEPTNO;
 
 Q3
 
-Display departments whose total salary is greater than 5000.
+SELECT DEPTNO, MAX(SAL)
+FROM EMP
+GROUP BY DEPTNO;
 
 Q4
 
-Display departments having more than 3 employees.
+SELECT DEPTNO, MIN(SAL)
+FROM EMP
+GROUP BY DEPTNO;
 
 Q5
 
-Display departments having more than 5 employees.
+SELECT DEPTNO, COUNT(*)
+FROM EMP
+GROUP BY DEPTNO;
 
 Q6
 
-Display jobs having more than 2 employees.
+SELECT JOB, AVG(SAL)
+FROM EMP
+GROUP BY JOB;
 
 Q7
 
-Display jobs whose average salary is greater than 2000.
+SELECT JOB, COUNT(*)
+FROM EMP
+GROUP BY JOB;
 
 Q8
 
-Display departments whose highest salary is greater than 3000.
+SELECT JOB, SUM(SAL)
+FROM EMP
+GROUP BY JOB;
 
 Q9
 
-Display departments whose minimum salary is greater than 1000.
+SELECT JOB, MAX(SAL)
+FROM EMP
+GROUP BY JOB;
 
 Q10
 
-Display departments whose total salary is greater than 10000.
+SELECT JOB, MIN(SAL)
+FROM EMP
+GROUP BY JOB;
 
 Q11
 
-Display departments whose average salary is greater than 2000 considering only employees earning more than 1000.
+SELECT DEPTNO, AVG(SAL)
+FROM EMP
+WHERE SAL > 1000
+GROUP BY DEPTNO;
 
 Q12
 
-Display jobs having more than 1 employee and average salary greater than 1500.
+SELECT DEPTNO, COUNT(*)
+FROM EMP
+WHERE SAL > 1500
+GROUP BY DEPTNO;
 
 Q13
 
-Display departments whose highest salary is greater than 4000.
+SELECT DEPTNO, SUM(SAL)
+FROM EMP
+WHERE DEPTNO = 20
+GROUP BY DEPTNO;
 
 Q14
 
-Display departments whose lowest salary is less than 1000.
+SELECT JOB, MAX(SAL)
+FROM EMP
+WHERE JOB = 'MANAGER'
+OR JOB = 'CLERK'
+GROUP BY JOB;
 
 Q15
 
-Display jobs whose total salary is greater than 5000.
+SELECT DEPTNO, MIN(SAL)
+FROM EMP
+WHERE DEPTNO = 10
+OR DEPTNO = 20
+GROUP BY DEPTNO;
+
