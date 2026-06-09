@@ -1,30 +1,30 @@
-Day 9 Mistakes
+Day 8 Mistakes
 
 Mistake 1
 
 Wrong:
 
 SELECT DEPTNO, AVG(SAL)
-FROM EMP
-WHERE AVG(SAL) > 2000
-GROUP BY DEPTNO;
+WHERE SAL > 1000
+FROM EMP;
 
 Reason:
-WHERE cannot use aggregate functions.
+SQL clause order is incorrect.
 
 Correct:
 
 SELECT DEPTNO, AVG(SAL)
 FROM EMP
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000;
+WHERE SAL > 1000
+GROUP BY DEPTNO;
 
 ---
 
 Learning
 
-- WHERE filters rows.
-- HAVING filters groups.
-- HAVING can use aggregate functions.
-- WHERE cannot use aggregate functions.
+- GROUP BY groups rows.
+- Aggregate functions work with GROUP BY.
+- WHERE comes before GROUP BY.
+- Department-wise = GROUP BY DEPTNO.
+- Job-wise = GROUP BY JOB.
 
