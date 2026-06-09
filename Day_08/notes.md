@@ -1,93 +1,99 @@
-Day 9 Notes - HAVING Clause
+Day 8 Notes - GROUP BY
 
-Why HAVING?
+What is GROUP BY?
 
-WHERE filters rows.
+GROUP BY is used to group rows having the same value.
 
-HAVING filters groups.
-
----
-
-Problem
-
-Wrong:
-
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-WHERE AVG(SAL) > 2000
-GROUP BY DEPTNO;
-
-Reason:
-
-WHERE cannot use aggregate functions.
-
----
-
-HAVING Syntax
+Syntax:
 
 SELECT column_name, aggregate_function(column_name)
 FROM table_name
-GROUP BY column_name
-HAVING condition;
+GROUP BY column_name;
 
 ---
 
-Example 1
-
-Departments whose average salary is greater than 2000.
+Average Salary Department-wise
 
 SELECT DEPTNO, AVG(SAL)
 FROM EMP
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000;
+GROUP BY DEPTNO;
 
 ---
 
-Example 2
-
-Departments whose total salary is greater than 10000.
+Total Salary Department-wise
 
 SELECT DEPTNO, SUM(SAL)
 FROM EMP
-GROUP BY DEPTNO
-HAVING SUM(SAL) > 10000;
+GROUP BY DEPTNO;
 
 ---
 
-Example 3
+Highest Salary Department-wise
 
-Departments having more than 3 employees.
+SELECT DEPTNO, MAX(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+
+---
+
+Lowest Salary Department-wise
+
+SELECT DEPTNO, MIN(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+
+---
+
+Employee Count Department-wise
 
 SELECT DEPTNO, COUNT(*)
 FROM EMP
-GROUP BY DEPTNO
-HAVING COUNT(*) > 3;
+GROUP BY DEPTNO;
 
 ---
 
-WHERE vs HAVING
+Job-wise Average Salary
 
-WHERE:
-
-- Filters rows
-- Used before GROUP BY
-- Cannot use aggregate functions
-
-HAVING:
-
-- Filters groups
-- Used after GROUP BY
-- Can use aggregate functions
+SELECT JOB, AVG(SAL)
+FROM EMP
+GROUP BY JOB;
 
 ---
 
-WHERE + HAVING
+Job-wise Employee Count
+
+SELECT JOB, COUNT(*)
+FROM EMP
+GROUP BY JOB;
+
+---
+
+GROUP BY with WHERE
 
 SELECT DEPTNO, AVG(SAL)
 FROM EMP
 WHERE SAL > 1000
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000;
+GROUP BY DEPTNO;
+
+---
+
+Important Rule
+
+Wrong:
+
+SELECT ENAME, AVG(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+
+Reason:
+
+ENAME is neither grouped nor aggregated.
+
+Correct:
+
+SELECT DEPTNO, AVG(SAL)
+FROM EMP
+GROUP BY DEPTNO;
 
 ---
 
@@ -99,8 +105,6 @@ WHERE
 ↓
 GROUP BY
 ↓
-HAVING
-↓
 SELECT
 ↓
 ORDER BY
@@ -109,27 +113,29 @@ ORDER BY
 
 Interview Questions
 
-Difference between WHERE and HAVING?
+What does GROUP BY do?
 
-WHERE filters rows.
+Groups rows having the same value.
 
-HAVING filters groups.
-
-Can HAVING use aggregate functions?
+Can GROUP BY be used without aggregate functions?
 
 Yes.
 
-Can WHERE use aggregate functions?
-
-No.
+SELECT DEPTNO
+FROM EMP
+GROUP BY DEPTNO;
 
 ---
 
-Day 9 Summary
+Day 8 Summary
 
 Topics Covered:
 
-- HAVING
-- WHERE vs HAVING
-- GROUP BY + HAVING
-- Aggregate Functions with HAVING
+- GROUP BY
+- COUNT()
+- SUM()
+- AVG()
+- MIN()
+- MAX()
+- WHERE + GROUP BY
+
