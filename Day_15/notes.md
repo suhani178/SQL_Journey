@@ -97,5 +97,3 @@ Minimum salary in their department
 → Correlated Subquery
 
 ---
-
-Status: Completed ✅
