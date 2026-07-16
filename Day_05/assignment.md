@@ -195,5 +195,3 @@ Topics Covered:
 - ASC
 - DESC
 - Operator Precedence
-
-Status: Completed ✅
