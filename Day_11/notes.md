@@ -1,15 +1,19 @@
 Day 11 Notes - INNER JOIN
 
 What is a JOIN?
+
 A JOIN combines rows from two or more tables using a common column.
 
 What is INNER JOIN?
+
 INNER JOIN returns only matching rows from both tables.
 
 Syntax:
+
 SELECT column_names FROM table1 INNER JOIN table2 ON table1.common_column = table2.common_column;
 
 Example:
+
 EMPLOYEE Table
 EMPID | ENAME | DEPTNO 1     | RAM   | 10 2     | SHYAM | 20
 
