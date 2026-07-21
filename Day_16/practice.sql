@@ -1,5 +1,4 @@
--- Day 16 Practice SQL
--- String Functions
+-- Day 16 Practice SQL (String Functions)
 
 -- Q1
 SELECT UPPER(ENAME)
