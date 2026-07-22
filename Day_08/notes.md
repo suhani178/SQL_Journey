@@ -100,17 +100,12 @@ GROUP BY DEPTNO;
 SQL Execution Order
 
 FROM
-
 ↓
 WHERE
-
 ↓
-
 GROUP BY
-
 ↓
 SELECT
-
 ↓
 ORDER BY
 
