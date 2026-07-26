@@ -42,7 +42,7 @@ ORDER BY COUNT(*) DESC;
 
 ---
 
-Learning
+Key Learnings
 
 - ORDER BY can sort aggregate results.
 - Multiple columns can be used in GROUP BY.
