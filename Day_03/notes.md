@@ -1,4 +1,4 @@
-Day 3 Notes - CREATE TABLE, INSERT and Constraints
+Day 3 Notes
 
 CREATE TABLE
 
