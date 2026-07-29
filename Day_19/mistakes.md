@@ -1,9 +1,6 @@
 Day 19 Mistakes and Learnings
 
 Mistake 1: Forgetting GROUP BY Before HAVING
-
-Wrong:
-
 SELECT DNAME
 FROM EMPLOYEE E
 INNER JOIN DEPARTMENT D
@@ -11,7 +8,6 @@ ON E.DEPTNO = D.DEPTNO
 HAVING AVG(SAL) > 3000;
 
 Correct:
-
 SELECT DNAME
 FROM EMPLOYEE E
 INNER JOIN DEPARTMENT D
@@ -25,9 +21,6 @@ HAVING filters groups, so GROUP BY must come before HAVING.
 ---
 
 Mistake 2: Using the Wrong Table for DNAME
-
-Wrong:
-
 SELECT DNAME
 FROM EMPLOYEE;
 
@@ -42,14 +35,10 @@ The DNAME column belongs to the DEPARTMENT table.
 ---
 
 Mistake 3: Forgetting FROM in a Subquery
-
-Wrong:
-
 SELECT DEPTNO
 WHERE DNAME = 'HR';
 
 Correct:
-
 SELECT DEPTNO
 FROM DEPARTMENT
 WHERE DNAME = 'HR';
@@ -60,9 +49,6 @@ Every SELECT statement must specify the table using the FROM clause.
 ---
 
 Mistake 4: Confusing Company Maximum with Department Maximum
-
-Wrong:
-
 SELECT ENAME
 FROM EMPLOYEE
 WHERE SAL =
@@ -72,7 +58,6 @@ FROM EMPLOYEE
 );
 
 Correct:
-
 SELECT ENAME
 FROM EMPLOYEE E
 WHERE SAL =
@@ -89,15 +74,11 @@ The second query returns the highest-paid employee in each department.
 ---
 
 Mistake 5: Forgetting the JOIN
-
-Wrong:
-
 SELECT DNAME, COUNT(*)
 FROM EMPLOYEE
 GROUP BY DNAME;
 
 Correct:
-
 SELECT DNAME, COUNT(*)
 FROM EMPLOYEE E
 INNER JOIN DEPARTMENT D
