@@ -98,7 +98,7 @@ DROP VIEW| Deletes a view
 
 ---
 
-Key Learning
+Key Learnings
 
 - A view is a virtual table.
 - Views are created using SELECT queries.
