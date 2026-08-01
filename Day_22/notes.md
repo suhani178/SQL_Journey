@@ -123,7 +123,7 @@ DEFAULT| Assigns a default value
 
 ---
 
-Key Learning
+Key Learnings
 
 - Constraints improve data integrity.
 - PRIMARY KEY uniquely identifies each row.
