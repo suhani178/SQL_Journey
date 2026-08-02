@@ -1,5 +1,4 @@
-Day 21 Notes 
-*SQL Views*
+Day 21 Notes - *SQL Views*
 
 What is a View?
 
