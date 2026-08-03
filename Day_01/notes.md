@@ -112,7 +112,7 @@ Explanation:
 
 Day 1 Summary
 
-Learned:
+Key Learnings:
 
 - Database concepts
 - DBMS and RDBMS
