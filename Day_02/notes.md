@@ -153,7 +153,7 @@ Commands:
 
 Day 2 Summary
 
-Learned:
+Key Learnings:
 
 - Keys
 - Schema
