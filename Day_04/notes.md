@@ -119,7 +119,7 @@ Key Points
 
 Day 4 Summary
 
-Learned:
+Key Learnings:
 
 - SELECT
 - SELECT *
