@@ -109,7 +109,7 @@ UNIQUE:
 
 Day 3 Summary
 
-Learned:
+Key Learnings:
 
 - CREATE TABLE
 - INSERT INTO
