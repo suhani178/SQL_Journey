@@ -108,7 +108,7 @@ Which aggregate functions ignore NULL values?
 
 Day 7 Summary
 
-Topics Covered:
+Key Learnings:
 
 - COUNT()
 - SUM()
