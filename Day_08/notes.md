@@ -129,7 +129,7 @@ GROUP BY DEPTNO;
 
 Day 8 Summary
 
-Topics Covered:
+Key Learnings:
 
 - GROUP BY
 - COUNT()
