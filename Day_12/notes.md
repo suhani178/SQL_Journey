@@ -177,7 +177,7 @@ All rows from both tables
 
 Day 12 Summary
 
-Topics Covered:
+Key Learnings:
 
 - LEFT JOIN
 - RIGHT JOIN
