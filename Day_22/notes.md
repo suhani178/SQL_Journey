@@ -4,7 +4,7 @@ What are Constraints?
 
 Constraints are rules applied to table columns to ensure the accuracy, validity, and integrity of data stored in a database.
 
-They help prevent invalid or duplicate data from being inserted.
+It helps to prevent invalid or duplicate data from being inserted.
 
 ---
 
@@ -111,7 +111,7 @@ If CITY is not specified, it will automatically be set to Kolkata.
 
 ---
 
-Summary
+Summary:
 
 Constraint| Purpose
 NOT NULL| Prevents NULL values
@@ -123,7 +123,7 @@ DEFAULT| Assigns a default value
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Constraints improve data integrity.
 - PRIMARY KEY uniquely identifies each row.
