@@ -114,7 +114,7 @@ GROUP BY DEPTNO, JOB
 
 Day 10 Summary
 
-Topics Covered:
+Key Learnings:
 
 - ORDER BY with GROUP BY
 - Aggregate Sorting
