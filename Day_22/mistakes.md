@@ -98,7 +98,7 @@ These constraints serve different purposes.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Use only one PRIMARY KEY per table.
 - Use UNIQUE to prevent duplicate values.
