@@ -127,7 +127,7 @@ No.
 
 Day 9 Summary
 
-Topics Covered:
+Key Learnings:
 
 - HAVING
 - WHERE vs HAVING
