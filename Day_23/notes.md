@@ -191,7 +191,7 @@ The order can affect which queries can efficiently use the index.
 
 ---
 
-## Key Learning
+## Key Learnings:
 
 - Indexes improve data retrieval performance.
 - Indexes require additional storage.
