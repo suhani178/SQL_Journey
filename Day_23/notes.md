@@ -147,7 +147,7 @@ Therefore, we normally do not need to create another ordinary index on the same 
 
 ---
 
-## Important Point
+## Important Points
 
 Indexes are not always beneficial.
 
@@ -179,7 +179,7 @@ The order can affect which queries can efficiently use the index.
 
 ---
 
-## Summary
+## Summary of the topic
 
 | Concept | Purpose |
 |---------|---------|
