@@ -159,7 +159,7 @@ EXISTS, NOT EXISTS
 
 # Day 14 Summary
 
-Topics Covered:
+Topics Covered in this topic:
 
 * IN
 * NOT IN
