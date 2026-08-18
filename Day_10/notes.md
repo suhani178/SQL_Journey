@@ -15,21 +15,21 @@ ORDER BY SUM(SAL) DESC;
 
 Sorting Aggregate Results
 
-Total Salary Descending
+Total Salary Descending:
 
 SELECT DEPTNO, SUM(SAL)
 FROM EMP
 GROUP BY DEPTNO
 ORDER BY SUM(SAL) DESC;
 
-Average Salary Descending
+Average Salary Descending:
 
 SELECT DEPTNO, AVG(SAL)
 FROM EMP
 GROUP BY DEPTNO
 ORDER BY AVG(SAL) DESC;
 
-Employee Count Descending
+Employee Count Descending:
 
 SELECT DEPTNO, COUNT(*)
 FROM EMP
@@ -38,7 +38,7 @@ ORDER BY COUNT(*) DESC;
 
 ---
 
-Multiple Column GROUP BY
+Multiple Column GROUP BY:
 
 Department and Job wise grouping:
 
@@ -48,7 +48,7 @@ GROUP BY DEPTNO, JOB;
 
 ---
 
-Examples
+Examples:
 
 Department and Job-wise Average Salary
 
@@ -96,7 +96,7 @@ ORDER BY
 
 ---
 
-Interview Tips
+Interview Tips:
 
 Department-wise:
 
