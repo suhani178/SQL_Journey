@@ -49,7 +49,7 @@ This ensures that duplicate email values are not allowed.
 
 ---
 
-## Viewing Indexes
+## Viewing Indexes- 
 
 In MySQL:
 
@@ -60,7 +60,7 @@ This displays the indexes associated with the `EMPLOYEE` table.
 
 ---
 
-## Dropping an Index
+## Dropping an Index:
 
 In MySQL:
 
