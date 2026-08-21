@@ -7,7 +7,7 @@ Wrong:
 SELECT *
 FROM EMPLOYEE;
 
-Correct:
+Correct answer:
 
 SELECT ENAME
 FROM EMPLOYEE;
@@ -24,7 +24,7 @@ Wrong:
 SELECT DEPTNO, COUNT(*)
 FROM EMPLOYEE;
 
-Correct:
+Correct answer:
 
 SELECT DEPTNO, COUNT(*)
 FROM EMPLOYEE
@@ -43,7 +43,7 @@ SELECT DEPTNO, COUNT()
 FROM EMPLOYEE
 HAVING COUNT() > 3;
 
-Correct:
+Correct answer :
 
 SELECT DEPTNO, COUNT()
 FROM EMPLOYEE
@@ -67,7 +67,7 @@ SELECT MAX(SAL)
 FROM EMPLOYEE
 );
 
-Correct:
+Correct answer:
 
 SELECT ENAME
 FROM EMPLOYEE E
@@ -101,7 +101,7 @@ Wrong:
 SELECT DEPTNO
 WHERE DNAME = 'HR';
 
-Correct:
+Correct answer:
 
 SELECT DEPTNO
 FROM DEPARTMENT
@@ -125,7 +125,7 @@ Choose the function according to the question being asked.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Read the question carefully before writing the query.
 - Select only the required columns.
