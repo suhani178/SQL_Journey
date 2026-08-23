@@ -1,0 +1,1076 @@
+============================================================
+              SQL REVISION NOTES — DAY 1 TO DAY 7
+============================================================
+
+DAY 1 — SQL BASICS
+============================================================
+
+1. WHAT IS SQL?
+
+SQL stands for Structured Query Language.
+
+It is used to interact with relational databases.
+
+SQL can be used to:
+- Retrieve data
+- Insert data
+- Update data
+- Delete data
+- Create and modify database structures
+- Manage database objects
+
+
+2. DATABASE
+
+A database is an organized collection of data.
+
+Example:
+
+CompanyDB
+    |
+    |--- EMPLOYEE
+    |--- DEPARTMENT
+    |--- PROJECT
+
+
+3. TABLE
+
+A table stores data in rows and columns.
+
+Example:
+
+EMPLOYEE
+-----------------------------------------
+EMPNO     ENAME     SAL       DEPTNO
+101       RAM       5000      10
+102       SHYAM     4000      20
+103       MOHAN     3000      10
+
+
+4. ROW
+
+A row represents a complete record.
+
+Example:
+
+101, RAM, 5000, 10
+
+This represents one employee's complete record.
+
+
+5. COLUMN
+
+A column represents an attribute/field.
+
+Examples:
+
+EMPNO
+ENAME
+SAL
+DEPTNO
+
+
+6. SELECT
+
+SELECT is used to retrieve data.
+
+Syntax:
+
+SELECT column_name
+FROM table_name;
+
+
+Example:
+
+SELECT ENAME
+FROM EMPLOYEE;
+
+
+7. SELECT *
+
+Used to retrieve all columns.
+
+SELECT *
+FROM EMPLOYEE;
+
+
+8. WHERE
+
+WHERE is used to filter rows based on a condition.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO = 20;
+
+
+9. COMPARISON OPERATORS
+
+=       → Equal to
+<>      → Not equal to
+!=      → Not equal to
+>       → Greater than
+<       → Less than
+>=      → Greater than or equal to
+<=      → Less than or equal to
+
+
+Examples:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO = 20;
+
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+WHERE SAL > 3000;
+
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO <> 10;
+
+
+SELECT *
+FROM EMPLOYEE
+WHERE SAL = 3000;
+
+
+10. STRING VALUES
+
+String values are written inside quotes.
+
+Example:
+
+WHERE ENAME = 'RAM'
+
+Numbers do not need quotes:
+
+WHERE SAL = 3000
+
+
+============================================================
+DAY 2 — DISTINCT, ORDER BY, LIMIT, OFFSET & ALIAS
+============================================================
+
+1. DISTINCT
+
+DISTINCT removes duplicate values from the result.
+
+Example:
+
+SELECT DISTINCT DEPTNO
+FROM EMPLOYEE;
+
+If departments are:
+
+10
+10
+20
+20
+30
+
+Result:
+
+10
+20
+30
+
+
+2. ORDER BY
+
+Used to sort results.
+
+Ascending:
+
+SELECT ENAME
+FROM EMPLOYEE
+ORDER BY ENAME ASC;
+
+
+Descending:
+
+SELECT ENAME
+FROM EMPLOYEE
+ORDER BY ENAME DESC;
+
+
+ASC → Ascending
+DESC → Descending
+
+
+3. SORT BY SALARY
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+ORDER BY SAL DESC;
+
+
+4. LIMIT
+
+LIMIT restricts the number of rows returned.
+
+Example:
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+ORDER BY SAL DESC
+LIMIT 3;
+
+Returns the top 3 rows after sorting.
+
+
+5. OFFSET
+
+OFFSET skips a specified number of rows.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+LIMIT 2
+OFFSET 2;
+
+Meaning:
+
+Skip the first 2 rows
+Then return the next 2 rows.
+
+
+6. LIMIT + OFFSET
+
+LIMIT 2 OFFSET 2
+
+→ Skip 2 rows and return 2 rows.
+
+
+7. ALIAS
+
+Alias gives a temporary name to a column/table in the result.
+
+Example:
+
+SELECT ENAME AS Employee_Name
+FROM EMPLOYEE;
+
+
+Multiple aliases:
+
+SELECT ENAME AS Employee_Name,
+       SAL AS Salary
+FROM EMPLOYEE;
+
+
+8. ORDER BY MULTIPLE COLUMNS
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+ORDER BY DEPTNO ASC, SAL DESC;
+
+Meaning:
+
+First sort by DEPTNO ascending.
+
+If employees have the same DEPTNO,
+sort those employees by SAL descending.
+
+
+9. DISTINCT vs NORMAL SELECT
+
+SELECT DEPTNO
+FROM EMPLOYEE;
+
+May contain duplicate department numbers.
+
+SELECT DISTINCT DEPTNO
+FROM EMPLOYEE;
+
+Returns only unique department numbers.
+
+
+============================================================
+DAY 3 — AND, OR, NOT & CONDITIONS
+============================================================
+
+1. AND
+
+Both conditions must be TRUE.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE SAL < 3000
+AND DEPTNO = 10;
+
+
+2. OR
+
+At least one condition must be TRUE.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO = 10
+OR DEPTNO = 20;
+
+
+3. NOT / <>
+
+NOT means the condition should not be true.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO <> 30;
+
+
+4. RANGE USING AND
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE SAL > 2500
+AND SAL < 5000;
+
+
+5. STRING CONDITIONS
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE JOB = 'MANAGER'
+OR JOB = 'ANALYST';
+
+
+6. GROUPING CONDITIONS WITH PARENTHESES
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE (DEPTNO = 10 OR DEPTNO = 20)
+AND SAL > 2600;
+
+Parentheses make the intended logic clear.
+
+
+7. MULTIPLE CONDITIONS
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO <> 10
+AND SAL > 2500;
+
+
+8. AND vs OR
+
+AND:
+→ All conditions must be TRUE.
+
+OR:
+→ At least one condition must be TRUE.
+
+
+9. OPERATOR PRECEDENCE
+
+When combining AND and OR, use parentheses when needed.
+
+Example:
+
+WHERE (DEPTNO = 10 OR DEPTNO = 20)
+AND SAL > 2600;
+
+
+============================================================
+DAY 4 — BETWEEN, IN, NOT IN & LIKE
+============================================================
+
+1. BETWEEN
+
+Used to check whether a value falls within a range.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE SAL BETWEEN 2500 AND 5000;
+
+BETWEEN is inclusive.
+
+So 2500 and 5000 are included.
+
+
+2. IN
+
+Used to match one value from a list.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO IN (10, 20, 30);
+
+Equivalent to:
+
+WHERE DEPTNO = 10
+OR DEPTNO = 20
+OR DEPTNO = 30;
+
+
+3. NOT IN
+
+Used to exclude values from a list.
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO NOT IN (10, 20);
+
+
+4. LIKE
+
+LIKE is used for pattern matching.
+
+
+5. % WILDCARD
+
+% represents zero, one, or many characters.
+
+
+Starts with R:
+
+SELECT *
+FROM EMPLOYEE
+WHERE ENAME LIKE 'R%';
+
+Examples:
+
+RAM
+ROHAN
+RISHIKESH
+
+
+6. ENDS WITH N
+
+SELECT *
+FROM EMPLOYEE
+WHERE ENAME LIKE '%N';
+
+
+7. CONTAINS AM
+
+SELECT *
+FROM EMPLOYEE
+WHERE ENAME LIKE '%AM%';
+
+
+8. _ WILDCARD
+
+_ represents exactly ONE character.
+
+Example:
+
+SELECT *
+FROM EMPLOYEE
+WHERE ENAME LIKE 'R__';
+
+This means:
+
+R + exactly 2 characters
+
+Examples:
+
+RAM
+RIM
+ROM
+
+
+9. COMBINING BETWEEN AND IN
+
+SELECT *
+FROM EMPLOYEE
+WHERE SAL BETWEEN 2500 AND 4000
+AND DEPTNO IN (10, 20);
+
+
+10. IN WITH STRINGS
+
+SELECT *
+FROM EMPLOYEE
+WHERE JOB IN ('MANAGER', 'ANALYST');
+
+
+IMPORTANT:
+
+% → any number of characters
+_ → exactly one character
+
+
+============================================================
+DAY 5 — AGGREGATE FUNCTIONS
+============================================================
+
+Aggregate functions perform calculations on multiple rows
+and return a single result.
+
+
+1. COUNT()
+
+Counts rows.
+
+SELECT COUNT(*)
+FROM EMPLOYEE;
+
+
+2. SUM()
+
+Calculates total.
+
+SELECT SUM(SAL)
+FROM EMPLOYEE;
+
+
+3. AVG()
+
+Calculates average.
+
+SELECT AVG(SAL)
+FROM EMPLOYEE;
+
+
+4. MIN()
+
+Returns minimum value.
+
+SELECT MIN(SAL)
+FROM EMPLOYEE;
+
+
+5. MAX()
+
+Returns maximum value.
+
+SELECT MAX(SAL)
+FROM EMPLOYEE;
+
+
+6. AGGREGATE + WHERE
+
+Example:
+
+SELECT COUNT(*)
+FROM EMPLOYEE
+WHERE SAL > 3000;
+
+
+7. MAX WITH CONDITION
+
+SELECT MAX(SAL)
+FROM EMPLOYEE
+WHERE DEPTNO = 10;
+
+
+8. AVG WITH CONDITION
+
+SELECT AVG(SAL)
+FROM EMPLOYEE
+WHERE DEPTNO = 20;
+
+
+9. MULTIPLE AGGREGATE FUNCTIONS
+
+SELECT COUNT(SAL),
+       SUM(SAL),
+       AVG(SAL),
+       MIN(SAL),
+       MAX(SAL)
+FROM EMPLOYEE;
+
+
+10. COUNT(*) vs COUNT(column)
+
+COUNT(*):
+→ Counts all rows.
+
+COUNT(SAL):
+→ Counts only rows where SAL is NOT NULL.
+
+
+Example:
+
+SAL
+----
+5000
+NULL
+3000
+
+COUNT(*)    → 3
+COUNT(SAL)  → 2
+
+
+============================================================
+DAY 6 — GROUP BY & HAVING
+============================================================
+
+1. GROUP BY
+
+GROUP BY is used to group rows having the same value.
+
+Example:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+Meaning:
+
+Group employees by department
+and count employees in each department.
+
+
+2. SUM WITH GROUP BY
+
+SELECT DEPTNO, SUM(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+3. AVG WITH GROUP BY
+
+SELECT DEPTNO, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+4. MAX WITH GROUP BY
+
+SELECT DEPTNO, MAX(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+5. MIN WITH GROUP BY
+
+SELECT DEPTNO, MIN(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+6. HAVING
+
+HAVING filters GROUPS.
+
+Example:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING COUNT(*) > 2;
+
+Only departments having more than 2 employees are returned.
+
+
+7. HAVING WITH AVG
+
+SELECT DEPTNO, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING AVG(SAL) > 3000;
+
+
+8. WHERE + GROUP BY
+
+WHERE filters ROWS before grouping.
+
+Example:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+WHERE SAL > 2500
+GROUP BY DEPTNO;
+
+
+9. WHERE vs HAVING
+
+WHERE:
+→ Filters individual rows.
+
+HAVING:
+→ Filters groups after GROUP BY.
+
+
+Example:
+
+WHERE SAL > 2500
+→ filters employees.
+
+HAVING AVG(SAL) > 3000
+→ filters departments/groups.
+
+
+10. GROUP BY MULTIPLE COLUMNS
+
+SELECT DEPTNO, JOB, COUNT(*) AS Employee_Count
+FROM EMPLOYEE
+GROUP BY DEPTNO, JOB;
+
+Groups data based on the combination of:
+
+DEPTNO + JOB
+
+
+IMPORTANT:
+
+WHERE → filters rows
+GROUP BY → creates groups
+HAVING → filters groups
+
+
+============================================================
+DAY 7 — STRING, NUMERIC FUNCTIONS, CASE & COALESCE
+============================================================
+
+1. UPPER()
+
+Converts text to uppercase.
+
+SELECT UPPER(ENAME)
+FROM EMPLOYEE;
+
+
+2. LOWER()
+
+Converts text to lowercase.
+
+SELECT LOWER(ENAME)
+FROM EMPLOYEE;
+
+
+3. LENGTH()
+
+Returns the number of characters.
+
+SELECT ENAME, LENGTH(ENAME)
+FROM EMPLOYEE;
+
+
+4. CONCAT()
+
+Combines strings.
+
+Correct:
+
+SELECT CONCAT(ENAME, '-', JOB)
+FROM EMPLOYEE;
+
+Example output:
+
+RAM-MANAGER
+
+
+5. ROUND()
+
+Rounds a number.
+
+SELECT ROUND(SAL, 2)
+FROM EMPLOYEE;
+
+
+6. CEIL()
+
+Returns the smallest integer greater than or equal to the number.
+
+Example:
+
+SELECT CEIL(SAL)
+FROM EMPLOYEE;
+
+
+7. CASE
+
+CASE allows conditional logic.
+
+Example:
+
+SELECT ENAME, SAL,
+       CASE
+           WHEN SAL >= 5000 THEN 'HIGH'
+           WHEN SAL >= 3000 THEN 'MEDIUM'
+           ELSE 'LOW'
+       END AS Salary_Level
+FROM EMPLOYEE;
+
+
+Meaning:
+
+SAL >= 5000 → HIGH
+SAL >= 3000 → MEDIUM
+Otherwise    → LOW
+
+
+IMPORTANT:
+
+CASE syntax:
+
+CASE
+    WHEN condition THEN result
+    WHEN condition THEN result
+    ELSE result
+END
+
+
+8. ORDER BY WITH CASE
+
+Example:
+
+SELECT ENAME, SAL,
+       CASE
+           WHEN SAL >= 5000 THEN 'HIGH'
+           WHEN SAL >= 3000 THEN 'MEDIUM'
+           ELSE 'LOW'
+       END AS Salary_Level
+FROM EMPLOYEE
+ORDER BY SAL DESC;
+
+
+9. LENGTH WITH WHERE
+
+SELECT ENAME, LENGTH(ENAME)
+FROM EMPLOYEE
+WHERE LENGTH(ENAME) > 4;
+
+
+10. COALESCE()
+
+COALESCE() is used to replace NULL with another value.
+
+Syntax:
+
+COALESCE(value, replacement)
+
+
+Example:
+
+SELECT ENAME, COALESCE(SAL, 0)
+FROM EMPLOYEE;
+
+If SAL is NULL → returns 0.
+
+If SAL has a value → returns SAL.
+
+
+11. NULL CONCEPT
+
+NULL means:
+
+- Missing value
+- Unknown value
+- Unavailable value
+
+NULL is NOT:
+
+- 0
+- Empty string
+- 'NULL'
+
+
+12. WHY COALESCE() IS USEFUL
+
+Example:
+
+SAL
+----
+5000
+NULL
+3000
+
+SELECT ENAME, COALESCE(SAL, 0)
+FROM EMPLOYEE;
+
+NULL salary will be displayed as 0.
+
+
+============================================================
+🔥 DAY 1–7 MOST IMPORTANT CONCEPTS
+============================================================
+
+SELECT
+→ Retrieves data.
+
+FROM
+→ Specifies the table.
+
+WHERE
+→ Filters rows.
+
+DISTINCT
+→ Removes duplicate values.
+
+ORDER BY
+→ Sorts results.
+
+ASC
+→ Ascending.
+
+DESC
+→ Descending.
+
+LIMIT
+→ Restricts number of rows.
+
+OFFSET
+→ Skips rows before returning the LIMIT rows.
+
+AS
+→ Creates an alias.
+
+AND
+→ Both conditions must be true.
+
+OR
+→ At least one condition must be true.
+
+BETWEEN
+→ Checks a range; endpoints are included.
+
+IN
+→ Matches values from a list.
+
+NOT IN
+→ Excludes values from a list.
+
+LIKE
+→ Pattern matching.
+
+%
+→ Zero, one, or many characters.
+
+_
+→ Exactly one character.
+
+COUNT()
+→ Counts rows/non-NULL values depending on usage.
+
+SUM()
+→ Total.
+
+AVG()
+→ Average.
+
+MIN()
+→ Minimum.
+
+MAX()
+→ Maximum.
+
+GROUP BY
+→ Creates groups.
+
+WHERE
+→ Filters rows.
+
+HAVING
+→ Filters groups.
+
+UPPER()
+→ Converts to uppercase.
+
+LOWER()
+→ Converts to lowercase.
+
+LENGTH()
+→ Counts characters.
+
+CONCAT()
+→ Combines strings.
+
+ROUND()
+→ Rounds numbers.
+
+CEIL()
+→ Rounds upward to the nearest integer.
+
+CASE
+→ Conditional logic.
+
+COALESCE()
+→ Replaces NULL with another value.
+
+
+============================================================
+IMPORTANT DIFFERENCES TO REMEMBER
+============================================================
+
+1. WHERE vs HAVING
+
+WHERE → filters rows
+HAVING → filters groups
+
+
+2. COUNT(*) vs COUNT(column)
+
+COUNT(*) → counts all rows
+COUNT(column) → counts non-NULL values
+
+
+3. % vs _
+
+% → any number of characters
+_ → exactly one character
+
+
+4. DISTINCT vs normal SELECT
+
+DISTINCT → unique values only
+Normal SELECT → duplicates may appear
+
+
+5. ASC vs DESC
+
+ASC → smallest/A-Z first
+DESC → largest/Z-A first
+
+
+6. BETWEEN
+
+BETWEEN is inclusive.
+
+BETWEEN 2500 AND 5000
+
+includes:
+
+2500
+5000
+
+
+7. COALESCE
+
+COALESCE(column, 0)
+
+→ returns column value if available
+→ returns 0 if column is NULL
+
+
+============================================================
+             SQL PROGRESS — PHASE 1
+============================================================
+
+DAY 1  → SQL Basics                         ✅
+DAY 2  → DISTINCT, ORDER BY, LIMIT, OFFSET  ✅
+DAY 3  → AND, OR, NOT                       ✅
+DAY 4  → BETWEEN, IN, LIKE                  ✅
+DAY 5  → Aggregate Functions                ✅
+DAY 6  → GROUP BY, HAVING                   ✅
+DAY 7  → Functions, CASE, COALESCE          ✅
+
+============================================================
