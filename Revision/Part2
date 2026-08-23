@@ -1,0 +1,710 @@
+============================================================
+             SQL REVISION NOTES — DAY 8 TO DAY 11
+============================================================
+
+DAY 8 — NULL HANDLING
+============================================================
+
+1. WHAT IS NULL?
+
+NULL represents a missing, unknown, or unavailable value.
+
+NULL is NOT:
+- 0
+- '' (empty string)
+- 'NULL'
+
+Example:
+
+EMPLOYEE
+--------------------------------
+ENAME    SAL      COMM
+RAM      5000     500
+SHYAM    4000     NULL
+MOHAN    3000     200
+
+
+2. IS NULL
+
+Used to find rows where a column contains NULL.
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NULL;
+
+
+3. IS NOT NULL
+
+Used to find rows where a column does NOT contain NULL.
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NOT NULL;
+
+
+4. NEVER USE = NULL
+
+Wrong:
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM = NULL;
+
+Correct:
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NULL;
+
+Reason:
+NULL represents an unknown/missing value, so normal comparisons
+such as = NULL do not evaluate to TRUE.
+
+
+5. COUNT(*) vs COUNT(column)
+
+COUNT(*) counts all rows.
+
+SELECT COUNT(*)
+FROM EMPLOYEE;
+
+COUNT(column) counts only NON-NULL values in that column.
+
+SELECT COUNT(COMM)
+FROM EMPLOYEE;
+
+Example:
+
+COMM
+-----
+500
+NULL
+200
+
+COUNT(*)      → 3 rows
+COUNT(COMM)   → 2 non-NULL values
+
+
+6. NULL WITH AGGREGATE FUNCTIONS
+
+Aggregate functions generally ignore NULL values.
+
+SUM()
+AVG()
+MIN()
+MAX()
+
+Example:
+
+SAL
+----
+5000
+NULL
+3000
+
+SELECT AVG(SAL)
+FROM EMPLOYEE;
+
+Calculation:
+
+(5000 + 3000) / 2 = 4000
+
+NULL is NOT treated as 0.
+
+
+7. COALESCE()
+
+COALESCE() can replace NULL with another value.
+
+Syntax:
+
+COALESCE(value, replacement_value)
+
+Example:
+
+SELECT ENAME, COALESCE(COMM, 0)
+FROM EMPLOYEE;
+
+If COMM is NULL → returns 0
+If COMM has a value → returns that value.
+
+
+8. CASE WITH NULL
+
+SELECT ENAME,
+       CASE
+           WHEN COMM IS NULL THEN 'No Commission'
+           ELSE 'Commission Given'
+       END AS Commission_Status
+FROM EMPLOYEE;
+
+
+9. NULL WITH AND
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NULL
+AND SAL > 3000;
+
+
+10. NULL WITH OR
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NULL
+OR DEPTNO = 20;
+
+
+IMPORTANT REMEMBER:
+
+NULL       → use IS NULL
+NOT NULL   → use IS NOT NULL
+COUNT(*)   → counts rows
+COUNT(col) → counts non-NULL values
+COALESCE() → replaces NULL
+
+
+============================================================
+DAY 9 — SQL COMMAND CATEGORIES
+============================================================
+
+SQL commands are commonly divided into 5 categories:
+
+1. DDL
+2. DML
+3. DQL
+4. DCL
+5. TCL
+
+
+1. DDL — DATA DEFINITION LANGUAGE
+
+Used to define and modify the STRUCTURE of database objects.
+
+Commands:
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+
+Examples:
+
+CREATE DATABASE CompanyDB;
+
+CREATE TABLE EMPLOYEE (
+    EMPNO INT,
+    ENAME VARCHAR(50),
+    SAL DECIMAL(10,2)
+);
+
+ALTER TABLE EMPLOYEE
+ADD EMAIL VARCHAR(100);
+
+DROP TABLE EMPLOYEE;
+
+TRUNCATE TABLE EMPLOYEE;
+
+
+IMPORTANT:
+
+DELETE is NOT DDL.
+
+DELETE → DML
+
+
+2. DML — DATA MANIPULATION LANGUAGE
+
+Used to modify/manipulate data stored in tables.
+
+Commands:
+
+INSERT
+UPDATE
+DELETE
+
+Examples:
+
+INSERT INTO EMPLOYEE
+VALUES (101, 'RAM', 5000);
+
+UPDATE EMPLOYEE
+SET SAL = 5500
+WHERE EMPNO = 101;
+
+DELETE FROM EMPLOYEE
+WHERE EMPNO = 101;
+
+
+3. DQL — DATA QUERY LANGUAGE
+
+Used to retrieve/query data.
+
+Main command:
+
+SELECT
+
+Example:
+
+SELECT *
+FROM EMPLOYEE;
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+WHERE SAL > 3000;
+
+
+4. DCL — DATA CONTROL LANGUAGE
+
+Used to control permissions/access.
+
+Commands:
+
+GRANT
+REVOKE
+
+GRANT → gives permission
+
+REVOKE → withdraws/removes permission
+
+
+5. TCL — TRANSACTION CONTROL LANGUAGE
+
+Used to manage transactions.
+
+Commands:
+
+COMMIT
+ROLLBACK
+SAVEPOINT
+
+COMMIT    → makes transaction changes permanent
+ROLLBACK  → undoes uncommitted changes
+SAVEPOINT → creates a point to which we can roll back
+
+
+QUICK MEMORY:
+
+DDL → STRUCTURE
+CREATE, ALTER, DROP, TRUNCATE
+
+DML → DATA
+INSERT, UPDATE, DELETE
+
+DQL → QUERY
+SELECT
+
+DCL → CONTROL/PERMISSION
+GRANT, REVOKE
+
+TCL → TRANSACTION
+COMMIT, ROLLBACK, SAVEPOINT
+
+
+IMPORTANT INTERVIEW DIFFERENCE:
+
+DELETE vs TRUNCATE vs DROP
+
+DELETE:
+- Removes rows
+- Can use WHERE
+- Table structure remains
+
+TRUNCATE:
+- Removes all rows
+- Cannot use WHERE
+- Table structure remains
+
+DROP:
+- Removes the table itself
+- Table structure is also removed
+
+
+============================================================
+DAY 10 — CREATE DATABASE, TABLE, DATA TYPES & INSERT
+============================================================
+
+
+1. CREATE DATABASE
+
+Used to create a database.
+
+CREATE DATABASE PlacementDB;
+
+
+2. USE
+
+Used to select the database we want to work with.
+
+USE PlacementDB;
+
+
+3. CREATE TABLE
+
+Used to create a table.
+
+CREATE TABLE STUDENT (
+    ID INT,
+    NAME VARCHAR(50),
+    AGE INT,
+    MARKS DECIMAL(5,2)
+);
+
+
+4. IMPORTANT DATA TYPES
+
+INT
+→ Stores whole numbers.
+
+Example:
+
+AGE INT;
+
+
+VARCHAR(n)
+→ Stores variable-length text.
+
+Example:
+
+NAME VARCHAR(50);
+
+
+CHAR(n)
+→ Stores fixed-length text.
+
+Example:
+
+CODE CHAR(5);
+
+
+DECIMAL(p,s)
+→ Stores precise decimal numbers.
+
+Example:
+
+SAL DECIMAL(10,2);
+
+
+DATE
+→ Stores date.
+
+Example:
+
+JOIN_DATE DATE;
+
+
+DATETIME
+→ Stores date + time.
+
+Example:
+
+CREATED_AT DATETIME;
+
+
+5. CHAR vs VARCHAR
+
+CHAR:
+→ Fixed-length string
+
+VARCHAR:
+→ Variable-length string
+
+
+6. DECIMAL(10,2)
+
+DECIMAL(10,2) means:
+
+10 = TOTAL number of digits
+2  = digits after decimal point
+
+Therefore:
+8 digits can be before the decimal
+2 digits can be after the decimal
+
+Example:
+
+12345678.90
+
+
+7. INSERT INTO
+
+Used to add new rows/data.
+
+Example:
+
+INSERT INTO STUDENT (ID, NAME, AGE, MARKS)
+VALUES (101, 'RAM', 21, 87.50);
+
+
+8. INSERT MULTIPLE ROWS
+
+INSERT INTO STUDENT (ID, NAME, AGE, MARKS)
+VALUES
+(102, 'SHYAM', 22, 76.25),
+(103, 'MOHAN', 20, 91.00),
+(104, 'RAHUL', 21, 68.50);
+
+
+9. INSERT NULL
+
+If a column allows NULL:
+
+INSERT INTO STUDENT (ID, NAME, AGE, MARKS)
+VALUES (105, 'PRIYA', 20, NULL);
+
+
+10. VERIFY DATA
+
+SELECT *
+FROM STUDENT;
+
+
+Better practice:
+
+Specify column names when inserting data.
+
+Instead of:
+
+INSERT INTO STUDENT
+VALUES (...);
+
+Prefer:
+
+INSERT INTO STUDENT (ID, NAME, AGE, MARKS)
+VALUES (...);
+
+
+IMPORTANT:
+
+CREATE DATABASE       → DDL
+CREATE TABLE          → DDL
+INSERT                → DML
+SELECT                → DQL
+
+
+============================================================
+DAY 11 — UPDATE
+============================================================
+
+UPDATE is a DML command.
+
+It is used to MODIFY EXISTING DATA.
+
+
+1. BASIC UPDATE SYNTAX
+
+UPDATE table_name
+SET column_name = value
+WHERE condition;
+
+
+Example:
+
+UPDATE EMPLOYEE
+SET SAL = 5000
+WHERE EMPNO = 101;
+
+
+2. UPDATE MULTIPLE COLUMNS
+
+UPDATE EMPLOYEE
+SET SAL = 5500,
+    DEPTNO = 20
+WHERE EMPNO = 101;
+
+
+3. WHY WHERE IS IMPORTANT
+
+This is dangerous:
+
+UPDATE EMPLOYEE
+SET SAL = 5000;
+
+Because there is no WHERE condition.
+
+It can update the salary of EVERY employee.
+
+
+Safer:
+
+UPDATE EMPLOYEE
+SET SAL = 5000
+WHERE EMPNO = 101;
+
+Only employee 101 is updated.
+
+
+4. UPDATE USING CONDITIONS
+
+UPDATE EMPLOYEE
+SET SAL = 4000
+WHERE DEPTNO = 20;
+
+This updates all employees belonging to department 20.
+
+
+5. UPDATE WITH MULTIPLE CONDITIONS
+
+UPDATE EMPLOYEE
+SET SAL = 6000
+WHERE DEPTNO = 10
+AND JOB = 'MANAGER';
+
+
+6. UPDATE NULL VALUES
+
+Correct:
+
+UPDATE EMPLOYEE
+SET COMM = 500
+WHERE EMPNO = 101
+AND COMM IS NULL;
+
+Remember:
+
+COMM IS NULL     → correct
+COMM = NULL      → wrong
+
+
+7. UPDATE BASED ON EXISTING VALUE
+
+Increase salary by 10%:
+
+UPDATE EMPLOYEE
+SET SAL = SAL * 1.10;
+
+This affects EVERY employee.
+
+For only department 10:
+
+UPDATE EMPLOYEE
+SET SAL = SAL * 1.10
+WHERE DEPTNO = 10;
+
+
+8. UPDATE USING CASE
+
+UPDATE EMPLOYEE
+SET SAL =
+    CASE
+        WHEN DEPTNO = 10 THEN SAL * 1.10
+        WHEN DEPTNO = 20 THEN SAL * 1.05
+        ELSE SAL
+    END;
+
+
+Meaning:
+
+Department 10 → 10% increase
+Department 20 → 5% increase
+Other departments → unchanged
+
+
+9. VERIFY UPDATE
+
+After updating, check the data:
+
+SELECT *
+FROM EMPLOYEE;
+
+Or:
+
+SELECT EMPNO, ENAME, SAL
+FROM EMPLOYEE
+WHERE EMPNO = 101;
+
+
+10. INSERT vs UPDATE
+
+INSERT:
+→ Adds a NEW row.
+
+UPDATE:
+→ Modifies an EXISTING row.
+
+
+============================================================
+🔥 MOST IMPORTANT POINTS FROM DAY 8–11
+============================================================
+
+1. NULL is a missing/unknown value.
+
+2. Never use:
+
+WHERE column = NULL;
+
+Use:
+
+WHERE column IS NULL;
+
+
+3. COUNT(*) counts rows.
+
+4. COUNT(column) counts non-NULL values.
+
+5. Aggregate functions generally ignore NULL values.
+
+6. COALESCE(column, 0) can replace NULL with 0.
+
+
+7. DDL:
+CREATE
+ALTER
+DROP
+TRUNCATE
+
+
+8. DML:
+INSERT
+UPDATE
+DELETE
+
+
+9. DQL:
+SELECT
+
+
+10. DCL:
+GRANT
+REVOKE
+
+
+11. TCL:
+COMMIT
+ROLLBACK
+SAVEPOINT
+
+
+12. DELETE is DML, NOT DDL.
+
+
+13. VARCHAR = variable length.
+
+14. CHAR = fixed length.
+
+15. DECIMAL(10,2):
+10 total digits
+2 digits after decimal.
+
+
+16. INSERT adds new data.
+
+17. UPDATE modifies existing data.
+
+18. UPDATE without WHERE can modify EVERY row.
+
+19. Always carefully check your WHERE condition before UPDATE.
+
+
+============================================================
+                 DAY 8–11 STATUS
+============================================================
+
+Day 8 — NULL Handling              ✅
+Day 9 — SQL Command Categories     ✅
+Day 10 — CREATE + INSERT           ✅
+Day 11 — UPDATE                    🔄 LEARNING
+
+Next major topic:
+DAY 12 — DELETE vs TRUNCATE vs DROP
+============================================================
