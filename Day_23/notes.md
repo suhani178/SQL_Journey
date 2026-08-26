@@ -10,7 +10,7 @@ It works similar to the index of a book. Instead of searching through every page
 
 ## Why Use Indexes?
 
-Indexes are useful when:
+Indexes are useful only when:
 
 - A table contains a large amount of data.
 - A column is frequently searched.
