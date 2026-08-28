@@ -1,0 +1,773 @@
+==================================================
+SQL REVISION NOTES — DAY 12 TO DAY 16
+==================================================
+
+
+==================== DAY 12 ====================
+DELETE, TRUNCATE & DROP
+==================================================
+
+1. DELETE
+
+DELETE is used to remove rows from a table.
+
+Syntax:
+DELETE FROM EMPLOYEE
+WHERE EMPNO = 105;
+
+The WHERE clause can be used to delete specific rows.
+
+Example:
+DELETE FROM EMPLOYEE
+WHERE DEPTNO = 30;
+
+To delete ALL rows:
+DELETE FROM EMPLOYEE;
+
+Important:
+- DELETE is a DML command.
+- WHERE can be used with DELETE.
+- DELETE removes rows, not the table structure.
+
+
+2. TRUNCATE
+
+TRUNCATE is used to remove ALL rows from a table.
+
+Syntax:
+TRUNCATE TABLE EMPLOYEE;
+
+Important:
+- TRUNCATE is a DDL command.
+- WHERE cannot be used with TRUNCATE.
+- All rows are removed.
+- The table structure remains.
+
+
+3. DROP TABLE
+
+DROP TABLE is used to completely remove a table.
+
+Syntax:
+DROP TABLE EMPLOYEE;
+
+Important:
+- DROP is a DDL command.
+- The complete table is removed.
+- Both structure and data are removed.
+- WHERE cannot be used.
+
+
+4. DELETE vs TRUNCATE vs DROP
+
+DELETE:
+→ Removes rows.
+→ WHERE can be used.
+→ Table structure remains.
+→ DML.
+
+TRUNCATE:
+→ Removes all rows.
+→ WHERE cannot be used.
+→ Table structure remains.
+→ DDL.
+
+DROP:
+→ Removes the complete table.
+→ Structure and data are removed.
+→ DDL.
+
+
+Easy Memory:
+
+DELETE     → Remove ROWS
+TRUNCATE   → Remove ALL ROWS
+DROP       → Remove TABLE
+
+
+
+==================== DAY 13 ====================
+ALTER TABLE
+==================================================
+
+ALTER TABLE is used to change the structure/definition
+of an existing table.
+
+Four important operations:
+
+1. ADD
+2. MODIFY
+3. RENAME COLUMN
+4. DROP COLUMN
+
+
+1. ADD
+
+ADD is used to add a NEW column to an existing table.
+
+Syntax:
+
+ALTER TABLE EMPLOYEE
+ADD EMAIL VARCHAR(100);
+
+Another example:
+
+ALTER TABLE EMPLOYEE
+ADD PHONE VARCHAR(15);
+
+Important:
+ADD adds a new column.
+It does NOT directly add data/rows.
+
+
+2. MODIFY
+
+MODIFY is used to change the definition/datatype of an
+EXISTING column.
+
+Example:
+
+ALTER TABLE EMPLOYEE
+MODIFY ENAME VARCHAR(100);
+
+Another example:
+
+ALTER TABLE EMPLOYEE
+MODIFY SAL DECIMAL(10,2);
+
+Important:
+MODIFY works on an existing column.
+It changes the column's definition/datatype.
+
+
+3. RENAME COLUMN
+
+RENAME COLUMN is used to change the name of an existing column.
+
+Syntax:
+
+ALTER TABLE EMPLOYEE
+RENAME COLUMN ENAME TO EMPLOYEE_NAME;
+
+Example:
+
+ALTER TABLE EMPLOYEE
+RENAME COLUMN DEPTNO TO DEPARTMENT_NO;
+
+Important:
+Only the column name changes.
+The existing data remains the same.
+
+
+4. DROP COLUMN
+
+DROP COLUMN is used to remove an existing column
+and the data stored in that column.
+
+Syntax:
+
+ALTER TABLE EMPLOYEE
+DROP COLUMN PHONE;
+
+Important:
+- Column is removed.
+- Data stored in that column is also removed.
+- The rest of the table remains.
+
+
+ADD vs MODIFY vs RENAME vs DROP
+
+ADD:
+→ Add a NEW column.
+
+MODIFY:
+→ Change the definition/datatype of an EXISTING column.
+
+RENAME:
+→ Change the NAME of an EXISTING column.
+
+DROP COLUMN:
+→ Remove an EXISTING column and its data.
+
+
+Easy Memory:
+
+ADD       → Add column
+MODIFY    → Change definition
+RENAME    → Change name
+DROP      → Remove column
+
+
+
+==================== DAY 14 ====================
+SQL CONSTRAINTS — PART 1
+==================================================
+
+Constraints are rules applied to columns in a table.
+They help prevent unwanted or invalid data.
+
+Four important constraints:
+
+1. PRIMARY KEY
+2. NOT NULL
+3. UNIQUE
+4. DEFAULT
+
+
+1. PRIMARY KEY
+
+A PRIMARY KEY uniquely identifies each row in a table.
+
+Example:
+
+CREATE TABLE STUDENT (
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(50),
+    AGE INT
+);
+
+Rules:
+- Cannot contain NULL.
+- Cannot contain duplicate values.
+- Uniquely identifies each row.
+
+Easy Memory:
+
+PRIMARY KEY → UNIQUE + NOT NULL
+
+
+2. NOT NULL
+
+NOT NULL means a value must be provided.
+The column cannot contain NULL.
+
+Example:
+
+CREATE TABLE STUDENT (
+    ID INT,
+    NAME VARCHAR(50) NOT NULL
+);
+
+This is not allowed:
+
+INSERT INTO STUDENT
+VALUES (101, NULL);
+
+Important:
+NOT NULL does NOT prevent duplicate values.
+
+Example:
+RAM
+RAM
+SHYAM
+
+can be allowed if NAME only has NOT NULL.
+
+
+3. UNIQUE
+
+UNIQUE prevents duplicate values in a column.
+
+Example:
+
+CREATE TABLE STUDENT (
+    ID INT,
+    EMAIL VARCHAR(100) UNIQUE
+);
+
+This is not allowed:
+
+ram@gmail.com
+ram@gmail.com
+
+because the value is duplicated.
+
+In MySQL, a UNIQUE column can generally contain NULL values.
+
+
+4. DEFAULT
+
+DEFAULT provides an automatic value when a value is
+not provided.
+
+Example:
+
+CREATE TABLE STUDENT (
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(50),
+    CITY VARCHAR(50) DEFAULT 'Delhi'
+);
+
+Query:
+
+INSERT INTO STUDENT (ID, NAME)
+VALUES (101, 'RAM');
+
+CITY will automatically become:
+
+Delhi
+
+
+NOT NULL vs DEFAULT
+
+NOT NULL:
+→ A value is required.
+
+DEFAULT:
+→ If a value is omitted, the default value is used.
+
+
+Constraints Summary:
+
+PRIMARY KEY
+→ Unique + NOT NULL
+→ Identifies each row.
+
+NOT NULL
+→ Value is compulsory.
+
+UNIQUE
+→ Duplicate values are not allowed.
+
+DEFAULT
+→ Automatically provides a value if omitted.
+
+
+Easy Memory:
+
+PRIMARY KEY → Identify
+NOT NULL    → Required
+UNIQUE      → No duplicates
+DEFAULT     → Automatic value
+
+
+
+==================== DAY 15 ====================
+SQL CONSTRAINTS — PART 2
+==================================================
+
+Two important constraints:
+
+1. CHECK
+2. FOREIGN KEY
+
+
+1. CHECK
+
+CHECK ensures that a value satisfies a specified condition.
+
+Example:
+
+SAL INT CHECK (SAL >= 0);
+
+This means salary must be greater than or equal to 0.
+
+Example:
+
+AGE INT CHECK (AGE >= 18);
+
+AGE = 21 → Valid
+AGE = 18 → Valid
+AGE = 15 → Invalid
+
+Another example:
+
+MARKS INT CHECK (MARKS BETWEEN 0 AND 100);
+
+Important:
+CHECK does NOT check whether a value "exists".
+It checks whether the value satisfies a condition.
+
+
+2. FOREIGN KEY
+
+A FOREIGN KEY is used to establish a relationship between
+two tables.
+
+Example:
+
+Parent table:
+
+CREATE TABLE DEPARTMENT (
+    DEPTNO INT PRIMARY KEY,
+    DNAME VARCHAR(50)
+);
+
+Child table:
+
+CREATE TABLE EMPLOYEE (
+    EMPNO INT PRIMARY KEY,
+    ENAME VARCHAR(50),
+    DEPTNO INT,
+    FOREIGN KEY (DEPTNO)
+        REFERENCES DEPARTMENT(DEPTNO)
+);
+
+
+Here:
+
+DEPARTMENT.DEPTNO
+→ Primary Key
+→ Parent table
+
+EMPLOYEE.DEPTNO
+→ Foreign Key
+→ Child table
+
+
+Purpose of Foreign Key:
+
+It helps maintain a valid relationship between tables.
+
+If the DEPARTMENT table contains:
+
+10
+20
+30
+
+then an employee can have:
+
+DEPTNO = 20
+
+But DEPTNO = 50 would be invalid if 50 does not exist
+in the referenced parent key.
+
+
+Important:
+
+A FOREIGN KEY can contain duplicate values.
+
+Example:
+
+RAM     → DEPTNO 10
+SHYAM   → DEPTNO 10
+MOHAN   → DEPTNO 10
+
+This is allowed.
+
+A foreign key can generally contain NULL unless
+NOT NULL is specified.
+
+
+CHECK vs FOREIGN KEY
+
+CHECK:
+→ Checks whether a value satisfies a condition.
+
+FOREIGN KEY:
+→ Establishes/maintains a relationship between tables.
+
+
+Easy Memory:
+
+CHECK       → Condition
+FOREIGN KEY → Relationship
+
+
+
+==================== DAY 16 ====================
+KEYS & RELATIONSHIPS
+==================================================
+
+Important concepts:
+
+1. PRIMARY KEY
+2. FOREIGN KEY
+3. CANDIDATE KEY
+4. COMPOSITE KEY
+5. TABLE RELATIONSHIPS
+
+
+1. PRIMARY KEY
+
+A PRIMARY KEY uniquely identifies each row.
+
+Rules:
+- Cannot be NULL.
+- Cannot contain duplicates.
+
+Example:
+
+STUDENT_ID → PRIMARY KEY
+
+
+2. FOREIGN KEY
+
+A FOREIGN KEY creates a relationship between two tables.
+
+Example:
+
+DEPARTMENT:
+
+DEPTNO
+10
+20
+30
+
+EMPLOYEE:
+
+EMPNO    ENAME    DEPTNO
+101      RAM      10
+102      SHYAM    20
+103      MOHAN    10
+
+EMPLOYEE.DEPTNO
+→ FOREIGN KEY
+
+DEPARTMENT.DEPTNO
+→ Referenced PRIMARY KEY
+
+
+A foreign key:
+- Can contain duplicate values.
+- Can generally contain NULL unless NOT NULL is specified.
+- Connects the child table to the parent table.
+
+
+3. CANDIDATE KEY
+
+A Candidate Key is a column or set of columns that can
+uniquely identify each row and is eligible to become
+the Primary Key.
+
+Example:
+
+STUDENT_ID    EMAIL
+101           ram@gmail.com
+102           shyam@gmail.com
+103           mohan@gmail.com
+
+If both STUDENT_ID and EMAIL are unique:
+
+STUDENT_ID → Candidate Key
+EMAIL      → Candidate Key
+
+One of these can be selected as the Primary Key.
+
+Example:
+
+STUDENT_ID → PRIMARY KEY
+EMAIL      → Candidate Key
+
+
+Easy Memory:
+
+Candidate Keys
+→ Possible choices
+
+Choose one
+→ Primary Key
+
+
+4. COMPOSITE KEY
+
+A Composite Key is a key made up of two or more columns
+that together uniquely identify a row.
+
+Example:
+
+ENROLLMENT:
+
+STUDENT_ID    COURSE_ID
+101           C01
+101           C02
+102           C01
+
+STUDENT_ID alone is NOT unique.
+
+COURSE_ID alone is NOT unique.
+
+But:
+
+STUDENT_ID + COURSE_ID
+
+together uniquely identify each enrollment.
+
+Example:
+
+CREATE TABLE ENROLLMENT (
+    STUDENT_ID INT,
+    COURSE_ID VARCHAR(10),
+    PRIMARY KEY (STUDENT_ID, COURSE_ID)
+);
+
+This is a Composite Primary Key.
+
+
+Important:
+
+Composite Key
+→ Two or more columns together identify a row.
+
+
+5. TABLE RELATIONSHIPS
+
+There are three common relationships:
+
+A. ONE-TO-ONE (1:1)
+
+One record in Table A is related to one record
+in Table B.
+
+Example:
+
+PERSON ↔ PASSPORT
+
+
+B. ONE-TO-MANY (1:N)
+
+One record in Table A can be related to many records
+in Table B.
+
+Example:
+
+DEPARTMENT → EMPLOYEE
+
+One department can have many employees.
+
+Example:
+
+IT
+↓
+RAM
+SHYAM
+MOHAN
+
+Therefore:
+
+DEPARTMENT → EMPLOYEE
+1:N
+
+
+C. MANY-TO-MANY (M:N)
+
+Many records in Table A can be related to many records
+in Table B.
+
+Example:
+
+STUDENT ↔ COURSE
+
+One student can take many courses.
+One course can have many students.
+
+A junction/bridge table is normally used.
+
+Example:
+
+STUDENT
+   ↓
+ENROLLMENT
+   ↑
+COURSE
+
+ENROLLMENT can contain:
+
+STUDENT_ID
+COURSE_ID
+
+
+KEY DIFFERENCES
+
+PRIMARY KEY:
+→ Uniquely identifies a row.
+→ Cannot be NULL.
+→ Cannot contain duplicates.
+
+FOREIGN KEY:
+→ Establishes relationship between tables.
+→ Can contain duplicates.
+→ Can generally contain NULL unless NOT NULL is specified.
+
+CANDIDATE KEY:
+→ Possible key that can uniquely identify a row.
+→ Can be selected as Primary Key.
+
+COMPOSITE KEY:
+→ Key made up of two or more columns.
+→ Columns together uniquely identify a row.
+
+
+FINAL MEMORY TRICK:
+
+PRIMARY KEY
+→ IDENTIFY
+
+FOREIGN KEY
+→ CONNECT
+
+CANDIDATE KEY
+→ POSSIBLE CHOICE
+
+COMPOSITE KEY
+→ MULTIPLE COLUMNS
+
+
+RELATIONSHIPS:
+
+1:1 → One-to-One
+1:N → One-to-Many
+M:N → Many-to-Many
+
+
+==================================================
+DAY 12–16 QUICK REVISION
+==================================================
+
+DELETE
+→ Delete rows.
+
+TRUNCATE
+→ Delete all rows, keep table structure.
+
+DROP
+→ Delete complete table.
+
+ALTER
+→ Change table structure.
+
+ADD
+→ Add new column.
+
+MODIFY
+→ Change existing column definition/datatype.
+
+RENAME
+→ Change existing column name.
+
+DROP COLUMN
+→ Remove column + its data.
+
+PRIMARY KEY
+→ Unique + NOT NULL; identifies row.
+
+NOT NULL
+→ Value required.
+
+UNIQUE
+→ No duplicate values.
+
+DEFAULT
+→ Automatic value if omitted.
+
+CHECK
+→ Value must satisfy a condition.
+
+FOREIGN KEY
+→ Establishes relationship between tables.
+
+CANDIDATE KEY
+→ Possible key that can uniquely identify a row.
+
+COMPOSITE KEY
+→ Two or more columns together identify a row.
+
+1:1
+→ One-to-One
+
+1:N
+→ One-to-Many
+
+M:N
+→ Many-to-Many
+==================================================
