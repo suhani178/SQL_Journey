@@ -764,10 +764,13 @@ COMPOSITE KEY
 
 1:1
 → One-to-One
+eg - One mentor is assigned to one student.
 
 1:N
 → One-to-Many
+eg- One mentor is assigned to many students.
 
 M:N
 → Many-to-Many
+eg - One doctor treats many patients, and one patient can see many different specialists. 
 ==================================================
