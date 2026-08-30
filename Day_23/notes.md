@@ -128,7 +128,7 @@ Therefore, we normally do not need to create another ordinary index on the same 
 
 ---
 
-## Advantages of Indexes
+## Advantages of Indexes are - 
 
 - Faster data retrieval.
 - Faster searching.
@@ -137,7 +137,7 @@ Therefore, we normally do not need to create another ordinary index on the same 
 
 ---
 
-## Disadvantages of Indexes
+## Disadvantages of Indexes are -
 
 - Require additional storage.
 - INSERT operations may become more expensive.
