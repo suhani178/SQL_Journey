@@ -147,7 +147,7 @@ Therefore, we normally do not need to create another ordinary index on the same 
 
 ---
 
-## Important Points
+## Important Points to remember -
 
 Indexes are not always beneficial.
 
