@@ -1,7 +1,9 @@
 📚 SQL REVISION NOTES — DAY 17 TO DAY 20
 
+
 ━━━━━━━━━━━━━━━━━━━━
-🟢 ORDER BY + DISTINCT
+🟢 DAY 17 —
+   ORDER BY + DISTINCT
 ━━━━━━━━━━━━━━━━━━━━
 
 1. ORDER BY
@@ -81,7 +83,8 @@ DISTINCT → UNIQUE RESULT
 
 
 ━━━━━━━━━━━━━━━━━━━━
-🟢 DAY 18 — AGGREGATE FUNCTIONS
+🟢 DAY 18 —
+   AGGREGATE FUNCTIONS
 ━━━━━━━━━━━━━━━━━━━━
 
 Aggregate functions perform calculations on multiple rows and return a result.
@@ -175,7 +178,8 @@ MAX → Largest?
 
 
 ━━━━━━━━━━━━━━━━━━━━
-🟢 DAY 19 — GROUP BY
+🟢 DAY 19 — 
+   GROUP BY
 ━━━━━━━━━━━━━━━━━━━━
 
 GROUP BY is used to group rows having the same value so aggregate functions can be applied to each group.
@@ -279,7 +283,8 @@ ENAME is neither grouped nor aggregated.
 
 
 ━━━━━━━━━━━━━━━━━━━━
-🟢 DAY 20 — HAVING
+🟢 DAY 20 — 
+   HAVING
 ━━━━━━━━━━━━━━━━━━━━
 
 HAVING is used to filter groups created by GROUP BY.
