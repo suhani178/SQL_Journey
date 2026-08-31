@@ -1,0 +1,413 @@
+📚 SQL REVISION NOTES — DAY 17 TO DAY 20
+
+━━━━━━━━━━━━━━━━━━━━
+🟢 DAY 17 — ORDER BY + DISTINCT
+━━━━━━━━━━━━━━━━━━━━
+
+1. ORDER BY
+ORDER BY is used to sort the query result.
+
+Example:
+SELECT ENAME, SAL
+FROM EMPLOYEE
+ORDER BY SAL ASC;
+
+ASC → Ascending order → Lowest to Highest / A to Z
+DESC → Descending order → Highest to Lowest / Z to A
+
+Example:
+SELECT ENAME, SAL
+FROM EMPLOYEE
+ORDER BY SAL DESC;
+
+
+2. ORDER BY WITH WHERE
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+WHERE DEPTNO = 20
+ORDER BY SAL DESC;
+
+WHERE → Filters rows
+ORDER BY → Sorts the filtered result
+
+
+3. ORDER BY WITH MULTIPLE COLUMNS
+
+SELECT *
+FROM EMPLOYEE
+ORDER BY DEPTNO ASC, SAL DESC;
+
+Priority is from left to right:
+1st → DEPTNO
+2nd → SAL
+
+
+4. DISTINCT
+DISTINCT is used to return unique values.
+
+SELECT DISTINCT DEPTNO
+FROM EMPLOYEE;
+
+If values are:
+10
+20
+10
+30
+20
+
+Result:
+10
+20
+30
+
+IMPORTANT:
+DISTINCT does NOT delete duplicate data from the actual table.
+It only removes duplicates from the query result.
+
+
+5. DISTINCT WITH MULTIPLE COLUMNS
+
+SELECT DISTINCT DEPTNO, JOB
+FROM EMPLOYEE;
+
+SQL checks the combination of DEPTNO + JOB.
+
+⭐ REMEMBER:
+ORDER BY → SORT
+ASC → LOW → HIGH
+DESC → HIGH → LOW
+DISTINCT → UNIQUE RESULT
+
+
+━━━━━━━━━━━━━━━━━━━━
+🟢 DAY 18 — AGGREGATE FUNCTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Aggregate functions perform calculations on multiple rows and return a result.
+
+Five important aggregate functions:
+
+COUNT()
+SUM()
+AVG()
+MIN()
+MAX()
+
+
+1. COUNT()
+
+COUNT(*) → Counts all rows.
+
+SELECT COUNT(*)
+FROM EMPLOYEE;
+
+COUNT(column) → Counts only non-NULL values.
+
+SELECT COUNT(COMM)
+FROM EMPLOYEE;
+
+⭐ IMPORTANT:
+COUNT(*) → Counts all rows
+COUNT(column) → Counts non-NULL values
+
+
+2. SUM()
+
+Used to calculate total.
+
+SELECT SUM(SAL)
+FROM EMPLOYEE;
+
+
+3. AVG()
+
+Used to calculate average.
+
+SELECT AVG(SAL)
+FROM EMPLOYEE;
+
+
+4. MIN()
+
+Returns the smallest value.
+
+SELECT MIN(SAL)
+FROM EMPLOYEE;
+
+
+5. MAX()
+
+Returns the largest value.
+
+SELECT MAX(SAL)
+FROM EMPLOYEE;
+
+
+6. AGGREGATE FUNCTIONS WITH WHERE
+
+SELECT SUM(SAL)
+FROM EMPLOYEE
+WHERE DEPTNO = 10;
+
+WHERE → Filters rows
+SUM → Calculates total
+
+
+7. NULL WITH AGGREGATE FUNCTIONS
+
+COUNT(column) → Ignores NULL
+SUM() → Ignores NULL
+AVG() → Ignores NULL
+MIN() → Ignores NULL
+MAX() → Ignores NULL
+
+COUNT(*) → Counts rows
+
+
+⭐ QUICK MEMORY:
+
+COUNT → How many?
+SUM → Total?
+AVG → Average?
+MIN → Smallest?
+MAX → Largest?
+
+
+━━━━━━━━━━━━━━━━━━━━
+🟢 DAY 19 — GROUP BY
+━━━━━━━━━━━━━━━━━━━━
+
+GROUP BY is used to group rows having the same value so aggregate functions can be applied to each group.
+
+
+1. GROUP BY + COUNT()
+
+Find number of employees in each department:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+2. GROUP BY + SUM()
+
+Find total salary of each department:
+
+SELECT DEPTNO, SUM(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+3. GROUP BY + AVG()
+
+Find average salary of each department:
+
+SELECT DEPTNO, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+4. GROUP BY + MIN/MAX()
+
+SELECT DEPTNO, MIN(SAL), MAX(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+5. MULTIPLE AGGREGATE FUNCTIONS
+
+SELECT
+    DEPTNO,
+    COUNT(*) AS TOTAL_EMPLOYEES,
+    SUM(SAL) AS TOTAL_SALARY,
+    AVG(SAL) AS AVERAGE_SALARY
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+
+6. GROUP BY + WHERE
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+WHERE SAL > 3000
+GROUP BY DEPTNO;
+
+Process:
+FROM → Select table
+WHERE → Filter rows
+GROUP BY → Create groups
+COUNT → Calculate
+
+
+7. DISTINCT VS GROUP BY
+
+DISTINCT:
+SELECT DISTINCT DEPTNO
+FROM EMPLOYEE;
+
+→ Gives unique department numbers.
+
+GROUP BY:
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+→ Groups departments and performs calculations.
+
+⭐ REMEMBER:
+
+DISTINCT → UNIQUE
+GROUP BY → GROUP + CALCULATE
+
+
+8. IMPORTANT GROUP BY RULE
+
+When using GROUP BY, a selected column that is not inside an aggregate function generally needs to appear in GROUP BY.
+
+Correct:
+SELECT DEPTNO, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+Incorrect:
+SELECT DEPTNO, ENAME, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO;
+
+ENAME is neither grouped nor aggregated.
+
+
+━━━━━━━━━━━━━━━━━━━━
+🟢 DAY 20 — HAVING
+━━━━━━━━━━━━━━━━━━━━
+
+HAVING is used to filter groups created by GROUP BY.
+
+
+1. WHERE VS HAVING
+
+WHERE → Filters individual rows
+HAVING → Filters groups
+
+
+2. GROUP BY + HAVING
+
+Find departments whose average salary is greater than 3000:
+
+SELECT DEPTNO, AVG(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING AVG(SAL) > 3000;
+
+
+3. HAVING + COUNT()
+
+Find departments having more than 3 employees:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING COUNT(*) > 3;
+
+
+4. WHERE + GROUP BY + HAVING
+
+Find departments having more than 2 employees whose salary is greater than 3000:
+
+SELECT DEPTNO, COUNT(*)
+FROM EMPLOYEE
+WHERE SAL > 3000
+GROUP BY DEPTNO
+HAVING COUNT(*) > 2;
+
+Process:
+
+WHERE
+↓
+Filters rows
+
+GROUP BY
+↓
+Creates groups
+
+COUNT()
+↓
+Calculates
+
+HAVING
+↓
+Filters groups
+
+
+5. HAVING + SUM()
+
+Find departments whose total salary is greater than 10,000:
+
+SELECT DEPTNO, SUM(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING SUM(SAL) > 10000;
+
+
+6. HAVING + MAX()
+
+Find departments whose maximum salary is greater than 5000:
+
+SELECT DEPTNO, MAX(SAL)
+FROM EMPLOYEE
+GROUP BY DEPTNO
+HAVING MAX(SAL) > 5000;
+
+
+━━━━━━━━━━━━━━━━━━━━
+🔥 MOST IMPORTANT REVISION
+━━━━━━━━━━━━━━━━━━━━
+
+WHERE
+→ Filters rows
+
+DISTINCT
+→ Removes duplicate results
+
+GROUP BY
+→ Creates groups
+
+COUNT / SUM / AVG / MIN / MAX
+→ Performs calculations
+
+HAVING
+→ Filters groups
+
+ORDER BY
+→ Sorts results
+
+
+⭐ EASY MEMORY:
+
+WHERE → FILTER ROWS
+GROUP BY → GROUP ROWS
+HAVING → FILTER GROUPS
+ORDER BY → SORT RESULTS
+
+
+⭐ SIMPLIFIED QUERY FLOW:
+
+FROM
+↓
+WHERE
+↓
+GROUP BY
+↓
+HAVING
+↓
+SELECT
+↓
+ORDER BY
+
+
+🎯 PHASE 1:
+DAY 17 → ORDER BY + DISTINCT
+DAY 18 → AGGREGATE FUNCTIONS
+DAY 19 → GROUP BY
+DAY 20 → HAVING + PHASE 1 TEST
