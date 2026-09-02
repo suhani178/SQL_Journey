@@ -168,7 +168,7 @@ COALESCE() → replaces NULL
 DAY 9 — SQL COMMAND CATEGORIES
 ============================================================
 
-SQL commands are commonly divided into 5 categories:
+SQL commands are commonly divided mainly into 5 categories:
 
 1. DDL
 2. DML
@@ -199,6 +199,7 @@ CREATE TABLE EMPLOYEE (
 );
 
 ALTER TABLE EMPLOYEE
+
 ADD EMAIL VARCHAR(100);
 
 DROP TABLE EMPLOYEE;
@@ -206,7 +207,7 @@ DROP TABLE EMPLOYEE;
 TRUNCATE TABLE EMPLOYEE;
 
 
-IMPORTANT:
+IMPORTANT NOTE:
 
 DELETE is NOT DDL.
 
