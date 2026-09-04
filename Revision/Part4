@@ -369,22 +369,22 @@ HAVING MAX(SAL) > 5000;
 🔥 MOST IMPORTANT REVISION
 ━━━━━━━━━━━━━━━━━━━━
 
-WHERE
+WHERE :
 → Filters rows
 
-DISTINCT
+DISTINCT :
 → Removes duplicate results
 
-GROUP BY
+GROUP BY :
 → Creates groups
 
 COUNT / SUM / AVG / MIN / MAX
 → Performs calculations
 
-HAVING
+HAVING :
 → Filters groups
 
-ORDER BY
+ORDER BY :
 → Sorts results
 
 
