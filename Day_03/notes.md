@@ -107,7 +107,7 @@ UNIQUE:
 
 ---
 
-Day 3 Summary
+Day 3 Summary:
 
 Key Learnings:
 
