@@ -696,10 +696,7 @@ SAVEPOINT
 
 19. Always carefully check your WHERE condition before UPDATE.
 
-
-============================================================
-                 DAY 8–11 STATUS
-============================================================
+Key Learnings:
 
 Day 8 — NULL Handling              ✅
 Day 9 — SQL Command Categories     ✅
