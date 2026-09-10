@@ -1,156 +1,132 @@
-# DAY 02 — PRACTICE
-# SELECT, WHERE & COMPARISON OPERATORS
+-- Day 02: SELECT, WHERE & Comparison Operators
+-- SQL Journey
 
-# Database/Table:
-# EMPLOYEE
+-- =========================================================
+-- 1. SELECT
+-- =========================================================
 
-# ============================================
-# PART A — SELECT
-# ============================================
+-- Select all columns
+SELECT * FROM EMPLOYEE;
 
-# 1. Display all columns and all rows.
-SELECT *
-FROM EMPLOYEE;
+-- Select specific columns
+SELECT EMPNO, ENAME, SAL FROM EMPLOYEE;
 
-
-# 2. Display only employee name and salary.
-SELECT ENAME, SAL
-FROM EMPLOYEE;
+-- Select a single column
+SELECT ENAME FROM EMPLOYEE;
 
 
-# 3. Display employee name, job and salary.
-SELECT ENAME, JOB, SAL
-FROM EMPLOYEE;
+-- =========================================================
+-- 2. WHERE
+-- =========================================================
 
+-- Employees with salary greater than 2000
+SELECT * FROM EMPLOYEE
+WHERE SAL > 2000;
 
-# ============================================
-# PART B — WHERE + COMPARISON OPERATORS
-# ============================================
+-- Employees with salary less than 2000
+SELECT * FROM EMPLOYEE
+WHERE SAL < 2000;
 
-# 4. Employees whose salary is greater than 3000.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL > 3000;
-
-
-# 5. Employees whose salary is exactly 3000.
-SELECT *
-FROM EMPLOYEE
+-- Employees with salary equal to 3000
+SELECT * FROM EMPLOYEE
 WHERE SAL = 3000;
 
 
-# 6. Employees whose salary is less than 3000.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL < 3000;
+-- =========================================================
+-- 3. Comparison Operators
+-- =========================================================
+
+-- Equal to
+SELECT * FROM EMPLOYEE
+WHERE DEPTNO = 10;
+
+-- Not equal to
+SELECT * FROM EMPLOYEE
+WHERE DEPTNO <> 10;
+
+SELECT * FROM EMPLOYEE
+WHERE DEPTNO != 10;
+
+-- Greater than
+SELECT * FROM EMPLOYEE
+WHERE SAL > 2500;
+
+-- Less than
+SELECT * FROM EMPLOYEE
+WHERE SAL < 2500;
+
+-- Greater than or equal to
+SELECT * FROM EMPLOYEE
+WHERE SAL >= 2500;
+
+-- Less than or equal to
+SELECT * FROM EMPLOYEE
+WHERE SAL <= 2500;
 
 
-# 7. Employees whose salary is greater than or equal to 3000.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL >= 3000;
+-- =========================================================
+-- 4. SELECT + WHERE
+-- =========================================================
 
-
-# 8. Employees whose salary is less than or equal to 3000.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <= 3000;
-
-
-# 9. Employees whose salary is not equal to 3000.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <> 3000;
-
-
-# 10. Employees whose salary is not equal to 3000 using !=.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL != 3000;
-
-
-# ============================================
-# PART C — SELECT + WHERE
-# ============================================
-
-# 11. Display employee name and job
-#     where salary is greater than 2500.
-SELECT ENAME, JOB
+-- Display employee name and salary
+-- for employees earning more than 2500
+SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL > 2500;
 
-
-# 12. Display employee name and salary
-#     where salary is less than 2000.
-SELECT ENAME, SAL
+-- Display employee number and name
+-- for employees in department 20
+SELECT EMPNO, ENAME
 FROM EMPLOYEE
-WHERE SAL < 2000;
+WHERE DEPTNO = 20;
 
-
-# 13. Display employee name and job
-#     where salary is exactly 5000.
+-- Display employee name and job
+-- for employees whose job is CLERK
 SELECT ENAME, JOB
 FROM EMPLOYEE
-WHERE SAL = 5000;
+WHERE JOB = 'CLERK';
 
-
-# 14. Display all columns
-#     where salary is greater than or equal to 1500.
-SELECT *
-FROM EMPLOYEE
-WHERE SAL >= 1500;
-
-
-# 15. Display employee name and salary
-#     where salary is less than or equal to 3000.
+-- Display employee name and salary
+-- for employees earning 3000 or less
 SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL <= 3000;
 
 
-# 16. Display employee name and salary
-#     where salary is not equal to 1250.
-SELECT ENAME, SAL
+-- =========================================================
+-- 5. Practical Filtering Examples
+-- =========================================================
+
+-- Employees earning exactly 1250
+SELECT * FROM EMPLOYEE
+WHERE SAL = 1250;
+
+-- Employees earning more than 1500
+SELECT * FROM EMPLOYEE
+WHERE SAL > 1500;
+
+-- Employees earning less than 3000
+SELECT * FROM EMPLOYEE
+WHERE SAL < 3000;
+
+-- Employees in department 30
+SELECT ENAME, DEPTNO
 FROM EMPLOYEE
-WHERE SAL <> 1250;
+WHERE DEPTNO = 30;
+
+-- Employees who are MANAGER
+SELECT ENAME, JOB
+FROM EMPLOYEE
+WHERE JOB = 'MANAGER';
 
 
-# ============================================
-# PART D — PRACTICE YOURSELF
-# ============================================
+-- =========================================================
+-- Key Pattern
+-- =========================================================
 
-# 17. Display all employees whose salary is greater than 4000.
+-- SELECT chooses what columns to display.
+-- WHERE chooses which rows to display.
 
-
-# 18. Display employee name and salary
-#     of employees whose salary is less than 2500.
-
-
-# 19. Display employee name and job
-#     of employees whose salary is greater than or equal to 3000.
-
-
-# 20. Display employee name and salary
-#     of employees whose salary is not equal to 1500.
-
-
-# ============================================
-# QUICK REFERENCE
-# ============================================
-
-# SELECT → Retrieves data
-# WHERE  → Filters rows
-#
-# =      → Equal to
-# <>     → Not equal to
-# !=     → Not equal to
-# >      → Greater than
-# <      → Less than
-# >=     → Greater than or equal to
-# <=     → Less than or equal to
-#
-# Basic pattern:
-#
-# SELECT columns
-# FROM table_name
-# WHERE condition;
+SELECT column1, column2
+FROM table_name
+WHERE condition;
