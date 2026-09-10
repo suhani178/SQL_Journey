@@ -1,81 +1,179 @@
-Day 2 Assignment
+# DAY 02 — ASSIGNMENT
+## SELECT, WHERE & COMPARISON OPERATORS
 
-Q1. What is a Primary Key?
+### Instructions
 
-A Primary Key uniquely identifies each row in a table. It cannot contain NULL values and must be unique.
-
----
-
-Q2. Can a Primary Key contain NULL?
-
-No. A Primary Key cannot contain NULL values.
-
----
-
-Q3. What is a Candidate Key?
-
-A Candidate Key is a column that can uniquely identify records in a table.
+- Use the EMPLOYEE table for all SQL queries.
+- Write the SQL query for each question.
+- Do not use concepts that have not been taught yet.
+- Focus only on SELECT, WHERE, and comparison operators.
+- Try to solve all questions without looking at the answers.
+- Write your answers in practice.sql and submit your final answers for evaluation.
 
 ---
 
-Q4. What is an Alternate Key?
+## PART A — SELECT
 
-A Candidate Key that is not chosen as the Primary Key.
+### Q1. Select all columns
 
----
-
-Q5. What is a Composite Key?
-
-A key made using multiple columns together.
-
-Example:
-
-(StudentID, CourseID)
+Display all columns and all rows from the EMPLOYEE table.
 
 ---
 
-Q6. What is a Foreign Key?
+### Q2. Select specific columns
 
-A Foreign Key references the Primary Key of another table and creates a relationship between tables.
-
----
-
-Q7. Difference between DROP and TRUNCATE
-
-DROP:
-
-- Deletes table structure and data.
-
-TRUNCATE:
-
-- Deletes all records but keeps the table structure.
+Display only the employee name (`ENAME`) and salary (`SAL`) from the EMPLOYEE table.
 
 ---
 
-Q8. Difference between DELETE and TRUNCATE
+### Q3. Select three columns
 
-DELETE:
-
-- Removes selected rows.
-- Can use WHERE clause.
-
-TRUNCATE:
-
-- Removes all rows.
-- Cannot use WHERE clause.
+Display the employee name (`ENAME`), job (`JOB`), and salary (`SAL`).
 
 ---
 
-Q9. What is Schema?
+## PART B — WHERE
 
-Schema is the structure or blueprint of a table.
+### Q4. Greater than
+
+Display all employees whose salary is greater than 3000.
 
 ---
 
-Q10. Name all SQL Categories
+### Q5. Equal to
 
-- DDL
-- DML
-- DQL
-- DCL
-- TCL
+Display all employees whose salary is exactly 3000.
+
+---
+
+### Q6. Less than
+
+Display all employees whose salary is less than 3000.
+
+---
+
+### Q7. Greater than or equal to
+
+Display all employees whose salary is greater than or equal to 3000.
+
+---
+
+### Q8. Less than or equal to
+
+Display all employees whose salary is less than or equal to 3000.
+
+---
+
+### Q9. Not equal to
+
+Display all employees whose salary is not equal to 3000.
+
+---
+
+## PART C — SELECT + WHERE
+
+### Q10. Select specific columns with a condition
+
+Display the employee name (`ENAME`) and job (`JOB`) of employees whose salary is greater than 2500.
+
+---
+
+### Q11. Salary condition
+
+Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is less than 2000.
+
+---
+
+### Q12. Exact salary
+
+Display the employee name (`ENAME`) and job (`JOB`) of employees whose salary is exactly 5000.
+
+---
+
+### Q13. Minimum salary condition
+
+Display all columns of employees whose salary is greater than or equal to 1500.
+
+---
+
+### Q14. Maximum salary condition
+
+Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is less than or equal to 3000.
+
+---
+
+### Q15. Exclude a salary
+
+Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is not equal to 1250.
+
+---
+
+# PART D — CONCEPTUAL QUESTIONS
+
+### Q16. What is the purpose of the SELECT statement?
+
+Explain in your own words.
+
+---
+
+### Q17. What is the purpose of the WHERE clause?
+
+Explain in your own words.
+
+---
+
+### Q18. What is the difference between SELECT and WHERE?
+
+Explain clearly using an example.
+
+---
+
+### Q19. What does * mean in a SELECT statement?
+
+Explain what happens when we use:
+
+SELECT *
+FROM EMPLOYEE;
+
+---
+
+### Q20. Does WHERE delete or modify data?
+
+Answer YES or NO and explain why.
+
+---
+
+# CHALLENGE QUESTION
+
+### Q21. Write a query to display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is greater than 3000.
+
+Then explain your query in one or two sentences.
+
+---
+
+# DAY 02 CHECKLIST
+
+Before considering Day 02 complete, make sure you can:
+
+- [ ] Use SELECT to retrieve data.
+- [ ] Select specific columns.
+- [ ] Select all columns using *.
+- [ ] Use WHERE to filter rows.
+- [ ] Use =.
+- [ ] Use <>.
+- [ ] Use !=.
+- [ ] Use >.
+- [ ] Use <.
+- [ ] Use >=.
+- [ ] Use <=.
+- [ ] Combine SELECT and WHERE.
+- [ ] Explain SELECT vs WHERE.
+- [ ] Explain that WHERE does not modify the original table.
+
+---
+
+## Target
+
+Score: 90%+
+
+The goal is not only to write the correct query but also to understand why the query works.
