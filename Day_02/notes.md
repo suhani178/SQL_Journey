@@ -1,14 +1,10 @@
 # DAY 02 — SELECT & WHERE
 
-> Focus: Retrieving data and filtering rows
-
----
-
 ## 1. SELECT
 
 `SELECT` is used to retrieve data from a table.
 
-### Basic Syntax
+### Syntax
 
 SELECT column_name
 FROM table_name;
@@ -24,17 +20,14 @@ This retrieves the `ENAME` column from the `EMPLOYEE` table.
 
 ## 2. Selecting Multiple Columns
 
-We can retrieve multiple columns by separating their names with commas.
+Multiple columns can be retrieved by separating their names with commas.
 
 ### Example
 
-SELECT ENAME, SAL
+SELECT ENAME, JOB, SAL
 FROM EMPLOYEE;
 
-This retrieves:
-
-- Employee name
-- Employee salary
+This retrieves the employee name, job, and salary.
 
 ---
 
@@ -49,17 +42,15 @@ FROM EMPLOYEE;
 
 This retrieves all columns and all rows from the `EMPLOYEE` table.
 
-💡 Remember:
-
-`*` means **all columns**.
+> `*` means all columns.
 
 ---
 
-# 4. WHERE Clause
+## 4. WHERE
 
-`WHERE` is used to **filter rows based on a condition**.
+`WHERE` is used to filter rows based on a condition.
 
-### Basic Syntax
+### Syntax
 
 SELECT column_name
 FROM table_name
@@ -75,9 +66,9 @@ This returns only employees whose salary is greater than 3000.
 
 ---
 
-# 5. SELECT + WHERE
+## 5. SELECT with WHERE
 
-`SELECT` and `WHERE` are commonly used together.
+`SELECT` determines which columns to retrieve, while `WHERE` determines which rows to return.
 
 ### Example
 
@@ -85,23 +76,23 @@ SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL > 3000;
 
-### How to Read It
+### Breakdown
 
-- `SELECT ENAME, SAL` → choose the columns to display
-- `FROM EMPLOYEE` → get the data from EMPLOYEE
-- `WHERE SAL > 3000` → filter the rows
+- `SELECT ENAME, SAL` → selects the columns to display
+- `FROM EMPLOYEE` → specifies the table
+- `WHERE SAL > 3000` → filters the rows
 
-### Easy Way to Remember
+A simple way to remember:
 
-SELECT → **What columns?**
+**SELECT → What do I want to see?**
 
-WHERE → **Which rows?**
+**WHERE → Which rows do I want?**
 
 ---
 
-# 6. Comparison Operators
+## 6. Comparison Operators
 
-Comparison operators are used to compare values inside a condition.
+Comparison operators are used to create conditions in SQL.
 
 | Operator | Meaning |
 |----------|---------|
@@ -115,9 +106,9 @@ Comparison operators are used to compare values inside a condition.
 
 ---
 
-# 7. Equal To (=)
+## 7. Equal To (=)
 
-`=` checks whether a value is exactly equal to another value.
+`=` checks whether a value is equal to another value.
 
 ### Example
 
@@ -125,15 +116,13 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL = 3000;
 
-Meaning:
-
-Return employees whose salary is exactly `3000`.
+Returns employees whose salary is exactly 3000.
 
 ---
 
-# 8. Not Equal To (<>)
+## 8. Not Equal To (<>)
 
-`<>` checks whether a value is different from another value.
+`<>` checks whether a value is not equal to another value.
 
 ### Example
 
@@ -141,15 +130,13 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL <> 3000;
 
-Meaning:
-
-Return employees whose salary is not `3000`.
+Returns employees whose salary is not 3000.
 
 ---
 
-# 9. Not Equal To (!=)
+## 9. Not Equal To (!=)
 
-`!=` can also be used for "not equal to".
+`!=` can also be used to check for inequality.
 
 ### Example
 
@@ -157,13 +144,11 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL != 3000;
 
-In MySQL:
-
-`<>` and `!=` both mean **not equal to**.
+In MySQL, both `<>` and `!=` mean "not equal to".
 
 ---
 
-# 10. Greater Than (>)
+## 10. Greater Than (>)
 
 `>` checks whether a value is greater than another value.
 
@@ -173,16 +158,16 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL > 3000;
 
-### Result Logic
+For a salary of 3000:
 
-- `4000` → ✅ Included
-- `5000` → ✅ Included
-- `3000` → ❌ Not included
-- `2500` → ❌ Not included
+- 4000 → included
+- 5000 → included
+- 3000 → not included
+- 2500 → not included
 
 ---
 
-# 11. Less Than (<)
+## 11. Less Than (<)
 
 `<` checks whether a value is less than another value.
 
@@ -192,20 +177,18 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL < 3000;
 
-### Result Logic
+For a salary of 3000:
 
-- `2000` → ✅ Included
-- `2500` → ✅ Included
-- `3000` → ❌ Not included
-- `4000` → ❌ Not included
+- 2000 → included
+- 2500 → included
+- 3000 → not included
+- 4000 → not included
 
 ---
 
-# 12. Greater Than or Equal To (>=)
+## 12. Greater Than or Equal To (>=)
 
-`>=` means:
-
-**Greater than OR equal to**
+`>=` means greater than OR equal to.
 
 ### Example
 
@@ -213,20 +196,18 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL >= 3000;
 
-### Result Logic
+For a salary of 3000:
 
-- `5000` → ✅ Included
-- `4000` → ✅ Included
-- `3000` → ✅ Included
-- `2500` → ❌ Not included
+- 5000 → included
+- 4000 → included
+- 3000 → included
+- 2500 → not included
 
 ---
 
-# 13. Less Than or Equal To (<=)
+## 13. Less Than or Equal To (<=)
 
-`<=` means:
-
-**Less than OR equal to**
+`<=` means less than OR equal to.
 
 ### Example
 
@@ -234,22 +215,22 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL <= 3000;
 
-### Result Logic
+For a salary of 3000:
 
-- `2000` → ✅ Included
-- `2500` → ✅ Included
-- `3000` → ✅ Included
-- `4000` → ❌ Not included
+- 2000 → included
+- 2500 → included
+- 3000 → included
+- 4000 → not included
 
 ---
 
-# 14. SELECT vs WHERE
+## 14. SELECT vs WHERE
 
 | SELECT | WHERE |
 |--------|-------|
-| Chooses columns | Filters rows |
-| Determines what to display | Determines which rows to display |
-| Used to retrieve data | Used to apply conditions |
+| Retrieves data | Filters rows |
+| Determines which columns are returned | Determines which rows are returned |
+| Specifies what to display | Specifies the condition |
 
 ### Example
 
@@ -259,22 +240,21 @@ WHERE SAL > 3000;
 
 Here:
 
-`SELECT ENAME, SAL` → What should I display?
-
-`WHERE SAL > 3000` → Which employees should be displayed?
+- `SELECT ENAME, SAL` → chooses the columns
+- `WHERE SAL > 3000` → filters the rows
 
 ---
 
-# 15. Does WHERE Modify Data?
+## 15. Does WHERE Modify Data?
 
-❌ No.
+No.
 
 `WHERE` only filters the rows returned by a query.
 
 It does not:
 
-- Delete rows
-- Change values
+- Delete data
+- Update data
 - Permanently modify the table
 
 ### Example
@@ -283,15 +263,13 @@ SELECT *
 FROM EMPLOYEE
 WHERE SAL > 3000;
 
-This only displays matching employees.
-
-Employees with salary `3000` or below still exist in the table.
+This only displays matching rows. The other rows remain unchanged in the table.
 
 ---
 
-# 16. Basic SQL Query Pattern
+## 16. Basic Query Pattern
 
-The basic pattern learned today is:
+The basic SQL query pattern learned in Day 02 is:
 
 SELECT columns
 FROM table_name
@@ -303,142 +281,44 @@ SELECT ENAME, JOB
 FROM EMPLOYEE
 WHERE SAL > 3000;
 
-This pattern will be used throughout the SQL journey.
+---
+
+## 17. Key Takeaways
+
+- `SELECT` is used to retrieve data.
+- `*` represents all columns.
+- Specific columns can be selected by name.
+- `WHERE` is used to filter rows.
+- Comparison operators are used to create conditions.
+- `=` means equal to.
+- `<>` and `!=` mean not equal to.
+- `>` means greater than.
+- `<` means less than.
+- `>=` means greater than or equal to.
+- `<=` means less than or equal to.
+- `WHERE` does not modify the original table.
+- `SELECT` and `WHERE` are commonly used together.
 
 ---
 
-# 17. Practical Examples
+## Interview Revision
 
-### Example 1 — Salary greater than 5000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL > 5000;
-
-### Example 2 — Salary exactly 3000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL = 3000;
-
-### Example 3 — Salary below 2000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL < 2000;
-
-### Example 4 — Salary at least 3000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL >= 3000;
-
-### Example 5 — Salary at most 3000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <= 3000;
-
-### Example 6 — Salary not equal to 3000
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <> 3000;
-
----
-
-# 18. Important Points to Remember
-
-⭐ `SELECT` → retrieves data
-
-⭐ `*` → all columns
-
-⭐ `WHERE` → filters rows
-
-⭐ `=` → equal to
-
-⭐ `<>` / `!=` → not equal to
-
-⭐ `>` → greater than
-
-⭐ `<` → less than
-
-⭐ `>=` → greater than or equal to
-
-⭐ `<=` → less than or equal to
-
-⭐ `WHERE` does not modify the original table
-
----
-
-# 19. Interview Questions
-
-### Q1. What is SELECT?
+**What is SELECT?**
 
 `SELECT` is used to retrieve data from a database table.
 
-### Q2. What is WHERE?
+**What is WHERE?**
 
 `WHERE` is used to filter rows based on a specified condition.
 
-### Q3. What is the difference between SELECT and WHERE?
+**What is the difference between SELECT and WHERE?**
 
 `SELECT` determines which columns are retrieved, while `WHERE` determines which rows are returned.
 
-### Q4. What does `*` mean in SELECT?
+**What does `*` mean in SELECT?**
 
 `*` represents all columns of the selected table.
 
-### Q5. Does WHERE modify the original table?
+**Does WHERE modify the original table?**
 
 No. `WHERE` only filters the result returned by the query.
-
-### Q6. What is the difference between `=` and `>`?
-
-`=` checks for equality, while `>` checks whether one value is greater than another.
-
-### Q7. What is the difference between `<>` and `!=`?
-
-Both represent "not equal to" in MySQL.
-
----
-
-# 20. Quick Revision
-
-SELECT → Retrieve data
-
-WHERE → Filter rows
-
-`*` → All columns
-
-`=` → Equal to
-
-`<>` / `!=` → Not equal to
-
-`>` → Greater than
-
-`<` → Less than
-
-`>=` → Greater than or equal to
-
-`<=` → Less than or equal to
-
----
-
-# DAY 02 — FINAL TAKEAWAY
-
-The most important query pattern from today is:
-
-SELECT columns
-FROM table_name
-WHERE condition;
-
-Think of it as:
-
-**SELECT = What do I want?**
-
-**FROM = Where is the data?**
-
-**WHERE = Which rows do I want?**
-
-This is one of the fundamental patterns used in SQL and will be the base for more advanced queries in the upcoming days.
