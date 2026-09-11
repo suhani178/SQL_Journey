@@ -1,4 +1,3 @@
-DAY 4 — notes.md
 
 # Day 04 — DISTINCT & ORDER BY
 
