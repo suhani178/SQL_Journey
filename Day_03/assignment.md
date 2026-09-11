@@ -1,89 +1,78 @@
-Day 3 Assignment
+# Day 03 — Assignment
 
-Q1. Create EMPLOYEE Table
+## Objective
 
-CREATE TABLE EMPLOYEE(
-    EmpID INT PRIMARY KEY,
-    Name VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) UNIQUE,
-    Salary INT NOT NULL
-);
+Practice filtering rows using AND, OR, NOT, and combinations of these operators.
 
----
+## Part A — AND
 
-Q2. Insert Records
+1. Display employees who work in department 10 AND earn more than 2000.
 
-INSERT INTO EMPLOYEE
-VALUES
-(101,'Ram','ram@gmail.com',1000),
-(102,'Shyam','shyam@gmail.com',2000),
-(103,'Rahul','rahul@gmail.com',300);
+2. Display employees who earn more than 1500 AND less than 3000.
 
----
+3. Display employees who work in department 20 AND have the job 'CLERK'.
 
-Q3. Display All Records
+4. Display employee names and salaries of employees earning at least 2000 AND working in department 30.
 
-SELECT * FROM EMPLOYEE;
+## Part B — OR
 
----
+5. Display employees who work in department 10 OR department 20.
 
-Q4. Constraint Violation
+6. Display employees whose salary is 1250 OR 3000.
 
-INSERT INTO EMPLOYEE
-VALUES
-(104,NULL,'amit@gmail.com',4000);
+7. Display employees whose job is 'CLERK' OR 'MANAGER'.
 
-Constraint Violated:
+8. Display employee names of employees working in department 10 OR earning more than 3000.
 
-- NOT NULL
+## Part C — NOT
 
-Reason:
+9. Display employees who do NOT work in department 10.
 
-- Name column cannot contain NULL values.
+10. Display employees whose salary is NOT greater than 3000.
 
----
+11. Display employees whose job is NOT 'CLERK'.
 
-Q5. Constraint Violation
+12. Display employees who are NOT working in department 20.
 
-INSERT INTO EMPLOYEE
-VALUES
-(101,'Amit','amit@gmail.com',4000);
+## Part D — Combining Conditions
 
-Constraint Violated:
+13. Display employees who work in department 10 OR 20 AND earn more than 2000.
 
-- PRIMARY KEY
+14. Display employees who work in department 10 AND earn more than 2000 OR work in department 30.
 
-Reason:
+15. Display employees who work in department 10 OR 20 and have a salary greater than 2500.
 
-- EmpID 101 already exists.
+16. Display employees who are either CLERK or MANAGER AND earn more than 2000.
 
----
+17. Display employees who work in department 10 or 30 AND earn at least 1500.
 
-Q6. Constraint Violation
+## Part E — Parentheses
 
-INSERT INTO EMPLOYEE
-VALUES
-(105,'Amit','ram@gmail.com',4000);
+18. Display employees who work in department 10 OR 20 and earn more than 2000.
 
-Constraint Violated:
+19. Display employees who work in department 10 AND either earn more than 2000 or have the job 'MANAGER'.
 
-- UNIQUE
+20. Display employees who work in department 20 OR 30 and earn less than 3000.
 
-Reason:
+## Part F — Conceptual Questions
 
-- Email already exists.
+21. What is the difference between AND and OR?
 
----
+22. What does the NOT operator do?
 
-Bonus Question
+23. Which operator has higher precedence: AND or OR?
 
-INSERT INTO TEST
-VALUES(1,'Rahul',NULL);
+24. Why are parentheses useful when combining AND and OR?
 
-Result:
+25. Explain the difference between these two conditions:
 
-- Valid
+(DEPTNO = 10 OR DEPTNO = 20) AND SAL > 2000
 
-Reason:
+DEPTNO = 10 OR DEPTNO = 20 AND SAL > 2000
 
-- EMAIL has UNIQUE constraint but not NOT NULL constraint.
+## Rules
+
+- Use only Day 03 concepts.
+- Do not use IN, BETWEEN, LIKE, aggregate functions, GROUP BY, HAVING, JOINs, or subqueries.
+- Write the SQL query for Questions 1–20.
+- Answer Questions 21–25 in your own words.
