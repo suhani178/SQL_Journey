@@ -1,158 +1,60 @@
-Day 4 Assignment
+# Day 04 — Assignment: DISTINCT & ORDER BY
 
-Q1. Display all records.
+## Part A — DISTINCT
 
-SELECT *
-FROM EMPLOYEE;
+1. Display all unique department numbers.
 
----
+2. Display all unique job titles.
 
-Q2. Display employee names only.
+3. Display unique combinations of department number and job.
 
-SELECT ENAME
-FROM EMPLOYEE;
+4. Display unique department numbers in ascending order.
 
----
+5. Display unique job titles in descending alphabetical order.
 
-Q3. Display employee names and jobs.
+## Part B — ORDER BY
 
-SELECT ENAME, JOB
-FROM EMPLOYEE;
+6. Display all employees sorted by salary in ascending order.
 
----
+7. Display all employees sorted by salary in descending order.
 
-Q4. Display employee names and salaries.
+8. Display employee names and salaries sorted by salary from highest to lowest.
 
-SELECT ENAME, SAL
-FROM EMPLOYEE;
+9. Display employee names and jobs sorted alphabetically by employee name.
 
----
+10. Display employee names and jobs sorted by job in descending order.
 
-Q5. Display all distinct jobs.
+## Part C — Multiple Columns
 
-SELECT DISTINCT JOB
-FROM EMPLOYEE;
+11. Display employee name, department number and salary. Sort by department number in ascending order and salary in descending order.
 
----
+12. Display employee name, job and salary. Sort by job in ascending order and salary in descending order.
 
-Q6. Display all distinct department numbers.
+13. Display employee name, department number and salary. Sort by department number in descending order and salary in ascending order.
 
-SELECT DISTINCT DEPTNO
-FROM EMPLOYEE;
+## Part D — WHERE + ORDER BY
 
----
+14. Display employees earning more than 2000, sorted by salary in descending order.
 
-Q7. Display employees from department 20.
+15. Display employees working in department 20, sorted by salary in ascending order.
 
-SELECT *
-FROM EMPLOYEE
-WHERE DEPTNO = 20;
+16. Display employee names and salaries of employees earning less than 3000, sorted by salary in descending order.
 
----
+17. Display employees in department 10 or 30, sorted by employee name in ascending order.
 
-Q8. Display employees from department 10.
+## Part E — Conceptual Questions
 
-SELECT *
-FROM EMPLOYEE
-WHERE DEPTNO = 10;
+18. What is the purpose of DISTINCT?
 
----
+19. What is the difference between ASC and DESC?
 
-Q9. Display employees whose salary is greater than 2000.
+20. What happens when multiple columns are used with ORDER BY?
 
-SELECT *
-FROM EMPLOYEE
-WHERE SAL > 2000;
+21. What is the default sorting order?
 
----
+22. What is the difference between DISTINCT and ORDER BY?
 
-Q10. Display employees whose salary is less than 2000.
+## Rules
 
-SELECT *
-FROM EMPLOYEE
-WHERE SAL < 2000;
-
----
-
-Q11. Display employees whose salary is greater than or equal to 3000.
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL >= 3000;
-
----
-
-Q12. Display employees whose salary is less than or equal to 1600.
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <= 1600;
-
----
-
-Q13. Display employees who are not in department 30.
-
-SELECT *
-FROM EMPLOYEE
-WHERE DEPTNO <> 30;
-
----
-
-Q14. Display employees whose salary is not equal to 3000.
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL <> 3000;
-
----
-
-Q15. Display employee names of employees working in department 20.
-
-SELECT ENAME
-FROM EMPLOYEE
-WHERE DEPTNO = 20;
-
----
-
-Q16. Display employee names and salaries of employees working in department 10.
-
-SELECT ENAME, SAL
-FROM EMPLOYEE
-WHERE DEPTNO = 10;
-
----
-
-Q17. Display all columns of employees whose salary is greater than 2500.
-
-SELECT *
-FROM EMPLOYEE
-WHERE SAL > 2500;
-
----
-
-Q18. Display only the JOB column.
-
-SELECT JOB
-FROM EMPLOYEE;
-
----
-
-Q19. Display EMPNO and ENAME.
-
-SELECT EMPNO, ENAME
-FROM EMPLOYEE;
-
----
-
-Q20. Display all distinct salaries.
-
-SELECT DISTINCT SAL
-FROM EMPLOYEE;
-
----
-
-Q21. Display employee names whose department number is not 20.
-
-SELECT ENAME
-FROM EMPLOYEE
-WHERE DEPTNO <> 20;
+- Use only concepts covered up to Day 04.
+- Do not use IN, BETWEEN, LIKE, aggregate functions, GROUP BY, HAVING, JOINs or subqueries.
