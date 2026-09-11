@@ -1,132 +1,108 @@
-Day 6 Notes - LIKE, Wildcards and Aliases
+# Day 06 — Basic String Functions
 
-LIKE Operator
+## UPPER()
 
-The LIKE operator is used for pattern matching in SQL.
+Converts text to uppercase.
+
+SELECT UPPER(ENAME)
+FROM EMPLOYEE;
+
+
+## LOWER()
+
+Converts text to lowercase.
+
+SELECT LOWER(ENAME)
+FROM EMPLOYEE;
+
+
+## LENGTH()
+
+Returns the number of characters in a string.
+
+SELECT ENAME, LENGTH(ENAME)
+FROM EMPLOYEE;
+
+
+## CONCAT()
+
+Combines two strings.
+
+SELECT CONCAT(ENAME, JOB)
+FROM EMPLOYEE;
+
+Multiple strings can be combined using CONCAT() depending on the SQL database.
+
+Example:
+SELECT CONCAT(ENAME, ' ', JOB)
+FROM EMPLOYEE;
+
+
+## SUBSTRING()
+
+Extracts part of a string.
 
 Syntax:
-
-SELECT column_name
-FROM table_name
-WHERE column_name LIKE pattern;
+SUBSTRING(string, start_position, length);
 
 Example:
+SELECT ENAME, SUBSTRING(ENAME, 1, 3)
+FROM EMPLOYEE;
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'S%';
 
-This displays employee names starting with S.
+## TRIM()
 
----
+Removes leading and trailing spaces from a string.
 
-Wildcard %
+SELECT TRIM('  SQL  ');
 
-The "%" wildcard represents zero or more characters.
 
-Names Starting With A
+## LEFT()
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'A%';
+Returns characters from the left side of a string.
 
-Examples:
+SELECT LEFT(ENAME, 3)
+FROM EMPLOYEE;
 
-- ALLEN
-- AMIT
-- ANURAG
 
----
+## RIGHT()
 
-Names Ending With N
+Returns characters from the right side of a string.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%N';
+SELECT RIGHT(ENAME, 3)
+FROM EMPLOYEE;
 
-Examples:
 
-- ALLEN
-- MARTIN
+## String Functions with SELECT
 
----
-
-Names Containing A
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%A%';
-
-Examples:
-
-- ALLEN
-- JAMES
-- MARTIN
-
----
-
-Wildcard _
-
-The "_" wildcard represents exactly one character.
-
-Names With Exactly 5 Characters
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '_____';
+String functions can be applied directly to table columns.
 
 Example:
-
-- SMITH
-
----
-
-Names With Exactly 4 Characters
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '____';
+SELECT ENAME, UPPER(ENAME)
+FROM EMPLOYEE;
 
 Example:
+SELECT ENAME, LENGTH(ENAME)
+FROM EMPLOYEE;
 
-- KING
 
----
+## String Functions with WHERE
 
-Second Letter is A
+String functions can also be used in filtering conditions.
 
+Example:
 SELECT *
 FROM EMPLOYEE
-WHERE ENAME LIKE '_A%';
+WHERE UPPER(JOB) = 'MANAGER';
 
-Examples:
 
-- RAM
-- SAM
-- RAHUL
+## Key Takeaways
 
----
-
-Difference Between % and _
-
-%| _
-Zero or more characters| Exactly one character
-A%| A____
-%A%| _A%
-
-Examples:
-
-LIKE 'A%'
-
-Names starting with A.
-
-LIKE '_A%'
-
-Names whose second letter is A.
-
----
-
-Alias (AS)
-
-An alias gives a temporary name to a column.
-
+- UPPER() converts text to uppercase.
+- LOWER() converts text to lowercase.
+- LENGTH() returns the number of characters.
+- CONCAT() combines strings.
+- SUBSTRING() extracts part of a string.
+- TRIM() removes leading and trailing spaces.
+- LEFT() returns characters from the beginning.
+- RIGHT() returns characters from the end.
