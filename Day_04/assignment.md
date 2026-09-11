@@ -54,7 +54,3 @@
 
 22. What is the difference between DISTINCT and ORDER BY?
 
-## Rules
-
-- Use only concepts covered up to Day 04.
-- Do not use IN, BETWEEN, LIKE, aggregate functions, GROUP BY, HAVING, JOINs or subqueries.
