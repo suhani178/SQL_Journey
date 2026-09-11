@@ -49,8 +49,3 @@
 19. What is the difference between BETWEEN and NOT BETWEEN?
 
 20. How can IN replace multiple OR conditions?
-
-## Rules
-
-- Use only concepts covered up to Day 05.
-- Do not use LIKE, aggregate functions, GROUP BY, HAVING, JOINs, or subqueries.
