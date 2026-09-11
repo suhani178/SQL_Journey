@@ -1,168 +1,96 @@
-Day 5 Notes - AND, OR, NOT, IN, BETWEEN, ORDER BY
+# Day 05 — Advanced Filtering Basics
 
-AND Operator
+## NOTES
 
-Used when all conditions must be true.
+### IN
+
+IN checks whether a value matches any value in a list.
+
+Syntax:
+SELECT *
+FROM table_name
+WHERE column_name IN (value1, value2, value3);
 
 Example:
-
 SELECT *
-FROM EMP
-WHERE DEPTNO = 20
-AND SAL > 1500;
+FROM EMPLOYEE
+WHERE DEPTNO IN (10, 20, 30);
 
----
+### NOT IN
 
-OR Operator
-
-Used when at least one condition must be true.
+NOT IN excludes the specified values.
 
 Example:
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO NOT IN (10, 20);
+
+### IN with Text Values
 
 SELECT *
-FROM EMP
-WHERE DEPTNO = 10
-OR DEPTNO = 30;
+FROM EMPLOYEE
+WHERE JOB IN ('CLERK', 'MANAGER');
 
----
+### IN vs OR
 
-NOT Operator
+These queries produce the same result:
 
-Used to reverse a condition.
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO = 10 OR DEPTNO = 20 OR DEPTNO = 30;
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPTNO IN (10, 20, 30);
+
+### BETWEEN
+
+BETWEEN checks whether a value falls within a specified range.
+
+BETWEEN is inclusive, so both boundary values are included.
+
+Syntax:
+SELECT *
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
 
 Example:
-
 SELECT *
-FROM EMP
-WHERE NOT DEPTNO = 20;
+FROM EMPLOYEE
+WHERE SAL BETWEEN 2000 AND 4000;
 
----
+### NOT BETWEEN
 
-IN Operator
-
-Used to check multiple values in a column.
+NOT BETWEEN selects values outside the specified range.
 
 Example:
+SELECT *
+FROM EMPLOYEE
+WHERE SAL NOT BETWEEN 2000 AND 4000;
+
+### Combining IN and BETWEEN
 
 SELECT *
-FROM EMP
-WHERE DEPTNO IN (10,20,30);
+FROM EMPLOYEE
+WHERE DEPTNO IN (10, 20)
+AND SAL BETWEEN 2000 AND 4000;
 
-Equivalent to:
+### Key Differences
 
-SELECT *
-FROM EMP
-WHERE DEPTNO = 10
-OR DEPTNO = 20
-OR DEPTNO = 30;
+IN → Checks against a list of values.
 
----
+NOT IN → Excludes a list of values.
 
-BETWEEN Operator
+BETWEEN → Checks whether a value is within a range.
 
-Used to check values within a range.
+NOT BETWEEN → Checks whether a value is outside a range.
 
-Example:
+### Key Takeaways
 
-SELECT *
-FROM EMP
-WHERE SAL BETWEEN 1000 AND 3000;
-
-Important:
-
-BETWEEN includes both limits.
-
-1000 ≤ SAL ≤ 3000
-
----
-
-ORDER BY
-
-Used to sort records.
-
-Ascending Order
-
-SELECT *
-FROM EMP
-ORDER BY SAL ASC;
-
-Descending Order
-
-SELECT *
-FROM EMP
-ORDER BY SAL DESC;
-
----
-
-Operator Precedence
-
-AND has higher priority than OR.
-
-Example:
-
-WHERE DEPTNO = 10
-OR DEPTNO = 20
-AND SAL > 2500
-
-SQL interprets it as:
-
-WHERE DEPTNO = 10
-OR (DEPTNO = 20 AND SAL > 2500)
-
-Use parentheses when needed:
-
-WHERE (DEPTNO = 10 OR DEPTNO = 20)
-AND SAL > 2500;
-
----
-
-Interview Questions
-
-Difference between AND and OR?
-
-AND:
-
-- All conditions must be true.
-
-OR:
-
-- At least one condition must be true.
-
-Difference between IN and OR?
-
-These are equivalent:
-
-WHERE DEPTNO = 10
-OR DEPTNO = 20
-OR DEPTNO = 30;
-
-WHERE DEPTNO IN (10,20,30);
-
-IN is cleaner and easier to read.
-
-Does BETWEEN include endpoints?
-
-Yes.
-
-BETWEEN 1000 AND 3000
-
-means:
-
-1000 ≤ value ≤ 3000
-
----
-
-Day 5 Summary
-
-Topics Covered:
-
-- AND
-- OR
-- NOT
-- IN
-- BETWEEN
-- ORDER BY
-- ASC
-- DESC
-- Operator Precedence
-
+- IN is useful for checking multiple specific values.
+- IN can replace multiple OR conditions.
+- NOT IN excludes specified values.
+- BETWEEN checks a range.
+- BETWEEN includes both boundary values.
+- NOT BETWEEN excludes a range.
+- IN and BETWEEN can be combined with AND and OR.
