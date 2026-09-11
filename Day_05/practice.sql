@@ -1,4 +1,3 @@
--- Day 5 Practice
 SELECT *
 FROM EMPLOYEE
 WHERE DEPTNO IN (10, 20, 30);
