@@ -1,197 +1,56 @@
-Day 5 Assignment
+# Day 05 — Assignment
 
-Q1. Display employees from department 20 whose salary is greater than 1500.
+## Part A — IN
 
-SELECT *
-FROM EMP
-WHERE DEPTNO = 20
-AND SAL > 1500;
+1. Display employees working in departments 10, 20, or 30.
 
-Q2. Display employee names from department 20 whose salary is greater than 2500.
+2. Display employees whose job is CLERK or MANAGER.
 
-SELECT ENAME
-FROM EMP
-WHERE DEPTNO = 20
-AND SAL > 2500;
+3. Display employees whose salary is 1250, 2000, or 3000.
 
-Q3. Display employees from department 30 whose salary is less than 2000.
+4. Display employee names and salaries of employees working in departments 10 or 30.
 
-SELECT *
-FROM EMP
-WHERE DEPTNO = 30
-AND SAL < 2000;
+## Part B — NOT IN
 
-Q4. Display employee names and salaries of employees from department 20 whose salary is greater than or equal to 3000.
+5. Display employees who are not working in departments 10 or 20.
 
-SELECT ENAME, SAL
-FROM EMP
-WHERE DEPTNO = 20
-AND SAL >= 3000;
+6. Display employees whose job is neither CLERK nor SALESMAN.
 
-Q5. Display employees from department 10 or department 30.
+7. Display employee names and salaries of employees whose department is not 10 or 30.
 
-SELECT *
-FROM EMP
-WHERE DEPTNO = 10
-OR DEPTNO = 30;
+## Part C — BETWEEN
 
-Q6. Display employees whose salary is less than 1000 or greater than 3000.
+8. Display employees whose salary is between 1500 and 3000.
 
-SELECT *
-FROM EMP
-WHERE SAL < 1000
-OR SAL > 3000;
+9. Display employees whose salary is between 2000 and 4000.
 
-Q7. Display employee names working in department 10 or 20.
+10. Display employees whose salary is NOT between 2000 and 4000.
 
-SELECT ENAME
-FROM EMP
-WHERE DEPTNO = 10
-OR DEPTNO = 20;
+11. Display employee names and salaries of employees earning between 1000 and 2500.
 
-Q8. Display employees whose job is CLERK or MANAGER.
+## Part D — Combining Conditions
 
-SELECT *
-FROM EMP
-WHERE JOB = 'CLERK'
-OR JOB = 'MANAGER';
+12. Display employees working in departments 10 or 20 and earning more than 2000.
 
-Q9. Display employees not working in department 20.
+13. Display employees working in departments 10 or 30 and earning between 1500 and 3500.
 
-SELECT *
-FROM EMP
-WHERE NOT DEPTNO = 20;
+14. Display employees who are CLERK or MANAGER and earn more than 1500.
 
-Q10. Display employees whose salary is not equal to 3000.
+15. Display employees who are not in departments 10 or 20 and earn between 1500 and 3000.
 
-SELECT *
-FROM EMP
-WHERE SAL <> 3000;
+## Part E — Conceptual Questions
 
-Q11. Display employee names not working as CLERK.
+16. What is the purpose of the IN operator?
 
-SELECT ENAME
-FROM EMP
-WHERE JOB <> 'CLERK';
+17. What is the difference between IN and NOT IN?
 
-Q12. Display employees from departments 10, 20, and 30 using IN.
+18. Is BETWEEN inclusive or exclusive?
 
-SELECT *
-FROM EMP
-WHERE DEPTNO IN (10,20,30);
+19. What is the difference between BETWEEN and NOT BETWEEN?
 
-Q13. Display employee names from departments 10 and 20 using IN.
+20. How can IN replace multiple OR conditions?
 
-SELECT ENAME
-FROM EMP
-WHERE DEPTNO IN (10,20);
+## Rules
 
-Q14. Display employees whose job is CLERK, MANAGER, or ANALYST using IN.
-
-SELECT *
-FROM EMP
-WHERE JOB IN ('CLERK','MANAGER','ANALYST');
-
-Q15. Display employees whose salary is between 1000 and 3000.
-
-SELECT *
-FROM EMP
-WHERE SAL BETWEEN 1000 AND 3000;
-
-Q16. Display employee names whose salary is between 1500 and 5000.
-
-SELECT ENAME
-FROM EMP
-WHERE SAL BETWEEN 1500 AND 5000;
-
-Q17. Display employees whose salary is between 2000 and 4000.
-
-SELECT *
-FROM EMP
-WHERE SAL BETWEEN 2000 AND 4000;
-
-Q18. Display employee names and salaries whose salary is between 800 and 3000.
-
-SELECT ENAME, SAL
-FROM EMP
-WHERE SAL BETWEEN 800 AND 3000;
-
-Q19. Display all employees sorted by salary in ascending order.
-
-SELECT *
-FROM EMP
-ORDER BY SAL ASC;
-
-Q20. Display all employees sorted by salary in descending order.
-
-SELECT *
-FROM EMP
-ORDER BY SAL DESC;
-
-Q21. Display employee names sorted alphabetically.
-
-SELECT ENAME
-FROM EMP
-ORDER BY ENAME ASC;
-
-Q22. Display employee names sorted in reverse alphabetical order.
-
-SELECT ENAME
-FROM EMP
-ORDER BY ENAME DESC;
-
-Q23. Display employee names from department 20 whose salary is between 2000 and 5000.
-
-SELECT ENAME
-FROM EMP
-WHERE DEPTNO = 20
-AND SAL BETWEEN 2000 AND 5000;
-
-Q24. Display employees from department 10 or 20 whose salary is greater than 2500.
-
-SELECT *
-FROM EMP
-WHERE (DEPTNO = 10 OR DEPTNO = 20)
-AND SAL > 2500;
-
-Q25. Display employees not in department 30 and whose salary is greater than 1000.
-
-SELECT *
-FROM EMP
-WHERE DEPTNO <> 30
-AND SAL > 1000;
-
-Q26. Display employee names and jobs from departments 10 and 20.
-
-SELECT ENAME, JOB
-FROM EMP
-WHERE DEPTNO IN (10,20);
-
-Q27. Display all employees sorted by department number.
-
-SELECT *
-FROM EMP
-ORDER BY DEPTNO;
-
-Q28. Display employee names whose salary is between 1000 and 5000 and who are not in department 30.
-
-SELECT ENAME
-FROM EMP
-WHERE SAL BETWEEN 1000 AND 5000
-AND DEPTNO <> 30;
-
----
-
-Day 5 Learning Summary
-
-Topics Covered:
-
-- AND
-- OR
-- NOT
-- IN
-- BETWEEN
-- ORDER BY
-- ASC
-- DESC
-- Operator Precedence
+- Use only concepts covered up to Day 05.
+- Do not use LIKE, aggregate functions, GROUP BY, HAVING, JOINs, or subqueries.
