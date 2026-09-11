@@ -1,109 +1,25 @@
-Day 6 Assignment
+# Day 06 — Assignment
 
-Q1. Display employees whose names start with A.
+1. Display all employee names in uppercase.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'A%';
+2. Display all employee names in lowercase.
 
-Q2. Display employees whose names start with M.
+3. Display employee names along with their name length.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'M%';
+4. Display employee names and jobs as one combined string.
 
-Q3. Display employees whose names end with N.
+5. Display employee names and jobs separated by a space.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%N';
+6. Display the first three characters of every employee name.
 
-Q4. Display employees whose names end with H.
+7. Display the last three characters of every employee name.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%H';
+8. Remove leading and trailing spaces from the string '  SQL  '.
 
-Q5. Display employees whose names contain A.
+9. Display employee names in uppercase and their jobs in lowercase.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%A%';
+10. Display employees whose job is MANAGER using UPPER() in the condition.
 
-Q6. Display employees whose names contain S.
+11. Display employee names along with the first two characters of their names.
 
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '%S%';
-
-Q7. Display employees whose names start with S and end with H.
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'S%'
-AND ENAME LIKE '%H';
-
-Q8. Display employees whose names have exactly 5 characters.
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '_____';
-
-Q9. Display employees whose names have exactly 4 characters.
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '____';
-
-Q10. Display employees whose second letter is A.
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE '_A%';
-
-Q11. Display employee names with alias Employee_Name.
-
-SELECT ENAME AS Employee_Name
-FROM EMPLOYEE;
-
-Q12. Display salary with alias Employee_Salary.
-
-SELECT SAL AS Employee_Salary
-FROM EMPLOYEE;
-
-Q13. Display employee name and salary with aliases Employee_Name and Employee_Salary.
-
-SELECT ENAME AS Employee_Name,
-       SAL AS Employee_Salary
-FROM EMPLOYEE;
-
-Q14. Display employee names containing the letter T.
-
-SELECT ENAME
-FROM EMPLOYEE
-WHERE ENAME LIKE '%T%';
-
-Q15. Display employee names starting with J.
-
-SELECT ENAME
-FROM EMPLOYEE
-WHERE ENAME LIKE 'J%';
-
-Q16. Display employee names that start with A and contain N somewhere after it.
-
-SELECT *
-FROM EMPLOYEE
-WHERE ENAME LIKE 'A%N%';
-
----
-
-Day 6 Learning Summary
-
-Topics Covered:
-
-- LIKE Operator
-- % Wildcard
-- _ Wildcard
-- Pattern Matching
-- Alias (AS)
-
+12. Display employee names along with their length, sorted by name length.
