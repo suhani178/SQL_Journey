@@ -1,83 +1,74 @@
-Day 7 Assignment
+# Day 07 — Numeric Functions + CASE Assignment
 
-Q1
+## Part A — Numeric Functions
 
-SELECT COUNT(*)
-FROM EMP;
+1. Round the salary of all employees to the nearest integer.
 
-Q2
+2. Display employee names and their salaries rounded to 2 decimal places.
 
-SELECT SUM(SAL)
-FROM EMP;
+3. Use CEIL() to round 123.45 upward.
 
-Q3
+4. Use FLOOR() to round 123.99 downward.
 
-SELECT AVG(SAL)
-FROM EMP;
+5. Find the absolute value of -250 using ABS().
 
-Q4
+6. Display EMPNO and the remainder when EMPNO is divided by 2 using MOD().
 
-SELECT MAX(SAL)
-FROM EMP;
+7. Calculate 5 raised to the power of 2 using POWER().
 
-Q5
+8. Find the square root of 144 using SQRT().
 
-SELECT MIN(SAL)
-FROM EMP;
+9. Display ENAME and SAL, along with the remainder of SAL divided by 2.
 
-Q6
+## Part B — CASE
 
-SELECT COUNT(*)
-FROM EMP
-WHERE DEPTNO = 20;
+10. Display ENAME and SAL and classify employees as:
+    - 'HIGH' if SAL >= 3000
+    - 'MEDIUM' if SAL >= 2000
+    - 'LOW' otherwise
 
-Q7
+11. Display ENAME and JOB and classify employees as:
+    - 'LEADERSHIP' for MANAGER
+    - 'SUPPORT' for CLERK
+    - 'OTHER' for all other jobs
 
-SELECT SUM(SAL)
-FROM EMP
-WHERE DEPTNO = 30;
+12. Create a CASE expression that classifies employees based on salary:
+    - 'VERY HIGH' if SAL >= 4000
+    - 'HIGH' if SAL >= 3000
+    - 'MEDIUM' if SAL >= 2000
+    - 'LOW' otherwise
 
-Q8
+13. Display ENAME, SAL, and a new column called SALARY_LEVEL using CASE.
 
-SELECT AVG(SAL)
-FROM EMP
-WHERE DEPTNO = 10;
+14. Create a CASE expression that identifies employees as:
+    - 'EVEN' if EMPNO is divisible by 2
+    - 'ODD' otherwise
 
-Q9
+## Part C — Combining Concepts
 
-SELECT MAX(SAL)
-FROM EMP
-WHERE JOB = 'CLERK';
+15. Display ENAME, SAL, and the rounded salary using ROUND(), then classify the rounded salary using CASE.
 
-Q10
+16. Display ENAME, SAL, and classify employees as 'ABOVE 2500' or '2500 OR BELOW'.
 
-SELECT MIN(SAL)
-FROM EMP
-WHERE JOB = 'MANAGER';
+17. Display ENAME, DEPTNO, and create a CASE expression:
+    - 'DEPT 10' for department 10
+    - 'DEPT 20' for department 20
+    - 'OTHER DEPT' otherwise
 
-Q11
+18. Use MOD() and CASE together to classify EMPNO as EVEN or ODD.
 
-SELECT COUNT(*)
-FROM EMP
-WHERE SAL > 2000;
+## Part D — Conceptual
 
-Q12
+19. What is the difference between WHERE and CASE?
 
-SELECT AVG(SAL)
-FROM EMP
-WHERE JOB = 'ANALYST';
+20. What is the purpose of ELSE in a CASE expression?
 
-Q13
+21. What happens if no WHEN condition matches and there is no ELSE?
 
-SELECT MAX(EMPNO)
-FROM EMP;
+22. Why does the order of WHEN conditions matter?
 
-Q14
+23. What does MOD() return?
 
-SELECT MIN(DEPTNO)
-FROM EMP;
+24. Explain the difference between ROUND(), CEIL(), and FLOOR().
 
-Q15
-
-SELECT MAX(SAL) - MIN(SAL)
-FROM EMP;
+25. Write the general syntax of a CASE expression.
