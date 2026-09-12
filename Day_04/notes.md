@@ -1,124 +1,163 @@
+# Day 04 — DISTINCT and ORDER BY
 
-# Day 04 — DISTINCT & ORDER BY
+## 1. DISTINCT
 
-## DISTINCT
+DISTINCT removes duplicate rows from the query result.
 
-DISTINCT removes duplicate rows from the result.
+### Syntax
 
-Syntax:
 SELECT DISTINCT column_name
 FROM table_name;
 
-Example:
+### Example
+
 SELECT DISTINCT DEPTNO
 FROM EMPLOYEE;
 
-## DISTINCT with Multiple Columns
+This returns each department number only once.
 
-DISTINCT considers the combination of all selected columns.
+---
 
-Example:
+## 2. DISTINCT with Multiple Columns
+
+When multiple columns are used with DISTINCT, SQL removes duplicate combinations of those columns.
+
+### Example
+
 SELECT DISTINCT DEPTNO, JOB
 FROM EMPLOYEE;
 
-## ORDER BY
+Here, SQL returns each unique DEPTNO + JOB combination.
 
-ORDER BY is used to sort the result.
+Important:
+DISTINCT does not make each column individually unique.
+It removes duplicate result rows based on the selected columns.
 
-Syntax:
-SELECT column1, column2
-FROM table_name
-ORDER BY column_name;
+---
 
-## ASC
+## 3. ORDER BY
 
-ASC sorts values in ascending order.
+ORDER BY sorts the result of a query.
 
-Example:
+### Ascending Order
+
 SELECT *
 FROM EMPLOYEE
 ORDER BY SAL ASC;
 
-ASC is the default sorting order.
+ASC means ascending order.
 
-## DESC
+For numbers:
+Small → Large
 
-DESC sorts values in descending order.
+For text:
+A → Z
 
-Example:
+---
+
+## 4. Descending Order
+
 SELECT *
 FROM EMPLOYEE
 ORDER BY SAL DESC;
 
-## ORDER BY with Text
+DESC means descending order.
+
+For numbers:
+Large → Small
+
+For text:
+Z → A
+
+---
+
+## 5. ORDER BY Without ASC or DESC
+
+If no sorting direction is specified, ASC is the default.
 
 Example:
-SELECT ENAME, JOB
+
+SELECT *
 FROM EMPLOYEE
-ORDER BY ENAME ASC;
+ORDER BY SAL;
 
-Example:
-SELECT ENAME, JOB
+This is equivalent to:
+
+SELECT *
 FROM EMPLOYEE
-ORDER BY ENAME DESC;
+ORDER BY SAL ASC;
 
-## ORDER BY with Multiple Columns
+---
 
-Multiple columns can be used for sorting.
+## 6. ORDER BY with Multiple Columns
 
-The first column is sorted first. If two rows have the same value, the next column is used.
+SQL can sort using multiple columns.
 
-Example:
+### Example
+
 SELECT ENAME, DEPTNO, SAL
 FROM EMPLOYEE
 ORDER BY DEPTNO ASC, SAL DESC;
 
-## DISTINCT with ORDER BY
+SQL first sorts by DEPTNO.
 
-Example:
+If multiple employees have the same DEPTNO, their salaries are sorted from highest to lowest.
+
+General syntax:
+
+ORDER BY column1 ASC, column2 DESC;
+
+---
+
+## 7. DISTINCT with ORDER BY
+
+DISTINCT and ORDER BY can be used together.
+
+### Example
+
 SELECT DISTINCT DEPTNO
 FROM EMPLOYEE
 ORDER BY DEPTNO ASC;
 
-## WHERE with ORDER BY
+DISTINCT removes duplicate department numbers, and ORDER BY sorts them.
 
-WHERE filters the rows and ORDER BY sorts the filtered result.
+---
 
-Example:
+## 8. WHERE with ORDER BY
+
+WHERE filters rows, while ORDER BY sorts the remaining rows.
+
+### Example
+
 SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL > 2000
 ORDER BY SAL DESC;
 
-## Clause Order
+The query:
 
-The basic order is:
+1. Selects employee names and salaries.
+2. Keeps employees whose salary is greater than 2000.
+3. Sorts the result by salary from highest to lowest.
+
+---
+
+## 9. Basic Clause Order
+
+For the concepts learned so far:
 
 SELECT
 FROM
 WHERE
 ORDER BY
 
-Example:
+### Example
+
 SELECT ENAME, SAL
 FROM EMPLOYEE
 WHERE SAL > 2000
 ORDER BY SAL DESC;
 
-## DISTINCT vs ORDER BY
+The query is written as:
 
-DISTINCT → Removes duplicate results.
-
-ORDER BY → Sorts the result.
-
-WHERE → Filters rows.
-
-## Key Takeaways
-
-- DISTINCT removes duplicate results.
-- ORDER BY sorts query results.
-- ASC means ascending order.
-- DESC means descending order.
-- ASC is the default sorting direction.
-- Multiple columns can be used with ORDER BY.
-- WHERE filters rows before ORDER BY sorts the result.
+SELECT → FROM → WHERE → ORDER BY
