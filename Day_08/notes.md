@@ -1,141 +1,300 @@
-Day 8 Notes - GROUP BY
+# Day 08 — NULL Handling
 
-What is GROUP BY?
+## 1. What is NULL?
 
-GROUP BY is used to group rows having the same value.
+`NULL` represents a missing, unknown, or unavailable value in SQL.
 
-Syntax:
+It does not mean:
 
-SELECT column_name, aggregate_function(column_name)
+- 0
+- Empty string
+- False
+- A value that does not exist
+
+Example:
+
+If an employee does not have a commission value, `COMM` may contain `NULL`.
+
+---
+
+## 2. Checking for NULL
+
+To find rows where a column contains NULL, use `IS NULL`.
+
+### Syntax
+
+SELECT *
 FROM table_name
-GROUP BY column_name;
+WHERE column_name IS NULL;
+
+### Example
+
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NULL;
+
+This returns employees whose commission is NULL.
 
 ---
 
-Average Salary Department-wise
+## 3. IS NOT NULL
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+`IS NOT NULL` finds rows where a column contains a value.
 
----
+### Example
 
-Total Salary Department-wise
+SELECT *
+FROM EMPLOYEE
+WHERE COMM IS NOT NULL;
 
-SELECT DEPTNO, SUM(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+This returns employees whose commission is available.
 
 ---
 
-Highest Salary Department-wise
+## 4. Why = NULL Does Not Work
 
-SELECT DEPTNO, MAX(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+Do not use:
 
----
+WHERE COMM = NULL;
 
-Lowest Salary Department-wise
+This does not correctly check for NULL.
 
-SELECT DEPTNO, MIN(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+Use:
 
----
+WHERE COMM IS NULL;
 
-Employee Count Department-wise
+Similarly, do not use:
 
-SELECT DEPTNO, COUNT(*)
-FROM EMP
-GROUP BY DEPTNO;
+WHERE COMM != NULL;
 
----
+Use:
 
-Job-wise Average Salary
+WHERE COMM IS NOT NULL;
 
-SELECT JOB, AVG(SAL)
-FROM EMP
-GROUP BY JOB;
+### Remember
 
----
+NULL must be checked using:
 
-Job-wise Employee Count
+IS NULL
 
-SELECT JOB, COUNT(*)
-FROM EMP
-GROUP BY JOB;
+or
+
+IS NOT NULL
 
 ---
 
-GROUP BY with WHERE
+## 5. NULL in Comparisons
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-WHERE SAL > 1000
-GROUP BY DEPTNO;
+NULL represents an unknown value.
 
----
+Therefore, normal comparison operators cannot be used to check whether something is NULL.
 
-Important Rule
+Incorrect:
 
-Wrong:
+COMM = NULL
 
-SELECT ENAME, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+COMM <> NULL
 
-Reason:
-
-ENAME is neither grouped nor aggregated.
+COMM > NULL
 
 Correct:
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO;
+COMM IS NULL
+
+COMM IS NOT NULL
 
 ---
 
-SQL Execution Order
+## 6. NULL in Calculations
 
-FROM
-↓
-WHERE
-↓
-GROUP BY
-↓
-SELECT
-↓
-ORDER BY
+Calculations involving NULL generally produce NULL.
 
----
+Example:
 
-Interview Questions
+SELECT ENAME, SAL, COMM, SAL + COMM
+FROM EMPLOYEE;
 
-What does GROUP BY do?
+If `COMM` is NULL, the expression:
 
-Groups rows having the same value.
+SAL + COMM
 
-Can GROUP BY be used without aggregate functions?
+results in NULL.
 
-Yes.
-
-SELECT DEPTNO
-FROM EMP
-GROUP BY DEPTNO;
+This happens because the value of COMM is unknown.
 
 ---
 
-Day 8 Summary
+## 7. COALESCE()
 
-Key Learnings:
+`COALESCE()` is used to return the first non-NULL value from a list of expressions.
 
-- GROUP BY
-- COUNT()
-- SUM()
-- AVG()
-- MIN()
-- MAX()
-- WHERE + GROUP BY
+### Syntax
 
+COALESCE(value1, value2, value3, ...)
+
+### Example
+
+SELECT ENAME, COALESCE(COMM, 0)
+FROM EMPLOYEE;
+
+If `COMM` has a value, that value is returned.
+
+If `COMM` is NULL, `0` is returned.
+
+---
+
+## 8. COALESCE() with Multiple Values
+
+Example:
+
+SELECT COALESCE(NULL, NULL, 100, 200);
+
+Result:
+
+100
+
+SQL checks the values from left to right and returns the first non-NULL value.
+
+---
+
+## 9. Using COALESCE() in Calculations
+
+Suppose we want salary plus commission.
+
+Instead of:
+
+SELECT ENAME, SAL + COMM
+FROM EMPLOYEE;
+
+we can use:
+
+SELECT ENAME, SAL + COALESCE(COMM, 0)
+FROM EMPLOYEE;
+
+Now employees with NULL commission are treated as having commission 0 for this calculation.
+
+---
+
+## 10. NULL vs 0
+
+`NULL` and `0` are different.
+
+### NULL
+
+Means the value is missing or unknown.
+
+### 0
+
+Means the actual value is zero.
+
+For example:
+
+COMM = NULL
+
+means the commission value is unknown or unavailable.
+
+COMM = 0
+
+means the commission is actually zero.
+
+---
+
+## 11. NULL vs Empty String
+
+An empty string and NULL should not automatically be treated as the same concept.
+
+An empty string represents a string value with no characters.
+
+NULL represents a missing or unknown value.
+
+The exact behavior of empty strings can differ between database systems, so always consider the SQL database you are using.
+
+---
+
+## 12. WHERE with NULL
+
+Example:
+
+SELECT ENAME, COMM
+FROM EMPLOYEE
+WHERE COMM IS NULL;
+
+This filters the rows and returns only employees with missing commission values.
+
+---
+
+## 13. COALESCE() with a Display Label
+
+COALESCE() can also be used to display meaningful text.
+
+Example:
+
+SELECT ENAME, COALESCE(JOB, 'NOT ASSIGNED')
+FROM EMPLOYEE;
+
+If JOB is NULL, the query displays `NOT ASSIGNED`.
+
+---
+
+## 14. Important Rule
+
+`NULL` cannot be checked using:
+
+=
+<>
+!=
+>
+<
+>=
+<=
+
+Use:
+
+IS NULL
+
+or:
+
+IS NOT NULL
+
+---
+
+# Key Takeaways
+
+- NULL represents a missing, unknown, or unavailable value.
+- NULL is different from 0.
+- NULL is different from an empty string.
+- Use `IS NULL` to find NULL values.
+- Use `IS NOT NULL` to find non-NULL values.
+- Never use `= NULL` to check for NULL.
+- `COALESCE()` returns the first non-NULL value.
+- COALESCE() is useful for replacing NULL with a default value.
+- NULL can cause calculations to produce NULL.
+- `COALESCE()` can be used to safely handle NULL values in calculations.
+
+---
+
+# Interview Revision
+
+### What is NULL in SQL?
+
+NULL represents a missing, unknown, or unavailable value.
+
+### How do you check for NULL?
+
+Use `IS NULL`.
+
+### How do you check for a non-NULL value?
+
+Use `IS NOT NULL`.
+
+### Why can't we use = NULL?
+
+NULL represents an unknown value, so normal equality comparison does not correctly test for NULL.
+
+### What is COALESCE()?
+
+COALESCE() returns the first non-NULL value from the given expressions.
+
+### What is the difference between NULL and 0?
+
+NULL represents a missing or unknown value, while 0 is an actual numeric value.
