@@ -125,7 +125,7 @@ No.
 
 ---
 
-Day 9 Summary
+Day 9 Summary:
 
 Key Learnings:
 
