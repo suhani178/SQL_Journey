@@ -1,136 +1,334 @@
-Day 9 Notes - HAVING Clause
+# Day 09 — SQL Language Categories
 
-Why HAVING?
+## 1. SQL Command Categories
 
-WHERE filters rows.
+SQL commands are commonly divided into five major categories:
 
-HAVING filters groups.
+1. DDL — Data Definition Language
+2. DML — Data Manipulation Language
+3. DQL — Data Query Language
+4. DCL — Data Control Language
+5. TCL — Transaction Control Language
 
----
-
-Problem
-
-Wrong:
-
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-WHERE AVG(SAL) > 2000
-GROUP BY DEPTNO;
-
-Reason:
-
-WHERE cannot use aggregate functions.
+Each category has a different purpose.
 
 ---
 
-HAVING Syntax
+## 2. DDL — Data Definition Language
 
-SELECT column_name, aggregate_function(column_name)
-FROM table_name
-GROUP BY column_name
-HAVING condition;
+DDL is used to define and modify the structure of database objects such as tables.
 
----
+Common DDL commands:
 
-Example 1
+- CREATE
+- ALTER
+- DROP
+- TRUNCATE
 
-Departments whose average salary is greater than 2000.
+### CREATE
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000;
+Used to create a database object.
 
----
+Example:
 
-Example 2
+CREATE TABLE EMPLOYEE (
+    EMPNO INT,
+    ENAME VARCHAR(50),
+    SAL DECIMAL(10,2)
+);
 
-Departments whose total salary is greater than 10000.
+### ALTER
 
-SELECT DEPTNO, SUM(SAL)
-FROM EMP
-GROUP BY DEPTNO
-HAVING SUM(SAL) > 10000;
+Used to modify the structure of an existing table.
 
----
+Example:
 
-Example 3
+ALTER TABLE EMPLOYEE
+ADD COMM DECIMAL(10,2);
 
-Departments having more than 3 employees.
+### DROP
 
-SELECT DEPTNO, COUNT(*)
-FROM EMP
-GROUP BY DEPTNO
-HAVING COUNT(*) > 3;
+Used to remove a database object completely.
 
----
+Example:
 
-WHERE vs HAVING
+DROP TABLE EMPLOYEE;
 
-WHERE:
+### TRUNCATE
 
-- Filters rows
-- Used before GROUP BY
-- Cannot use aggregate functions
+Used to remove all rows from a table while keeping the table structure.
 
-HAVING:
+Example:
 
-- Filters groups
-- Used after GROUP BY
-- Can use aggregate functions
+TRUNCATE TABLE EMPLOYEE;
 
 ---
 
-WHERE + HAVING
+## 3. DML — Data Manipulation Language
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-WHERE SAL > 1000
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000;
+DML is used to add, modify, and remove data stored in tables.
+
+Common DML commands:
+
+- INSERT
+- UPDATE
+- DELETE
+
+### INSERT
+
+Adds new rows to a table.
+
+Example:
+
+INSERT INTO EMPLOYEE (EMPNO, ENAME, SAL)
+VALUES (101, 'SMITH', 2000);
+
+### UPDATE
+
+Modifies existing rows.
+
+Example:
+
+UPDATE EMPLOYEE
+SET SAL = 2500
+WHERE EMPNO = 101;
+
+### DELETE
+
+Removes rows from a table.
+
+Example:
+
+DELETE FROM EMPLOYEE
+WHERE EMPNO = 101;
 
 ---
 
-SQL Execution Order
+## 4. DQL — Data Query Language
 
-FROM
-↓
-WHERE
-↓
-GROUP BY
-↓
-HAVING
-↓
+DQL is used to retrieve data from the database.
+
+The main command is:
+
+- SELECT
+
+Example:
+
+SELECT *
+FROM EMPLOYEE;
+
+Another example:
+
+SELECT ENAME, SAL
+FROM EMPLOYEE
+WHERE SAL > 2000;
+
+SELECT retrieves data but does not modify the stored data.
+
+---
+
+## 5. DCL — Data Control Language
+
+DCL is used to control access and permissions on database objects.
+
+Common commands:
+
+- GRANT
+- REVOKE
+
+### GRANT
+
+Provides permissions to a user or role.
+
+Example:
+
+GRANT SELECT
+ON EMPLOYEE
+TO user1;
+
+### REVOKE
+
+Removes previously granted permissions.
+
+Example:
+
+REVOKE SELECT
+ON EMPLOYEE
+FROM user1;
+
+---
+
+## 6. TCL — Transaction Control Language
+
+TCL is used to manage transactions.
+
+Common commands:
+
+- COMMIT
+- ROLLBACK
+- SAVEPOINT
+
+### COMMIT
+
+Permanently saves the changes made during a transaction.
+
+Example:
+
+COMMIT;
+
+### ROLLBACK
+
+Undoes uncommitted changes.
+
+Example:
+
+ROLLBACK;
+
+### SAVEPOINT
+
+Creates a point within a transaction to which you can later roll back.
+
+Example:
+
+SAVEPOINT sp1;
+
+ROLLBACK TO sp1;
+
+---
+
+## 7. DDL vs DML vs DQL
+
+### DDL
+
+Works mainly with database structure.
+
+Examples:
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+
+### DML
+
+Works with the data stored in tables.
+
+Examples:
+
+INSERT
+UPDATE
+DELETE
+
+### DQL
+
+Retrieves data.
+
+Example:
+
 SELECT
-↓
-ORDER BY
 
 ---
 
-Expected Interview Questions:
+## 8. DCL vs TCL
 
-Difference between WHERE and HAVING?
+### DCL
 
-WHERE filters rows.
+Controls user permissions.
 
-HAVING filters groups.
+Examples:
 
-Can HAVING use aggregate functions?
+GRANT
+REVOKE
 
-Yes.
+### TCL
 
-Can WHERE use aggregate functions?
+Controls transactions and changes made during a transaction.
 
-No.
+Examples:
+
+COMMIT
+ROLLBACK
+SAVEPOINT
 
 ---
 
-Day 9 Summary:
+## 9. Important Difference: DELETE vs TRUNCATE vs DROP
 
-Key Learnings:
+### DELETE
 
-- HAVING
-- WHERE vs HAVING
-- GROUP BY + HAVING
-- Aggregate Functions with HAVING
+Removes rows from a table.
 
+Example:
+
+DELETE FROM EMPLOYEE
+WHERE DEPTNO = 10;
+
+The table structure remains.
+
+### TRUNCATE
+
+Removes all rows from a table.
+
+Example:
+
+TRUNCATE TABLE EMPLOYEE;
+
+The table structure remains.
+
+### DROP
+
+Removes the table itself.
+
+Example:
+
+DROP TABLE EMPLOYEE;
+
+The table structure and its data are removed.
+
+---
+
+## 10. Quick Classification
+
+CREATE → DDL
+
+ALTER → DDL
+
+DROP → DDL
+
+TRUNCATE → DDL
+
+INSERT → DML
+
+UPDATE → DML
+
+DELETE → DML
+
+SELECT → DQL
+
+GRANT → DCL
+
+REVOKE → DCL
+
+COMMIT → TCL
+
+ROLLBACK → TCL
+
+SAVEPOINT → TCL
+
+---
+
+## Key Takeaways
+
+- DDL defines and changes database structure.
+- DML modifies data stored in tables.
+- DQL retrieves data.
+- DCL manages permissions and access.
+- TCL manages transactions.
+- CREATE, ALTER, DROP, and TRUNCATE are DDL commands.
+- INSERT, UPDATE, and DELETE are DML commands.
+- SELECT is commonly classified as DQL.
+- GRANT and REVOKE are DCL commands.
+- COMMIT, ROLLBACK, and SAVEPOINT are TCL commands.
+- DELETE removes rows.
+- TRUNCATE removes all rows but keeps the table structure.
+- DROP removes the table itself.
