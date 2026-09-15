@@ -1,61 +1,67 @@
-Day 9 Assignment
+# Day 09 — SQL Language Categories Assignment
 
-Q1
+## Part A — Identify the Category
 
-Display departments whose average salary is greater than 2000.
+1. Identify the category of CREATE.
 
-Q2
+2. Identify the category of ALTER.
 
-Display departments whose average salary is greater than 2500.
+3. Identify the category of INSERT.
 
-Q3
+4. Identify the category of UPDATE.
 
-Display departments whose total salary is greater than 5000.
+5. Identify the category of DELETE.
 
-Q4
+6. Identify the category of SELECT.
 
-Display departments having more than 3 employees.
+7. Identify the category of GRANT.
 
-Q5
+8. Identify the category of REVOKE.
 
-Display departments having more than 5 employees.
+9. Identify the category of COMMIT.
 
-Q6
+10. Identify the category of ROLLBACK.
 
-Display jobs having more than 2 employees.
+## Part B — Write the SQL Command
 
-Q7
+11. Write a CREATE TABLE statement for an EMPLOYEE table with EMPNO, ENAME, and SAL.
 
-Display jobs whose average salary is greater than 2000.
+12. Write an INSERT statement to add one employee.
 
-Q8
+13. Write an UPDATE statement to change an employee's salary.
 
-Display departments whose highest salary is greater than 3000.
+14. Write a DELETE statement to remove an employee based on EMPNO.
 
-Q9
+15. Write a SELECT statement to display all employees.
 
-Display departments whose minimum salary is greater than 1000.
+16. Write an ALTER TABLE statement to add a COMM column.
 
-Q10
+17. Write a TRUNCATE statement for the EMPLOYEE table.
 
-Display departments whose total salary is greater than 10000.
+18. Write a DROP statement for the EMPLOYEE table.
 
-Q11
+## Part C — Conceptual
 
-Display departments whose average salary is greater than 2000 considering only employees earning more than 1000.
+19. What is DDL?
 
-Q12
+20. What is DML?
 
-Display jobs having more than 1 employee and average salary greater than 1500.
+21. What is DQL?
 
-Q13
+22. What is DCL?
 
-Display departments whose highest salary is greater than 4000.
+23. What is TCL?
 
-Q14
+24. What is the difference between DELETE and TRUNCATE?
 
-Display departments whose lowest salary is less than 1000.
+25. What is the difference between TRUNCATE and DROP?
 
-Q15
+26. What is the difference between DDL and DML?
 
-Display jobs whose total salary is greater than 5000.
+27. What is the purpose of COMMIT?
+
+28. What is the purpose of ROLLBACK?
+
+29. What is the purpose of SAVEPOINT?
+
+30. Explain the five main SQL command categories with examples.
