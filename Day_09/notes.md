@@ -317,7 +317,7 @@ SAVEPOINT → TCL
 
 ---
 
-## Key Takeaways
+## Key Takeaways:
 
 - DDL defines and changes database structure.
 - DML modifies data stored in tables.
