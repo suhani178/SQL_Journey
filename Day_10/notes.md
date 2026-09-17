@@ -98,7 +98,7 @@ ORDER BY
 
 Interview Tips:
 
-Department-wise:
+Department-wise
 
 GROUP BY DEPTNO
 
