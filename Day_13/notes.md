@@ -120,7 +120,7 @@ SQL first finds the department number of HR and then finds employees belonging t
 
 ---
 
-When to Use Subqueries
+When to Use Subqueries?
 
 Use a subquery when SQL must find a value first.
 
