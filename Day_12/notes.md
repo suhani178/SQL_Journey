@@ -175,7 +175,7 @@ All rows from both tables
 
 ---
 
-Day 12 Summary
+Day 12 Summary:
 
 Key Learnings:
 
