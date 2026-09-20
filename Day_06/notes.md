@@ -96,7 +96,7 @@ FROM EMPLOYEE
 WHERE UPPER(JOB) = 'MANAGER';
 
 
-## Key Takeaways
+## Key Takeaways:
 
 - UPPER() converts text to uppercase.
 - LOWER() converts text to lowercase.
