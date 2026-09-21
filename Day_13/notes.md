@@ -18,7 +18,7 @@ WHERE column_name operator
 
 ---
 
-How SQL Executes a Subquery
+How SQL Executes a Subquery?
 
 Example:
 
