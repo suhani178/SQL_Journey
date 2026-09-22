@@ -157,7 +157,7 @@ Key Learnings
 
 ---
 
-Day 13 Summary
+Day 13 Summary:
 
 Topics Covered:
 
