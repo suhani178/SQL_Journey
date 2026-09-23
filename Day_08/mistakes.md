@@ -20,7 +20,7 @@ GROUP BY DEPTNO;
 
 ---
 
-Learning
+Learning:
 
 - GROUP BY groups rows.
 - Aggregate functions work with GROUP BY.
