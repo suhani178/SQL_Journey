@@ -49,7 +49,6 @@ GROUP BY creates groups.
 HAVING filters groups.
 
 Example:
-
 SELECT DEPTNO, COUNT()
 FROM EMPLOYEE
 GROUP BY DEPTNO
