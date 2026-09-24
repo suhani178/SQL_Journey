@@ -172,7 +172,7 @@ While solving SQL questions:
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Break complex SQL problems into smaller steps.
 - Understand relationships between tables.
