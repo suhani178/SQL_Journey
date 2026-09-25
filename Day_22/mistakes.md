@@ -89,7 +89,6 @@ Wrong Assumption:
 NOT NULL can replace PRIMARY KEY.
 
 Correct:
-
 - NOT NULL → Prevents NULL values.
 - PRIMARY KEY → Prevents NULL values and ensures uniqueness.
 
