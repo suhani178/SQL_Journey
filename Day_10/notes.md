@@ -1,123 +1,174 @@
-Day 10 Notes - ORDER BY with GROUP BY
+# Day 10 — notes.md
 
-ORDER BY with GROUP BY
+# SQL Day 10 — Database, Tables, Data Types & INSERT
 
-Used to sort grouped results.
+## 1. CREATE DATABASE
+
+Creates a new database.
+
+Syntax:
+
+CREATE DATABASE database_name;
 
 Example:
 
-SELECT DEPTNO, SUM(SAL)
-FROM EMP
-GROUP BY DEPTNO
-ORDER BY SUM(SAL) DESC;
+CREATE DATABASE COMPANY;
 
----
 
-Sorting Aggregate Results
+## 2. USE
 
-Total Salary Descending:
+Selects the database that you want to work with.
 
-SELECT DEPTNO, SUM(SAL)
-FROM EMP
-GROUP BY DEPTNO
-ORDER BY SUM(SAL) DESC;
+Syntax:
 
-Average Salary Descending:
+USE database_name;
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO
-ORDER BY AVG(SAL) DESC;
+Example:
 
-Employee Count Descending:
+USE COMPANY;
 
-SELECT DEPTNO, COUNT(*)
-FROM EMP
-GROUP BY DEPTNO
-ORDER BY COUNT(*) DESC;
 
----
+## 3. CREATE TABLE
 
-Multiple Column GROUP BY:
+Creates a new table inside the selected database.
 
-Department and Job wise grouping:
+Syntax:
 
-SELECT DEPTNO, JOB, COUNT(*)
-FROM EMP
-GROUP BY DEPTNO, JOB;
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype
+);
 
----
+Example:
 
-Examples:
+CREATE TABLE EMPLOYEE (
+    EMPNO INT,
+    ENAME VARCHAR(50),
+    SAL DECIMAL(10,2)
+);
 
-Department and Job-wise Average Salary
 
-SELECT DEPTNO, JOB, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO, JOB;
+## 4. Common Data Types
 
-Department and Job-wise Total Salary
+### INT
+Stores whole numbers.
 
-SELECT DEPTNO, JOB, SUM(SAL)
-FROM EMP
-GROUP BY DEPTNO, JOB;
+Example:
 
-Department and Job-wise Maximum Salary
+EMPNO INT
 
-SELECT DEPTNO, JOB, MAX(SAL)
-FROM EMP
-GROUP BY DEPTNO, JOB;
+### DECIMAL
+Stores numbers with decimal values.
 
----
+Example:
 
-GROUP BY + HAVING + ORDER BY
+SAL DECIMAL(10,2)
 
-SELECT DEPTNO, AVG(SAL)
-FROM EMP
-GROUP BY DEPTNO
-HAVING AVG(SAL) > 2000
-ORDER BY AVG(SAL) DESC;
+### VARCHAR
+Stores variable-length text.
 
----
+Example:
 
-SQL Execution Order
+ENAME VARCHAR(50)
 
-FROM
+### DATE
+Stores dates.
+
+Example:
+
+HIREDATE DATE
+
+
+## 5. INSERT INTO
+
+Used to add new records to a table.
+
+Syntax:
+
+INSERT INTO table_name
+VALUES (value1, value2, value3);
+
+Example:
+
+INSERT INTO EMPLOYEE
+VALUES (101, 'SMITH', 2500);
+
+
+## 6. INSERT Using Column Names
+
+It is safer to specify the column names.
+
+Syntax:
+
+INSERT INTO table_name (column1, column2, column3)
+VALUES (value1, value2, value3);
+
+Example:
+
+INSERT INTO EMPLOYEE (EMPNO, ENAME, SAL)
+VALUES (102, 'ALLEN', 3000);
+
+
+## 7. Insert Multiple Rows
+
+Example:
+
+INSERT INTO EMPLOYEE (EMPNO, ENAME, SAL)
+VALUES
+(103, 'WARD', 2000),
+(104, 'JONES', 3500),
+(105, 'MARTIN', 1800);
+
+
+## 8. Viewing Inserted Data
+
+Use SELECT:
+
+SELECT * FROM EMPLOYEE;
+
+
+## 9. Important Points
+
+- CREATE DATABASE creates a database.
+- USE selects the database.
+- CREATE TABLE creates a table.
+- Data types define what kind of data a column can store.
+- INSERT INTO adds records.
+- Text values are written inside single quotes.
+- Numeric values normally do not require quotes.
+- Column order and inserted values must match when column names are not specified.
+- Specifying column names with INSERT is recommended.
+
+
+## 10. Basic Flow
+
+CREATE DATABASE
 ↓
-WHERE
+USE DATABASE
 ↓
-GROUP BY
+CREATE TABLE
 ↓
-HAVING
+INSERT INTO
 ↓
 SELECT
-↓
-ORDER BY
 
----
 
-Interview Tips:
+## Interview Revision
 
-Department-wise
+Q: What is CREATE DATABASE used for?
+A: It creates a new database.
 
-GROUP BY DEPTNO
+Q: What is USE used for?
+A: It selects the database on which SQL operations will be performed.
 
-Job-wise:
+Q: What is CREATE TABLE used for?
+A: It creates a new table with specified columns and data types.
 
-GROUP BY JOB
+Q: What is VARCHAR?
+A: A variable-length character/string data type.
 
-Department and Job-wise:
+Q: What is the purpose of a data type?
+A: It defines the type of data that a column can store.
 
-GROUP BY DEPTNO, JOB
-
----
-
-Day 10 Summary
-
-Key Learnings:
-
-- ORDER BY with GROUP BY
-- Aggregate Sorting
-- Multiple Column GROUP BY
-- GROUP BY + HAVING + ORDER BY
-
+Q: What is INSERT INTO?
+A: It is used to add records to a table.
