@@ -164,13 +164,17 @@ Q: What is USE used for?
 A: It selects the database on which SQL operations will be performed.
 
 Q: What is CREATE TABLE used for?
+
 A: It creates a new table with specified columns and data types.
 
 Q: What is VARCHAR?
+
 A: A variable-length character/string data type.
 
 Q: What is the purpose of a data type?
+
 A: It defines the type of data that a column can store.
 
 Q: What is INSERT INTO?
+
 A: It is used to add records to a table.
