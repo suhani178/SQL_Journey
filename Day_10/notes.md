@@ -156,9 +156,11 @@ SELECT
 ## Interview Revision
 
 Q: What is CREATE DATABASE used for?
+
 A: It creates a new database.
 
 Q: What is USE used for?
+
 A: It selects the database on which SQL operations will be performed.
 
 Q: What is CREATE TABLE used for?
