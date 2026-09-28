@@ -8,7 +8,7 @@ It helps to prevent invalid or duplicate data from being inserted.
 
 ---
 
-Types of Constraints
+Types of Constraints:
 
 - NOT NULL
 - UNIQUE
