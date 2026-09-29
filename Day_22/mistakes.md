@@ -85,7 +85,6 @@ String values must be enclosed in single quotes.
 Mistake 6: Assuming NOT NULL and PRIMARY KEY Are the Same
 
 Wrong Assumption:
-
 NOT NULL can replace PRIMARY KEY.
 
 Correct:
@@ -98,7 +97,6 @@ These constraints serve different purposes.
 ---
 
 Key Learnings:
-
 - Use only one PRIMARY KEY per table.
 - Use UNIQUE to prevent duplicate values.
 - FOREIGN KEY creates relationships between tables.
