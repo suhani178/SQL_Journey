@@ -7,7 +7,7 @@ Practice using SQL Constraints to ensure data accuracy, consistency, and integri
 
 ---
 
-Questions
+Questions:
 
 Q1
 
