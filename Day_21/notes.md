@@ -17,7 +17,7 @@ Why Use Views?
 
 ---
 
-Syntax
+Syntax:
 
 CREATE VIEW view_name AS
 SELECT column1, column2
@@ -71,7 +71,7 @@ DROP VIEW EMP_VIEW;
 
 ---
 
-Advantages of Views
+Advantages of Views:
 
 - Simplifies complex SQL queries.
 - Restricts access to confidential data.
@@ -80,7 +80,7 @@ Advantages of Views
 
 ---
 
-Limitations of Views
+Limitations of Views:
 
 - Views do not store data.
 - Complex views may execute slower than simple queries.
