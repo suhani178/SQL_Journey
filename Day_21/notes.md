@@ -65,7 +65,7 @@ FROM EMPLOYEE;
 
 ---
 
-Delete a View
+Delete a View:
 
 DROP VIEW EMP_VIEW;
 
