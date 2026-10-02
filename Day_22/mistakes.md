@@ -1,6 +1,7 @@
 Day 22 Mistakes and Learnings
 
-Mistake 1: Using Multiple PRIMARY KEY Constraints
+Mistake 1: 
+Using Multiple PRIMARY KEY Constraints
 
 Wrong:
 
@@ -21,7 +22,8 @@ A table can have only one PRIMARY KEY, but it can have multiple UNIQUE constrain
 
 ---
 
-Mistake 2: Confusing PRIMARY KEY and UNIQUE
+Mistake 2: 
+Confusing PRIMARY KEY and UNIQUE
 
 Wrong Assumption:
 
@@ -37,7 +39,8 @@ PRIMARY KEY uniquely identifies each record, whereas UNIQUE only prevents duplic
 
 ---
 
-Mistake 3: Creating a FOREIGN KEY Without a PRIMARY KEY
+Mistake 3: 
+Creating a FOREIGN KEY Without a PRIMARY KEY
 
 Wrong:
 
@@ -52,7 +55,8 @@ Reason:
 
 ---
 
-Mistake 4: Writing an Invalid CHECK Constraint
+Mistake 4: 
+Writing an Invalid CHECK Constraint
 
 Wrong:
 
@@ -67,7 +71,8 @@ A CHECK constraint must contain a valid logical condition.
 
 ---
 
-Mistake 5: Forgetting Quotes in DEFAULT
+Mistake 5: 
+Forgetting Quotes in DEFAULT
 
 Wrong:
 
@@ -82,7 +87,8 @@ String values must be enclosed in single quotes.
 
 ---
 
-Mistake 6: Assuming NOT NULL and PRIMARY KEY Are the Same
+Mistake 6: 
+Assuming NOT NULL and PRIMARY KEY Are the Same
 
 Wrong Assumption:
 NOT NULL can replace PRIMARY KEY.
@@ -97,6 +103,7 @@ These constraints serve different purposes.
 ---
 
 Key Learnings:
+
 - Use only one PRIMARY KEY per table.
 - Use UNIQUE to prevent duplicate values.
 - FOREIGN KEY creates relationships between tables.
