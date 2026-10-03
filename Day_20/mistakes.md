@@ -1,6 +1,7 @@
 Day 20 Mistakes and Learnings
 
-Mistake 1: Selecting All Columns Instead of Required Columns
+Mistake 1: 
+Selecting All Columns Instead of Required Columns
 
 Wrong:
 
@@ -17,7 +18,8 @@ Read the question carefully. Select only the required columns instead of using "
 
 ---
 
-Mistake 2: Forgetting GROUP BY with Aggregate Functions
+Mistake 2: 
+Forgetting GROUP BY with Aggregate Functions
 
 Wrong:
 
@@ -35,7 +37,8 @@ When selecting a normal column with an aggregate function, GROUP BY is required.
 
 ---
 
-Mistake 3: Forgetting GROUP BY Before HAVING
+Mistake 3: 
+Forgetting GROUP BY Before HAVING
 
 Wrong:
 
@@ -55,7 +58,8 @@ HAVING filters grouped data, so GROUP BY must come first.
 
 ---
 
-Mistake 4: Confusing Company-Wide and Department-Wise Calculations
+Mistake 4: 
+Confusing Company-Wide and Department-Wise Calculations
 
 Wrong:
 
@@ -83,7 +87,8 @@ The first query returns the highest-paid employee in the company, while the seco
 
 ---
 
-Mistake 5: Using the Wrong JOIN
+Mistake 5: 
+Using the Wrong JOIN
 
 - INNER JOIN → Returns only matching rows.
 - LEFT JOIN → Returns all rows from the left table.
@@ -94,7 +99,8 @@ Choose the JOIN type based on the question.
 
 ---
 
-Mistake 6: Forgetting the FROM Clause in a Subquery
+Mistake 6: 
+Forgetting the FROM Clause in a Subquery
 
 Wrong:
 
