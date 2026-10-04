@@ -132,7 +132,6 @@ Choose the function according to the question being asked.
 ---
 
 Key Learnings:
-
 - Read the question carefully before writing the query.
 - Select only the required columns.
 - Use GROUP BY with aggregate functions.
