@@ -88,7 +88,7 @@ Limitations of Views:
 
 ---
 
-Summary
+Summary:
 
 Command| Purpose
 CREATE VIEW| Creates a new view
@@ -98,7 +98,7 @@ DROP VIEW| Deletes a view
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - A view is a virtual table.
 - Views are created using SELECT queries.
