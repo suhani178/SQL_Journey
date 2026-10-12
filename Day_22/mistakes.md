@@ -1,4 +1,4 @@
-Day 22 Mistakes and Learnings
+Day 22 Mistakes and Learnings:
 
 Mistake 1: 
 Using Multiple PRIMARY KEY Constraints
