@@ -90,7 +90,7 @@ DNAME is stored in the DEPARTMENT table, so a JOIN is required.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Use GROUP BY before HAVING.
 - Check which table contains the required column.
