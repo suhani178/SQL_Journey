@@ -1,4 +1,4 @@
-Day 20 Mistakes and Learnings
+Day 20 Mistakes and Learnings:
 
 Mistake 1: 
 Selecting All Columns Instead of Required Columns
