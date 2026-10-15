@@ -1,168 +1,74 @@
-Day 11 Mistakes
+DAY 11 — SQL UPDATE: MISTAKES AND CORRECTIONS
 
-Mistake 1: Missing Column Separator
+1. Incorrect Comparison Operator
 
-Wrong:
+Mistake:
+UPDATE EMPLOYEE
+SET SAL = 2500
+WHERE SAL > 2000;
 
-SELECT ENAME DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
+Correct Query:
+UPDATE EMPLOYEE
+SET SAL = 2500
+WHERE SAL < 2000;
 
-Reason:
-Multiple columns must be separated by commas.
+Lesson:
+< means less than.
+> means greater than.
+Always check the condition in the question carefully.
 
-Correct:
 
-SELECT ENAME, DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
+2. Incorrect Percentage Increase
 
----
+Mistake:
+UPDATE EMPLOYEE
+SET SAL = SAL * 1.15
+WHERE SAL BETWEEN 2000 AND 3000;
 
-Mistake 2: Wrong Salary Column Name
+Correct Query:
+UPDATE EMPLOYEE
+SET SAL = SAL * 1.10
+WHERE SAL BETWEEN 2000 AND 3000;
 
-Wrong:
+Lesson:
+1.10 means a 10% increase.
+1.15 means a 15% increase.
+1.20 means a 20% increase.
 
-SELECT ENAME, ESAL, DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
+Formula:
+New Value = Original Value * (1 + Percentage / 100)
 
-Reason:
-The salary column is SAL, not ESAL.
 
-Correct:
+3. Incorrect Separator in SET Clause
 
-SELECT ENAME, SAL, DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
+Mistake:
+UPDATE EMPLOYEE
+SET SAL = 4000 AND DEPTNO = 30
+WHERE EMPNO = 105;
 
----
+Correct Query:
+UPDATE EMPLOYEE
+SET SAL = 4000, DEPTNO = 30
+WHERE EMPNO = 105;
 
-Mistake 3: Missing GROUP BY with Aggregate Functions
+Lesson:
+Use commas to separate multiple column assignments in SET.
+Use AND to combine conditions in WHERE.
 
-Wrong:
 
-SELECT DNAME, COUNT(*)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
+4. Important Safety Reminder
 
-Reason:
-COUNT(*) is an aggregate function. Department-wise counting requires GROUP BY.
+Always check the WHERE condition before executing UPDATE.
 
-Correct:
+- An incorrect condition may update unintended records.
+- Omitting WHERE updates every row in the table.
+- Use SELECT with the same WHERE condition to verify which rows will be affected before updating.
 
-SELECT DNAME, COUNT(*)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME;
 
----
+DAY 11 — KEY TAKEAWAYS
 
-Mistake 4: Using ENAME Instead of DNAME
-
-Wrong:
-
-SELECT ENAME, AVG(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME;
-
-Reason:
-The question asked for department-wise average salary.
-
-Correct:
-
-SELECT DNAME, AVG(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME;
-
----
-
-Mistake 5: Missing GROUP BY Before HAVING
-
-Wrong:
-
-SELECT DNAME, AVG(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-HAVING AVG(SAL) > 2000;
-
-Reason:
-HAVING works on groups. GROUP BY must come before HAVING.
-
-Correct:
-
-SELECT DNAME, AVG(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME
-HAVING AVG(SAL) > 2000;
-
----
-
-Mistake 6: Unnecessary GROUP BY
-
-Wrong:
-
-SELECT ENAME, DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME;
-
-Reason:
-No aggregate function is used. GROUP BY is unnecessary.
-
-Correct:
-
-SELECT ENAME, DNAME
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO;
-
----
-
-Mistake 7: Missing GROUP BY Before ORDER BY Aggregate
-
-Wrong:
-
-SELECT DNAME, SUM(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-ORDER BY SUM(SAL) DESC;
-
-Reason:
-Department-wise total salary requires grouping first.
-
-Correct:
-
-SELECT DNAME, SUM(SAL)
-FROM EMPLOYEE E
-INNER JOIN DEPARTMENT D
-ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME
-ORDER BY SUM(SAL) DESC;
-
----
-
-Key Learnings
-
-- INNER JOIN returns matching records from both tables.
-- Always use ON with JOIN.
-- Aggregate functions usually require GROUP BY.
-- HAVING is used after GROUP BY.
-- ORDER BY is used for sorting.
-- Department-wise = GROUP BY DNAME.
-- Employee-wise display usually does not require GROUP BY.
+- Check comparison operators carefully.
+- Calculate percentage multipliers correctly.
+- Use commas between multiple column assignments.
+- Verify the WHERE condition before updating data.
+- Check the affected rows after executing an UPDATE statement.
