@@ -1,47 +1,85 @@
-Day 11 Notes - INNER JOIN
+# SQL Day 11 — UPDATE Statement
 
-What is a JOIN?
+## 1. What is UPDATE?
 
-A JOIN combines rows from two or more tables using a common column.
+The UPDATE statement modifies existing records in a table.
 
-What is INNER JOIN?
+It is used when you want to change the values stored in one or more columns.
 
-INNER JOIN returns only matching rows from both tables.
+## 2. Basic Syntax
 
-Syntax:
+UPDATE table_name
+SET column_name = value
+WHERE condition;
 
-SELECT column_names FROM table1 INNER JOIN table2 ON table1.common_column = table2.common_column;
+## 3. Update a Single Column
 
-Example:
+Increase the salary of employee 101 to 3000.
 
-EMPLOYEE Table
-EMPID | ENAME | DEPTNO 1     | RAM   | 10 2     | SHYAM | 20
+UPDATE EMPLOYEE
+SET SAL = 3000
+WHERE EMPNO = 101;
 
-DEPARTMENT Table
-DEPTNO | DNAME 10     | HR 20     | SALES
-INNER JOIN SALES
+## 4. Update Multiple Columns
 
-SELECT E.ENAME, D.DNAME FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
+Change the salary and department of employee 102.
 
-Table Aliases
-EMPLOYEE E DEPARTMENT D
-Example:
-SELECT E.ENAME, D.DNAME FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO;
+UPDATE EMPLOYEE
+SET SAL = 3500,
+    DEPTNO = 20
+WHERE EMPNO = 102;
 
-INNER JOIN with WHERE
-SELECT E.ENAME, D.DNAME FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO WHERE D.DNAME = 'HR';
+## 5. Update Multiple Rows
 
-INNER JOIN with GROUP BY
-SELECT D.DNAME, COUNT(*) FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO GROUP BY D.DNAME;
+Increase the salary of every employee in department 10 by 500.
 
-INNER JOIN with ORDER BY
-SELECT E.ENAME, D.DNAME FROM EMPLOYEE E INNER JOIN DEPARTMENT D ON E.DEPTNO = D.DEPTNO ORDER BY E.ENAME;
+UPDATE EMPLOYEE
+SET SAL = SAL + 500
+WHERE DEPTNO = 10;
 
+## 6. UPDATE Without WHERE
 
-Day 11 Summary:
-Topics Covered:
-INNER JOIN
-Table Aliases
-JOIN + WHERE
-JOIN + GROUP BY
-JOIN + ORDER BY
+UPDATE EMPLOYEE
+SET SAL = 3000;
+
+This updates the salary of every row in the table.
+
+Be careful when using UPDATE without WHERE.
+
+## 7. UPDATE Using a Condition
+
+Update the salary of employees earning less than 2000.
+
+UPDATE EMPLOYEE
+SET SAL = 2000
+WHERE SAL < 2000;
+
+## 8. Important Points
+
+- UPDATE modifies existing records.
+- SET specifies the column and its new value.
+- WHERE identifies the rows to modify.
+- Without WHERE, all rows are updated.
+- UPDATE belongs to DML (Data Manipulation Language).
+- UPDATE does not insert new records.
+- UPDATE does not delete records.
+
+## 9. UPDATE vs INSERT
+
+INSERT adds new records.
+
+UPDATE modifies existing records.
+
+## 10. Interview Revision
+
+Q: What is UPDATE used for?
+A: To modify existing records in a table.
+
+Q: What is the purpose of SET?
+A: It specifies the column values to change.
+
+Q: What happens if WHERE is omitted?
+A: All rows in the table are updated.
+
+Q: Which SQL category contains UPDATE?
+A: DML.
