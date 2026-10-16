@@ -1,6 +1,7 @@
 Day 19 Mistakes and Learnings
 
-Mistake 1: Forgetting GROUP BY Before HAVING
+Mistake 1: 
+Forgetting GROUP BY Before HAVING
 SELECT DNAME
 FROM EMPLOYEE E
 INNER JOIN DEPARTMENT D
@@ -20,7 +21,8 @@ HAVING filters groups, so GROUP BY must come before HAVING.
 
 ---
 
-Mistake 2: Using the Wrong Table for DNAME
+Mistake 2: 
+Using the Wrong Table for DNAME
 SELECT DNAME
 FROM EMPLOYEE;
 
@@ -34,7 +36,8 @@ The DNAME column belongs to the DEPARTMENT table.
 
 ---
 
-Mistake 3: Forgetting FROM in a Subquery
+Mistake 3: 
+Forgetting FROM in a Subquery
 SELECT DEPTNO
 WHERE DNAME = 'HR';
 
@@ -48,7 +51,8 @@ Every SELECT statement must specify the table using the FROM clause.
 
 ---
 
-Mistake 4: Confusing Company Maximum with Department Maximum
+Mistake 4: 
+Confusing Company Maximum with Department Maximum
 SELECT ENAME
 FROM EMPLOYEE
 WHERE SAL =
@@ -73,7 +77,8 @@ The second query returns the highest-paid employee in each department.
 
 ---
 
-Mistake 5: Forgetting the JOIN
+Mistake 5: 
+Forgetting the JOIN
 SELECT DNAME, COUNT(*)
 FROM EMPLOYEE
 GROUP BY DNAME;
