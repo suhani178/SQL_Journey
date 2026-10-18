@@ -125,7 +125,7 @@ Output:
 
 ---
 
-Summary:
+Key Learnings:
 
 - CURDATE() → Current Date
 - NOW() → Current Date and Time
