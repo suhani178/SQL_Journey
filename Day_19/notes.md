@@ -144,7 +144,7 @@ Output:
 
 ---
 
-Summary
+Summary:
 
 Function| Purpose
 ROUND()| Rounds a number
