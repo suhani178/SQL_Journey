@@ -105,7 +105,7 @@ Read the question carefully before selecting the appropriate function.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - Always use parentheses with SQL date functions.
 - CURDATE() returns only the current date.
