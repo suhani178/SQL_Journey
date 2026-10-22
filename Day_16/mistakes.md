@@ -86,7 +86,7 @@ DNAME belongs to the DEPARTMENT table.
 
 ---
 
-## Key Learnings
+## Key Learnings:
 
 * UPPER() converts text to uppercase.
 * LOWER() converts text to lowercase.
