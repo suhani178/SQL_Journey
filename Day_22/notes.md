@@ -123,7 +123,7 @@ DEFAULT| Assigns a default value
 
 ---
 
-Key Learnings:
+Key Learnings of Day 22:
 
 - Constraints improve data integrity.
 - PRIMARY KEY uniquely identifies each row.
