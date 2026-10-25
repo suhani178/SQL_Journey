@@ -1,4 +1,4 @@
-Day 19 Mistakes and Learnings
+Day 19 Mistakes and Learnings:
 
 Mistake 1: 
 Forgetting GROUP BY Before HAVING
