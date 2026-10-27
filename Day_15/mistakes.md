@@ -103,7 +103,7 @@ Correlated subqueries use values from the outer query.
 
 ---
 
-## Key Learnings
+## Key Learnings:
 
 * Correlated subqueries use outer query aliases.
 * E.DEPTNO links inner and outer queries.
