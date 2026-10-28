@@ -1,29 +1,30 @@
-# Day 1: Database Fundamentals
+# Day 01 | Database Fundamentals
+
+> **Objective:** Understand databases, DBMS, RDBMS, and how data is organized.
 
 ## 1. What Is Data?
 
-Data refers to raw facts or information that can be stored and processed.
+Data refers to raw facts or values that can be stored, processed, and analyzed.
 
-Examples:
-- Student name
-- Student ID
-- Age
-- Department
-- Marks
+**Examples:**
+- Student name: Amit
+- Student age: 20
+- Department: CSE
+- Marks: 85
 
 ## 2. What Is a Database?
 
-A database is an organized collection of related data that can be stored, accessed, managed, and updated efficiently.
+A database is an organized collection of related data that can be accessed, managed, and updated efficiently.
 
-Example: A college database may store student details, faculty information, courses, and examination results.
+**Example:** A college database may store student records, faculty details, course information, and examination results.
 
 ## 3. What Is a DBMS?
 
-DBMS stands for Database Management System.
+DBMS stands for **Database Management System**.
 
-It is software used to create, store, retrieve, update, and manage data in a database.
+It is software that enables users to create, store, retrieve, update, and manage data in databases.
 
-Examples:
+**Examples:**
 - MySQL
 - Oracle Database
 - Microsoft SQL Server
@@ -31,95 +32,59 @@ Examples:
 
 ## 4. What Is an RDBMS?
 
-RDBMS stands for Relational Database Management System.
+RDBMS stands for **Relational Database Management System**.
 
-It stores data in tables consisting of rows and columns. Relationships between tables can be established using keys.
+It organizes data into tables consisting of rows and columns. Relationships between tables can be established using keys.
 
-Examples:
-- MySQL
-- PostgreSQL
-- Oracle Database
-- Microsoft SQL Server
+**Examples:** MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server.
 
 ## 5. DBMS vs. RDBMS
 
 | DBMS | RDBMS |
 |---|---|
 | General term for database management software | A type of DBMS based on the relational model |
-| Data storage depends on the system | Data is organized into tables |
-| Relationships depend on the database model | Tables can be related using keys |
-| Features depend on the system | Relational systems commonly support constraints and referential integrity |
+| Data organization depends on the database model | Data is organized into related tables |
+| Features depend on the system | Supports relational features such as keys and integrity constraints |
 
-## 6. What Is a Table?
+## 6. How Is Data Organized?
 
-A table organizes related data into rows and columns.
+Consider a STUDENT table:
 
-Example: STUDENT
+| STUDENT_ID | NAME | DEPARTMENT |
+|---:|---|---|
+| 101 | Amit | CSE |
+| 102 | Priya | IT |
+| 103 | Rahul | CSE |
 
-| STUDENT_ID | NAME | AGE | DEPARTMENT |
-|---:|---|---:|---|
-| 101 | Amit | 20 | CSE |
-| 102 | Priya | 21 | IT |
-| 103 | Rahul | 20 | CSE |
+- **Table:** The structure that stores related data.
+- **Row:** One complete record, such as Amit's details.
+- **Column:** An attribute, such as NAME or DEPARTMENT.
 
-## 7. Rows and Columns
+## 7. What Is a Database Schema?
 
-### Row
-A row represents one complete record.
+A schema describes the structure of a database, including its tables, columns, data types, constraints, and relationships.
 
-Example:
-`101, Amit, 20, CSE`
+For example, the STUDENT table has three columns:
 
-### Column
-A column represents a particular attribute of the records.
-
-Examples:
 - STUDENT_ID
 - NAME
-- AGE
 - DEPARTMENT
 
-## 8. What Is a Schema?
+The schema defines how these columns are organized.
 
-A schema describes the structure of a database, including tables, columns, data types, and relationships.
+## 8. Day 1 Summary
 
-Example:
-
-STUDENT(
-    STUDENT_ID,
-    NAME,
-    AGE,
-    DEPARTMENT
-)
-
-## 9. What Are Keys?
-
-Keys help identify records and establish relationships between tables.
-
-### Primary Key
-- Uniquely identifies each row.
-- Cannot contain duplicate values.
-- Cannot contain NULL values.
-
-Example: STUDENT_ID
-
-### Foreign Key
-- References a key in another table.
-- Helps maintain referential integrity between related tables.
-
-Note: Foreign keys and primary keys will be studied in greater detail in the relevant lessons.
-
-## 10. Day 1 Summary
-
-- Data consists of raw facts.
-- A database stores organized data.
-- A DBMS manages databases.
-- An RDBMS organizes relational data into tables.
-- Rows represent records.
-- Columns represent attributes.
-- A schema describes database structure.
-- Keys identify records and connect related tables.
+| Concept | Meaning |
+|---|---|
+| Data | Individual facts or values |
+| Database | Organized collection of data |
+| DBMS | Software for managing databases |
+| RDBMS | DBMS based on the relational model |
+| Table | Data organized into rows and columns |
+| Row | One record |
+| Column | One attribute |
+| Schema | Structure of a database |
 
 ## Key Takeaway
 
-Understand how data is organized before learning how to query it using SQL.
+Before writing SQL queries, understand what a database stores, how its data is organized, and how a DBMS helps manage it.
