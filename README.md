@@ -1,145 +1,162 @@
 
-# SQL_Journey — A 45-Day SQL Learning Journey
+<div align="center">
 
-<p align="center">
-  <strong>Learn SQL. Practice Consistently. Build Interview-Ready Skills.</strong>
-  <br />
-  A structured, hands-on journey from SQL fundamentals to advanced queries and placement preparation.
-  <br /><br />
-  <a href="https://github.com/suhani178/SQL_Journey">
-    <img src="https://img.shields.io/badge/Repository-SQL__Journey-blue?style=flat-square&logo=github" alt="GitHub Repository" />
-  </a>
-  <img src="https://img.shields.io/badge/Learning_Plan-45_Days-2F855A?style=flat-square" alt="45-Day Learning Plan" />
-  <img src="https://img.shields.io/badge/Focus-SQL_Practice-orange?style=flat-square" alt="SQL Practice" />
-</p>
+# SQL_Journey
+
+### A 45-Day Journey from SQL Fundamentals to Interview Preparation
+
+**Learn · Practice · Analyze · Improve**
+
+A structured, hands-on SQL learning repository documenting concepts, query practice, assignments, revision tests, and placement preparation.
+
+<br/>
+
+[![GitHub](https://img.shields.io/badge/GitHub-suhani178-181717?style=flat-square&logo=github)](https://github.com/suhani178)
+[![Learning Plan](https://img.shields.io/badge/Learning_Plan-45_Days-2563EB?style=flat-square)](#-45-day-learning-roadmap)
+[![Focus](https://img.shields.io/badge/Focus-SQL_Practice-0F766E?style=flat-square)](#-learning-objectives)
+
+</div>
 
 ---
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)
-- [Learning Objectives](#learning-objectives)
-- [Technologies and Tools](#technologies-and-tools)
-- [45-Day Learning Roadmap](#45-day-learning-roadmap)
-- [Repository Structure](#repository-structure)
-- [Learning and Repository Progress](#learning-and-repository-progress)
-- [How to Use This Repository](#how-to-use-this-repository)
-- [Practice and Assessment](#practice-and-assessment)
-- [Skills Developed](#skills-developed)
-- [Future Improvements](#future-improvements)
-- [Author](#author)
+| Section | Contents |
+|:--|:--|
+| 01 | [About the Project](#-about-the-project) |
+| 02 | [Learning Objectives](#-learning-objectives) |
+| 03 | [Tools and Technologies](#-tools-and-technologies) |
+| 04 | [45-Day Learning Roadmap](#-45-day-learning-roadmap) |
+| 05 | [Repository Structure](#-repository-structure) |
+| 06 | [Learning Progress](#-learning-progress) |
+| 07 | [How to Use This Repository](#-how-to-use-this-repository) |
+| 08 | [Practice and Assessment](#-practice-and-assessment) |
+| 09 | [Skills Development](#-skills-development) |
+| 10 | [Future Improvements](#-future-improvements) |
+| 11 | [Author](#-author) |
 
 ---
 
-## About the Project
+## 📌 About the Project
 
-**SQL_Journey** is my structured SQL learning repository, documenting my progress through a 45-day learning roadmap.
+**SQL_Journey** is a day-wise SQL learning repository created to build strong database fundamentals through consistent practice and structured revision.
 
-The repository is designed to strengthen my understanding of SQL through concept-based notes, hands-on query writing, assignments, revision tests, and mistake analysis.
+It documents the learning process through concept notes, SQL queries, assignments, mistake analysis, and assessments. The goal is to develop practical SQL problem-solving skills and prepare for technical interviews.
 
-Rather than focusing only on syntax, this journey emphasizes understanding how SQL works, solving database problems, and developing practical skills for technical interviews and placements.
+> **Learning approach:** Understand the concept → Write the query → Test the result → Review mistakes → Practise independently.
 
-**Primary focus:** Learn → Practice → Review → Improve.
-
-## Learning Objectives
+## 🎯 Learning Objectives
 
 - Build a strong foundation in SQL and relational databases.
-- Write accurate queries to retrieve, filter, sort, and manipulate data.
-- Understand aggregate functions, grouping, and subqueries.
-- Learn to combine data from multiple tables using JOINs.
-- Develop familiarity with CTEs and window functions.
-- Identify and correct common SQL mistakes.
-- Solve practical database and interview-style problems.
-- Maintain organized, version-controlled learning documentation.
+- Retrieve, filter, sort, and manipulate data accurately.
+- Apply aggregate functions and grouped analysis.
+- Solve problems using subqueries and JOINs.
+- Understand CTEs and window functions.
+- Debug queries and learn from mistakes.
+- Practise interview-style SQL questions.
+- Maintain consistent, version-controlled documentation.
 
-## Technologies and Tools
+## 🛠️ Tools and Technologies
 
-| Technology | Purpose |
-|---|---|
+| Tool | Purpose |
+|:--|:--|
 | SQL | Querying and managing relational data |
-| MySQL | SQL practice, as identified in the existing repository documentation |
 | Git | Version control |
-| GitHub | Hosting code, documenting progress, and tracking changes |
+| GitHub | Repository hosting and progress documentation |
 
-## 45-Day Learning Roadmap
-
-The roadmap is divided into five phases, progressing from fundamentals to advanced SQL and placement preparation.
-
-### Phase 1: SQL Fundamentals — Days 1–10
-
-| Day | Topic |
-|---|---|
-| Day 01 | Database fundamentals, DBMS vs. RDBMS |
-| Day 02 | Tables, rows, columns, keys, and schema |
-| Day 03 | `CREATE TABLE`, data types, and constraints |
-| Day 04 | `SELECT`, selecting columns, and `DISTINCT` |
-| Day 05 | `ORDER BY`, `ASC`, and `DESC` |
-| Day 06 | `WHERE` and comparison operators |
-| Day 07 | `AND`, `OR`, `NOT`, and operator precedence |
-| Day 08 | `IN`, `NOT IN`, and `BETWEEN` |
-| Day 09 | `LIKE`, wildcards, and aliases |
-| Day 10 | Revision and practice test |
-
-### Phase 2: Filtering, Aggregation, and Subqueries — Days 11–24
-
-| Day | Topic |
-|---|---|
-| Day 11 | Aggregate functions: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()` |
-| Day 12 | `GROUP BY` |
-| Day 13 | `HAVING` |
-| Day 14 | Combined filtering and aggregation practice |
-| Day 15 | `NULL` values and NULL handling |
-| Day 16 | Arithmetic expressions and calculated columns |
-| Day 17 | String functions |
-| Day 18 | Numeric and date functions |
-| Day 19 | `CASE WHEN` |
-| Day 20 | Data modification and table alteration |
-| Day 21 | Revision and practice with `LIKE`, `IN`, and `BETWEEN` |
-| Day 22 | Basic subqueries |
-| Day 23 | `ANY`, `ALL`, `EXISTS`, and `NOT EXISTS` |
-| Day 24 | Correlated subqueries |
-
-### Phase 3: JOINs and Intermediate SQL — Days 25–30
-
-| Day | Topic |
-|---|---|
-| Day 25 | `INNER JOIN` |
-| Day 26 | `LEFT JOIN` and `RIGHT JOIN` |
-| Day 27 | `FULL JOIN` and unmatched records |
-| Day 28 | Multi-table JOINs |
-| Day 29 | JOIN + `GROUP BY` + `HAVING` |
-| Day 30 | Intermediate SQL revision and test |
-
-### Phase 4: Advanced SQL — Days 31–40
-
-| Day | Topic |
-|---|---|
-| Day 31 | Advanced conditional queries using `CASE` |
-| Day 32 | Advanced string functions |
-| Day 33 | Numeric and date functions |
-| Day 34 | Common Table Expressions (CTEs) |
-| Day 35 | Advanced CTE practice |
-| Day 36 | Introduction to window functions |
-| Day 37 | `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` |
-| Day 38 | `PARTITION BY` and window ordering |
-| Day 39 | Ranking, Top-N, and salary-based queries |
-| Day 40 | Advanced SQL problem-solving |
-
-### Phase 5: Placement Preparation — Days 41–45
-
-| Day | Topic |
-|---|---|
-| Day 41 | Company-style SQL interview questions |
-| Day 42 | Complex SQL problems |
-| Day 43 | SQL debugging and query correction |
-| Day 44 | Timed SQL mock test |
-| Day 45 | Final assessment and interview revision |
+*Add the specific database platform, such as MySQL, only after confirming it from the actual project files.*
 
 ---
 
-## Repository Structure
+## 🗺️ 45-Day Learning Roadmap
 
-The repository contains day-wise folders, revision resources, and SQL practice files. The following illustrates the intended organization; the presence of a folder does not guarantee that every planned file has been added.
+The roadmap progresses through five phases, from foundational SQL to advanced querying and placement preparation.
+
+### Phase 01 — Fundamentals
+
+<sub>Days 01–10 · Core SQL syntax and filtering</sub>
+
+| Day | Topic |
+|:--:|:--|
+| 01 | Database fundamentals, DBMS vs. RDBMS |
+| 02 | Tables, rows, columns, keys, and schema |
+| 03 | `CREATE TABLE`, data types, and constraints |
+| 04 | `SELECT`, column selection, and `DISTINCT` |
+| 05 | `ORDER BY`, `ASC`, and `DESC` |
+| 06 | `WHERE` and comparison operators |
+| 07 | `AND`, `OR`, `NOT`, and operator precedence |
+| 08 | `IN`, `NOT IN`, and `BETWEEN` |
+| 09 | `LIKE`, wildcards, and aliases |
+| 10 | Revision and practice test |
+
+### Phase 02 — Aggregation and Subqueries
+
+<sub>Days 11–24 · Data analysis and query logic</sub>
+
+| Day | Topic |
+|:--:|:--|
+| 11 | Aggregate functions: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()` |
+| 12 | `GROUP BY` |
+| 13 | `HAVING` |
+| 14 | Combined filtering and aggregation practice |
+| 15 | `NULL` values and NULL handling |
+| 16 | Arithmetic expressions and calculated columns |
+| 17 | String functions |
+| 18 | Numeric and date functions |
+| 19 | `CASE WHEN` |
+| 20 | Data modification and table alteration |
+| 21 | Revision: `LIKE`, `IN`, and `BETWEEN` |
+| 22 | Basic subqueries |
+| 23 | `ANY`, `ALL`, `EXISTS`, and `NOT EXISTS` |
+| 24 | Correlated subqueries |
+
+### Phase 03 — JOINs and Intermediate SQL
+
+<sub>Days 25–30 · Combining and analysing related data</sub>
+
+| Day | Topic |
+|:--:|:--|
+| 25 | `INNER JOIN` |
+| 26 | `LEFT JOIN` and `RIGHT JOIN` |
+| 27 | `FULL JOIN` and unmatched records |
+| 28 | Multi-table JOINs |
+| 29 | JOIN + `GROUP BY` + `HAVING` |
+| 30 | Intermediate SQL revision and test |
+
+### Phase 04 — Advanced SQL
+
+<sub>Days 31–40 · Reusable queries and analytical functions</sub>
+
+| Day | Topic |
+|:--:|:--|
+| 31 | Advanced conditional queries using `CASE` |
+| 32 | Advanced string functions |
+| 33 | Numeric and date functions |
+| 34 | Common Table Expressions (CTEs) |
+| 35 | Advanced CTE practice |
+| 36 | Introduction to window functions |
+| 37 | `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` |
+| 38 | `PARTITION BY` and window ordering |
+| 39 | Ranking, Top-N, and salary-based queries |
+| 40 | Advanced SQL problem-solving |
+
+### Phase 05 — Placement Preparation
+
+<sub>Days 41–45 · Interview practice and evaluation</sub>
+
+| Day | Topic |
+|:--:|:--|
+| 41 | Company-style SQL interview questions |
+| 42 | Complex SQL problems |
+| 43 | SQL debugging and query correction |
+| 44 | Timed SQL mock test |
+| 45 | Final assessment and interview revision |
+
+---
+
+## 📂 Repository Structure
+
+The repository is organized into day-wise learning folders. Each day's folder can contain the following files as the lesson progresses.
 
 ```text
 SQL_Journey/
@@ -153,118 +170,180 @@ SQL_Journey/
 ├── Day_02/
 ├── Day_03/
 ├── ...
-├── Day_17/
-├── Day_18/                 # To be added if missing
-├── Day_19/
-├── Day_20/
-├── Day_21/
-├── Day_22/
+├── Day_45/
 │
-├── Revision/
 ├── Revision_Tests/
-├── practice.sql
 └── README.md
 ```
 
-### Purpose of Each File
+*This is the intended structure, not a claim that every folder and file currently exists.*
 
-| File | Purpose |
-|---|---|
-| `notes.md` | Concepts, syntax, explanations, and examples |
-| `practice.sql` | SQL queries practiced during the lesson |
-| `assignment.md` | Assigned questions and practice tasks |
+### File Organization
+
+| File | Responsibility |
+|:--|:--|
+| `notes.md` | Concepts, syntax, and explained examples |
+| `practice.sql` | SQL queries only |
+| `assignment.md` | Questions and assigned exercises |
 | `mistakes.md` | Actual mistakes, corrections, and lessons learned |
 
-Revision resources are maintained separately where appropriate.
+Keeping these files separate makes the repository easier to navigate, revise, and maintain.
 
-## Learning and Repository Progress
+## 📈 Learning Progress
 
-The learning roadmap and GitHub documentation progress are tracked separately. A folder's existence alone does not mean its lesson or files are complete.
+Learning progress and GitHub documentation progress are tracked separately.
 
-### Repository Folder Tracker
+| Progress item | Status |
+|:--|:--|
+| Historical learning record | Day 24 reached — Correlated Subqueries |
+| Current lesson | Day 05 — `ORDER BY`, being revisited |
+| Existing repository folders | Days 01–17 and 19–22 were present in the last verified listing |
+| Day 18 | Not present in that listing |
+| Days 23–45 | Not present in that listing |
 
-| Days | Current repository status |
-|---|---|
-| Days 01–17 | Folders present |
-| Day 18 | Folder not present in the last verified listing |
-| Days 19–22 | Folders present |
-| Days 23–45 | Folders not present in the last verified listing |
+**Progress tracking rule:** A folder's existence does not establish that its lesson, practice, or documentation is complete. Update the status only after checking the actual files and work.
 
-These statuses describe the last verified repository listing, not whether the corresponding topics have been mastered.
+### Day-wise Checklist
 
-### Learning Progress
+Use this checklist as a manual tracker. Mark days complete only after finishing the lesson and its required practice.
 
-The historical learning record reached **Day 24 — Correlated Subqueries**. The current learning sessions have revisited earlier topics following syllabus changes.
+<details>
+<summary><strong>Phase 01 — Days 01–10</strong></summary>
 
-Update the tracker below as the revised lessons and their documentation are completed.
+- [ ] Day 01
+- [ ] Day 02
+- [ ] Day 03
+- [ ] Day 04
+- [ ] Day 05
+- [ ] Day 06
+- [ ] Day 07
+- [ ] Day 08
+- [ ] Day 09
+- [ ] Day 10
 
-| Day | Topic | Learning status |
-|---|---|---|
-| Days 01–04 | Fundamentals and `DISTINCT` | Revisited / verify current status |
-| Day 05 | `ORDER BY` | In progress in the current learning session |
-| Days 06–45 | Remaining roadmap | Update as lessons are completed |
+</details>
 
-> **Progress rule:** Mark a day as completed only after the lesson and its required practice are finished. Update GitHub status separately after the corresponding files are committed.
+<details>
+<summary><strong>Phase 02 — Days 11–24</strong></summary>
 
-## How to Use This Repository
+- [ ] Day 11
+- [ ] Day 12
+- [ ] Day 13
+- [ ] Day 14
+- [ ] Day 15
+- [ ] Day 16
+- [ ] Day 17
+- [ ] Day 18
+- [ ] Day 19
+- [ ] Day 20
+- [ ] Day 21
+- [ ] Day 22
+- [ ] Day 23
+- [ ] Day 24
 
-1. **Follow the roadmap:** Study topics in day-wise order.
-2. **Read the notes:** Understand the concept, syntax, and examples.
-3. **Write queries:** Practice independently in `practice.sql`.
-4. **Complete assignments:** Attempt the questions in `assignment.md`.
-5. **Review mistakes:** Record genuine errors and their corrections in `mistakes.md`.
-6. **Revise regularly:** Use the revision resources and practice tests.
-7. **Track progress:** Update the relevant files and GitHub status as work is completed.
+</details>
 
-## Practice and Assessment
+<details>
+<summary><strong>Phase 03 — Days 25–30</strong></summary>
 
-The learning process emphasizes consistent practice and understanding rather than memorizing queries.
+- [ ] Day 25
+- [ ] Day 26
+- [ ] Day 27
+- [ ] Day 28
+- [ ] Day 29
+- [ ] Day 30
 
-Assessment activities include:
+</details>
+
+<details>
+<summary><strong>Phase 04 — Days 31–40</strong></summary>
+
+- [ ] Day 31
+- [ ] Day 32
+- [ ] Day 33
+- [ ] Day 34
+- [ ] Day 35
+- [ ] Day 36
+- [ ] Day 37
+- [ ] Day 38
+- [ ] Day 39
+- [ ] Day 40
+
+</details>
+
+<details>
+<summary><strong>Phase 05 — Days 41–45</strong></summary>
+
+- [ ] Day 41
+- [ ] Day 42
+- [ ] Day 43
+- [ ] Day 44
+- [ ] Day 45
+
+</details>
+
+## 🧭 How to Use This Repository
+
+1. **Study:** Read the day's notes before writing queries.
+2. **Practise:** Write and execute queries independently.
+3. **Complete:** Attempt the assigned questions.
+4. **Review:** Record genuine errors and understand their causes.
+5. **Revise:** Revisit difficult concepts and take revision tests.
+6. **Document:** Keep the relevant GitHub files up to date.
+7. **Evaluate:** Use mock tests to identify gaps in understanding.
+
+## 📝 Practice and Assessment
+
+The learning process emphasizes understanding and independent query writing.
 
 - Concept checks after lessons.
-- Query-writing exercises.
-- Revision tests for previously covered material.
-- Debugging incorrect SQL queries.
-- Combined-topic exercises after the relevant concepts are taught.
-- Placement-style questions and timed mock tests.
+- Daily query-writing exercises.
+- Assignments based on taught concepts.
+- Revision tests for completed topics.
+- Query correction and debugging exercises.
+- Placement-style SQL problems.
+- Timed mock assessments.
 
-Questions should progress from basic to advanced only after the required concepts have been introduced.
+Practice difficulty should increase gradually as new concepts are introduced.
 
-## Skills Developed
+## 💡 Skills Development
 
-The roadmap is designed to develop practical skills in:
+The roadmap is designed to build skills in:
 
-- SQL query writing and data retrieval.
-- Filtering, sorting, and handling missing values.
-- Aggregation and grouped analysis.
-- Conditional logic and SQL functions.
+- SQL syntax and relational database concepts.
+- Data filtering, sorting, and aggregation.
+- Conditional logic and built-in functions.
 - Subqueries and correlated subqueries.
-- JOINs and multi-table data retrieval.
+- JOINs and multi-table queries.
 - CTEs and window functions.
-- Query debugging and problem-solving.
+- SQL debugging and analytical problem-solving.
 - Technical interview preparation.
 
-These are learning objectives; individual skills will be updated as the relevant lessons are completed.
+These are target skills; completion should be assessed through actual practice rather than the roadmap alone.
 
-## Future Improvements
+## 🚀 Future Improvements
 
-Planned improvements may include:
-
-- Completing and verifying missing day-wise documentation.
-- Adding more practice questions and revision tests.
-- Expanding placement-style SQL exercises.
-- Improving query readability and performance.
-- Adding practical datasets and mini-projects where appropriate.
-- Keeping the roadmap, repository structure, and progress tracker synchronized.
-
-## Author
-
-**Suhani Kumari**
-
-- GitHub: [@suhani178](https://github.com/suhani178)
-- Repository: [SQL_Journey](https://github.com/suhani178/SQL_Journey)
+- Complete and verify all day-wise documentation.
+- Add relevant practice datasets and test cases.
+- Expand interview-style exercises.
+- Improve query readability and performance.
+- Keep the syllabus, files, and progress tracker synchronized.
+- Document useful lessons learned throughout the journey.
 
 ---
 
-*Consistent practice, careful revision, and learning from mistakes are the foundation of this SQL journey.*
+## 👩‍💻 Author
+
+**Suhani Kumari**
+
+[GitHub Profile](https://github.com/suhani178) · [SQL_Journey Repository](https://github.com/suhani178/SQL_Journey)
+
+---
+
+<div align="center">
+
+**Consistency over cramming. Understanding over memorization. Practice over shortcuts.**
+
+*Building practical SQL skills, one day at a time.*
+
+</div>
