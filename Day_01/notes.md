@@ -1,121 +1,125 @@
-Day 1 Notes - Introduction to Databases
+# Day 1: Database Fundamentals
 
-Topics Covered
+## 1. What Is Data?
 
-- Data
-- Information
-- Database
-- DBMS
-- RDBMS
-- Table
-- Row
-- Column
-- SQL Basics
-
----
-
-Data
-
-Data is raw facts and figures.
+Data refers to raw facts or information that can be stored and processed.
 
 Examples:
+- Student name
+- Student ID
+- Age
+- Department
+- Marks
 
-- Rahul
-- 101
-- 20
+## 2. What Is a Database?
 
----
+A database is an organized collection of related data that can be stored, accessed, managed, and updated efficiently.
 
-Information
+Example: A college database may store student details, faculty information, courses, and examination results.
 
-Information is processed and meaningful data.
+## 3. What Is a DBMS?
 
-Example:
+DBMS stands for Database Management System.
 
-- Average Marks = 80
-
----
-
-Database
-
-A database is an organized collection of related data.
+It is software used to create, store, retrieve, update, and manage data in a database.
 
 Examples:
-
-- College Database
-- Hospital Database
-- Banking Database
-
----
-
-DBMS
-
-DBMS (Database Management System) is software used to manage databases.
-
-Examples:
-
 - MySQL
-- Oracle
+- Oracle Database
+- Microsoft SQL Server
 - PostgreSQL
-- SQL Server
 
----
+## 4. What Is an RDBMS?
 
-RDBMS
+RDBMS stands for Relational Database Management System.
 
-RDBMS (Relational Database Management System) stores data in related tables and supports relationships between tables.
+It stores data in tables consisting of rows and columns. Relationships between tables can be established using keys.
 
----
+Examples:
+- MySQL
+- PostgreSQL
+- Oracle Database
+- Microsoft SQL Server
 
-Table
+## 5. DBMS vs. RDBMS
 
-A table stores data in rows and columns.
+| DBMS | RDBMS |
+|---|---|
+| General term for database management software | A type of DBMS based on the relational model |
+| Data storage depends on the system | Data is organized into tables |
+| Relationships depend on the database model | Tables can be related using keys |
+| Features depend on the system | Relational systems commonly support constraints and referential integrity |
+
+## 6. What Is a Table?
+
+A table organizes related data into rows and columns.
+
+Example: STUDENT
+
+| STUDENT_ID | NAME | AGE | DEPARTMENT |
+|---:|---|---:|---|
+| 101 | Amit | 20 | CSE |
+| 102 | Priya | 21 | IT |
+| 103 | Rahul | 20 | CSE |
+
+## 7. Rows and Columns
+
+### Row
+A row represents one complete record.
+
+Example:
+`101, Amit, 20, CSE`
+
+### Column
+A column represents a particular attribute of the records.
+
+Examples:
+- STUDENT_ID
+- NAME
+- AGE
+- DEPARTMENT
+
+## 8. What Is a Schema?
+
+A schema describes the structure of a database, including tables, columns, data types, and relationships.
 
 Example:
 
-EMPNO| ENAME| JOB
-101| Rahul| Developer
-102| Amit| Analyst
+STUDENT(
+    STUDENT_ID,
+    NAME,
+    AGE,
+    DEPARTMENT
+)
 
----
+## 9. What Are Keys?
 
-Row
+Keys help identify records and establish relationships between tables.
 
-A row represents one complete record in a table.
+### Primary Key
+- Uniquely identifies each row.
+- Cannot contain duplicate values.
+- Cannot contain NULL values.
 
----
+Example: STUDENT_ID
 
-Column
+### Foreign Key
+- References a key in another table.
+- Helps maintain referential integrity between related tables.
 
-A column represents one attribute of a table.
+Note: Foreign keys and primary keys will be studied in greater detail in the relevant lessons.
 
-Examples:
+## 10. Day 1 Summary
 
-- EMPNO
-- ENAME
-- JOB
+- Data consists of raw facts.
+- A database stores organized data.
+- A DBMS manages databases.
+- An RDBMS organizes relational data into tables.
+- Rows represent records.
+- Columns represent attributes.
+- A schema describes database structure.
+- Keys identify records and connect related tables.
 
----
+## Key Takeaway
 
-First SQL Query
-
-SELECT * FROM EMP;
-
-Explanation:
-
-- SELECT → Retrieve data
-- * → All columns
-- FROM → Source table
-- EMP → Table name
-
----
-
-Day 1 Summary
-
-Key Learnings:
-
-- Database concepts
-- DBMS and RDBMS
-- Tables, Rows, and Columns
-- SQL basics
-- First SQL query
+Understand how data is organized before learning how to query it using SQL.
