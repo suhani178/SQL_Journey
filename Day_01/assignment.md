@@ -1,49 +1,49 @@
-# Day 1: Assignment — Database Fundamentals
+# Day 01 | Assignment
 
-## Section A: Conceptual Questions
+**Topic:** Database Fundamentals
 
-1. What is data? Give three examples.
-2. What is a database?
-3. What is a DBMS?
+**Objective:** Check your understanding of databases and relational data organization.
+
+## Section A — Conceptual Questions
+
+1. What is data? Give two examples.
+2. What is a database? Give one real-world example.
+3. Define DBMS.
 4. What is an RDBMS?
-5. Explain two differences between a DBMS and an RDBMS.
-6. What is a table?
+5. State two differences between DBMS and RDBMS.
+6. What is a database schema?
 7. Differentiate between a row and a column.
-8. What is a database schema?
-9. What is a primary key?
-10. What is a foreign key?
 
-## Section B: Identify the Components
+## Section B — Identify the Components
 
-Consider the following STUDENT table:
+Consider the following table:
 
-| STUDENT_ID | NAME | AGE | DEPARTMENT |
-|---:|---|---:|---|
-| 101 | Amit | 20 | CSE |
-| 102 | Priya | 21 | IT |
-| 103 | Rahul | 20 | CSE |
+| STUDENT_ID | NAME | DEPARTMENT |
+|---:|---|---|
+| 101 | Amit | CSE |
+| 102 | Priya | IT |
+| 103 | Rahul | CSE |
 
 Answer the following:
 
-1. How many records are present?
-2. How many columns are present?
-3. Identify the column that could serve as the primary key.
-4. Write the name of each column.
-5. Identify one example of a complete row.
+1. What is the name of the table?
+2. How many student records are shown?
+3. How many columns are present?
+4. Identify one complete row.
+5. Name all the columns.
 6. Which column stores the department information?
 
-## Section C: Practical Thinking
+## Section C — Real-World Application
 
-1. Give one example of a database used in a college.
-2. Name three types of information that it might store.
-3. Explain why a unique student ID is useful.
-4. Describe how two tables in a college database could be related.
+1. Why does a college need a database?
+2. Name three types of information a college database might store.
+3. Give one example of a database used in everyday life.
+4. Explain why organizing data in tables can be useful.
 
 ## Completion Checklist
 
-- [ ] I understand the difference between a database and a DBMS.
-- [ ] I can explain DBMS vs. RDBMS.
-- [ ] I can identify rows and columns.
+- [ ] I understand what a database is.
+- [ ] I can explain DBMS and RDBMS.
+- [ ] I can identify tables, rows, and columns.
 - [ ] I understand the purpose of a schema.
-- [ ] I understand the basic purpose of primary and foreign keys.
-- [ ] I have attempted all assignment questions.
+- [ ] I have attempted every assignment question.
