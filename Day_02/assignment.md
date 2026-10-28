@@ -1,154 +1,81 @@
-# DAY 02 — ASSIGNMENT
 
-## SELECT, WHERE & COMPARISON OPERATORS
+# Day 02 — Assignment: SQL Commands and Categories
 
-### Objective
-
-Practice retrieving data using `SELECT`, filtering rows using `WHERE`, and applying comparison operators.
-
-### Instructions
-
-- Use the `EMPLOYEE` table for all SQL questions.
-- Write a SQL query for each question.
-- Use only the concepts covered in Day 02.
-- Do not use `AND`, `OR`, `IN`, `BETWEEN`, `LIKE`, aggregate functions, or joins.
-- Focus on writing correct and readable SQL queries.
+**Learning Objective:** Identify SQL command categories and understand the purpose of common SQL commands.
 
 ---
 
-## Part A — SELECT
+## Section 1: Conceptual Questions
 
-### Q1. Select all columns
+1. What does SQL stand for?
+2. What is the purpose of SQL command categories?
+3. What is DDL? Name four DDL commands.
+4. What is DML? Name three DML commands.
+5. What is DQL? Which command is commonly associated with it?
+6. What is the purpose of DCL?
+7. What is the purpose of TCL?
+8. Differentiate between DDL and DML.
+9. Explain the difference between `DELETE`, `TRUNCATE`, and `DROP`.
+10. What is the difference between `COMMIT` and `ROLLBACK`?
 
-Display all columns from the `EMPLOYEE` table.
+## Section 2: Classify the Commands
 
----
+Identify the category of each command: DDL, DML, DQL, DCL, or TCL.
 
-### Q2. Select specific columns
+| No. | SQL Command | Category |
+|---:|---|---|
+| 1 | `CREATE` | |
+| 2 | `INSERT` | |
+| 3 | `SELECT` | |
+| 4 | `UPDATE` | |
+| 5 | `GRANT` | |
+| 6 | `COMMIT` | |
+| 7 | `ALTER` | |
+| 8 | `DELETE` | |
+| 9 | `REVOKE` | |
+| 10 | `ROLLBACK` | |
+| 11 | `DROP` | |
+| 12 | `TRUNCATE` | |
 
-Display the employee name (`ENAME`) and salary (`SAL`).
+## Section 3: Identify the Appropriate Command
 
----
+Write the SQL command that best matches each requirement.
 
-### Q3. Select multiple columns
+1. Create a new database table.
+2. Add a new record to a table.
+3. Retrieve all columns from a table named `STUDENT`.
+4. Change an existing student's name.
+5. Remove a particular student record.
+6. Add a new column to an existing table.
+7. Grant a database user a specified privilege.
+8. Make the current transaction's changes permanent.
+9. Revert uncommitted transaction changes.
+10. Remove a table and its structure.
 
-Display the employee name (`ENAME`), job (`JOB`), and department number (`DEPTNO`).
+## Section 4: Query-Writing Practice
 
----
+Assume the following table structure:
 
-## Part B — WHERE & Comparison Operators
+`STUDENT(STUDENT_ID, NAME)`
 
-### Q4. Greater than
+Write SQL queries to:
 
-Display all employees whose salary is greater than `3000`.
+1. Create the `STUDENT` table with `STUDENT_ID` as `INT` and `NAME` as `VARCHAR(50)`.
+2. Insert a student with ID `101` and name `'Amit'`.
+3. Retrieve all records from the `STUDENT` table.
+4. Update the name of the student whose ID is `101` to `'Priya'`.
+5. Delete the record whose student ID is `101`.
 
----
-
-### Q5. Equal to
-
-Display all employees whose salary is exactly `3000`.
-
----
-
-### Q6. Less than
-
-Display all employees whose salary is less than `2000`.
-
----
-
-### Q7. Greater than or equal to
-
-Display all employees whose salary is greater than or equal to `3000`.
-
----
-
-### Q8. Less than or equal to
-
-Display all employees whose salary is less than or equal to `2000`.
-
----
-
-### Q9. Not equal to
-
-Display all employees whose salary is not equal to `3000`.
-
----
-
-## Part C — SELECT + WHERE
-
-### Q10. Specific columns with a condition
-
-Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is greater than `2500`.
-
----
-
-### Q11. Salary condition
-
-Display the employee name (`ENAME`) and job (`JOB`) of employees whose salary is less than `2500`.
+**Important:** Write each query independently. Do not execute the deletion query on important data without checking the target record.
 
 ---
 
-### Q12. Exact salary
+## Completion Checklist
 
-Display the employee name (`ENAME`) and department number (`DEPTNO`) of employees whose salary is exactly `5000`.
-
----
-
-### Q13. Minimum salary condition
-
-Display all columns of employees whose salary is greater than or equal to `1500`.
-
----
-
-### Q14. Maximum salary condition
-
-Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is less than or equal to `3000`.
-
----
-
-### Q15. Exclude a salary
-
-Display the employee name (`ENAME`) and salary (`SAL`) of employees whose salary is not equal to `1250`.
-
----
-
-## Part D — Conceptual Questions
-
-### Q16.
-
-What is the purpose of the `SELECT` statement?
-
----
-
-### Q17.
-
-What is the purpose of the `WHERE` clause?
-
----
-
-### Q18.
-
-What is the difference between `SELECT` and `WHERE`?
-
----
-
-### Q19.
-
-What does `*` mean in a `SELECT` statement?
-
----
-
-### Q20.
-
-Does the `WHERE` clause modify or delete data from the original table? Explain your answer.
-
----
-
-## Submission Checklist
-
-- [ ] All SQL queries are written correctly.
-- [ ] `SELECT` is used correctly.
-- [ ] `WHERE` is used correctly.
-- [ ] Comparison operators are used correctly.
-- [ ] Queries use only Day 02 concepts.
-- [ ] Conceptual answers are written in your own words.
+- [ ] I can explain all five SQL command categories.
+- [ ] I can classify common SQL commands.
+- [ ] I understand the difference between structure changes and data changes.
+- [ ] I can identify the correct command for a given requirement.
+- [ ] I have written all five SQL queries independently.
+- [ ] I have reviewed and corrected my mistakes.
+- [ ] 
