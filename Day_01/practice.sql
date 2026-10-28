@@ -1,5 +1,3 @@
--- Day 1 Practice
-
-SELECT * FROM EMP;
-
-SELECT * FROM STUDENT;
+-- Day 1: Database Fundamentals
+-- Topic: DBMS, RDBMS, tables, rows, columns, keys, and schema
+-- No SQL queries assigned for Day 1.
