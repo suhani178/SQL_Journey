@@ -85,7 +85,7 @@ BETWEEN → Checks whether a value is within a range.
 
 NOT BETWEEN → Checks whether a value is outside a range.
 
-### Key Takeaways
+### Key Takeaways:
 
 - IN is useful for checking multiple specific values.
 - IN can replace multiple OR conditions.
