@@ -285,7 +285,7 @@ This keeps the rows and creates a category for each row.
 
 ---
 
-# Interview Revision
+# Interview Revision:
 
 ### What is CASE in SQL?
 
