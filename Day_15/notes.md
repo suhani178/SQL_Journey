@@ -82,7 +82,7 @@ WHERE DEPTNO = E.DEPTNO
 
 ---
 
-## Memory Trick
+## Memory Trick:
 
 Average salary of company
 → Normal Subquery
