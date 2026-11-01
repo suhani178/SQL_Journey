@@ -125,7 +125,7 @@ Output:
 
 ---
 
-Summary of Day 17:
+Summary:
 
 - CURDATE() → Current Date
 - NOW() → Current Date and Time
