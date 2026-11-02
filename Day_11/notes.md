@@ -70,7 +70,7 @@ INSERT adds new records.
 
 UPDATE modifies existing records.
 
-## 10. Interview Revision
+## 10. Interview Revision:
 
 Q: What is UPDATE used for?
 A: To modify existing records in a table.
