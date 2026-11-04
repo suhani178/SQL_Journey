@@ -61,7 +61,7 @@ Then use that result in the outer query.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - A subquery is a query inside another query.
 - SQL executes the inner query first.
