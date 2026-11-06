@@ -1,6 +1,6 @@
 Day 10 Mistakes
 
-Mistake 1
+Mistake 1 -
 
 Wrong:
 
@@ -21,7 +21,7 @@ ORDER BY COUNT(*) DESC;
 
 ---
 
-Mistake 2
+Mistake 2 -
 
 Wrong:
 
