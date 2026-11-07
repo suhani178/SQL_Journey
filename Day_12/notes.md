@@ -155,7 +155,7 @@ IS NULL
 
 ---
 
-Quick Comparison
+Quick Comparison:
 
 INNER JOIN
 
