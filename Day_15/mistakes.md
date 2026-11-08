@@ -1,4 +1,4 @@
-# Day 15 Mistakes
+# Day 15 Mistakes:
 
 ## Mistake 1: Forgetting the Outer Alias
 
