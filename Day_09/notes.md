@@ -1,4 +1,4 @@
-# Day 09 — SQL Language Categories
+# Day 09 — SQL Language Categories:
 
 ## 1. SQL Command Categories
 
