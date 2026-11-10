@@ -147,7 +147,7 @@ No subquery is needed because the department number is already known.
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - A subquery is a query inside another query.
 - SQL executes the inner query first.
