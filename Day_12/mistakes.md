@@ -75,7 +75,7 @@ RIGHT JOIN + E.DEPTNO IS NULL
 
 ---
 
-Key Learnings
+Key Learnings:
 
 - INNER JOIN → Matching records only
 - LEFT JOIN → All left table records
