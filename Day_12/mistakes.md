@@ -1,4 +1,4 @@
-Day 12 Mistakes
+Day 12 Mistakes:
 
 Mistake 1: Using INNER JOIN for Unmatched Records
 
