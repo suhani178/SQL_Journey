@@ -32,7 +32,6 @@ Reason:
 Employee exists. Department is missing.
 
 Correct:
-
 WHERE D.DEPTNO IS NULL;
 
 ---
@@ -51,7 +50,6 @@ Reason:
 Returns only unmatched rows.
 
 Correct:
-
 SELECT E.ENAME, D.DNAME
 FROM EMPLOYEE E
 FULL JOIN DEPARTMENT D
@@ -64,7 +62,6 @@ Mistake 4: Incorrect JOIN Selection
 Employees without departments
 
 Correct:
-
 LEFT JOIN + D.DEPTNO IS NULL
 
 Departments without employees
