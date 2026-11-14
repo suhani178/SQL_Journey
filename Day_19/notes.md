@@ -1,4 +1,4 @@
-Day 18 Notes - Numeric Functions
+Day 18 Notes - Numeric Functions:
 
 What are Numeric Functions?
 
