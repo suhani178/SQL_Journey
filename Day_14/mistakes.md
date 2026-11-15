@@ -1,4 +1,4 @@
-# Day 14 Mistakes
+# Day 14 Mistakes:
 
 ## Mistake 1: Using = Instead of IN
 
