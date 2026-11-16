@@ -1,4 +1,4 @@
-Day 10 Mistakes
+Day 10 Mistakes:
 
 Mistake 1 -
 
