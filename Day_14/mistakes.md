@@ -119,7 +119,7 @@ Always compare related columns from different tables.
 
 ---
 
-## Key Learnings
+## Key Learnings:
 
 * Use IN when multiple values are returned.
 * Use NOT IN to exclude multiple values.
