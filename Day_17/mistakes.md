@@ -1,4 +1,4 @@
-Day 17 Mistakes and Learnings
+Day 17 Mistakes and Learnings:
 
 Mistake 1: Forgetting Parentheses
 
