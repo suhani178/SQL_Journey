@@ -157,7 +157,7 @@ SQRT()| Returns square root
 
 ---
 
-Key Learning
+Key Learnings:
 
 - ROUND() rounds numbers to the nearest value.
 - CEIL() always rounds upward.
