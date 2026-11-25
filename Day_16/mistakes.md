@@ -1,4 +1,4 @@
-# Day 16 Mistakes and Learnings
+# Day 16 Mistakes and Learnings:
 
 ## Mistake 1: Forgetting FROM Clause
 
