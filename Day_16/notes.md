@@ -1,4 +1,4 @@
-# Day 16 Notes - String Functions
+# Day 16 Notes - String Functions:
 
 ## What are String Functions?
 
