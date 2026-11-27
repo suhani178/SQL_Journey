@@ -138,7 +138,7 @@ SUBSTR()  → extract part of string
 
 ---
 
-## Key Learning
+## Key Learning:
 
 String functions are used to modify, format and extract text values from database columns.
 
